@@ -91,7 +91,7 @@ function RadarChart({ entries }: Props) {
     // Data polygons
     entries.forEach((entry, ei) => {
       const color = COMPARISON_COLORS[ei] ?? '#ffffff'
-      const vals = AXES.map(a => (entry.physics as Record<string, number>)[a.key] as number)
+      const vals = AXES.map(a => (entry.physics as unknown as Record<string, number>)[a.key] as number)
 
       ctx.beginPath()
       vals.forEach((v, i) => {
@@ -223,7 +223,7 @@ export default function SpecsComparison({ entries }: Props) {
             <SpecBar
               key={row.key}
               label={row.label}
-              values={entries.map(e => Math.round((e.physics as Record<string, number>)[row.key] * 100))}
+              values={entries.map(e => Math.round((e.physics as unknown as Record<string, number>)[row.key] * 100))}
               max={100}
               unit="%"
               colors={colors}
