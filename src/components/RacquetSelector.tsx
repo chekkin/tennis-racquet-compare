@@ -7,11 +7,12 @@ interface Props {
   selected: Racquet[]
   onAdd: (r: Racquet) => void
   onRemove: (id: string) => void
+  onClose?: () => void
 }
 
 const ERA_ORDER: Era[] = ['classic', 'control', 'spin', 'power', 'all-court']
 
-export default function RacquetSelector({ selected, onAdd, onRemove }: Props) {
+export default function RacquetSelector({ selected, onAdd, onRemove, onClose }: Props) {
   const [search, setSearch] = useState('')
   const [eraFilter, setEraFilter] = useState<Era | 'all'>('all')
 
@@ -38,12 +39,26 @@ export default function RacquetSelector({ selected, onAdd, onRemove }: Props) {
   const selectionFull = selected.length >= 3
 
   return (
-    <aside className="w-72 flex-shrink-0 flex flex-col h-full bg-gray-900 border-r border-gray-800">
-      {/* Header */}
+    <aside className="w-[85vw] sm:w-72 flex-shrink-0 flex flex-col h-full bg-gray-900 border-r border-gray-800">
+
+      {/* Header row — includes close button for mobile */}
       <div className="p-4 border-b border-gray-800">
-        <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-3">
-          Select Racquets
-        </h2>
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-widest">
+            Select Racquets
+          </h2>
+          {onClose && (
+            <button
+              onClick={onClose}
+              className="lg:hidden p-1 rounded-lg text-gray-500 hover:text-white hover:bg-gray-800 transition-colors"
+              aria-label="Close"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          )}
+        </div>
         <input
           type="text"
           placeholder="Search name, brand, player…"
@@ -87,7 +102,7 @@ export default function RacquetSelector({ selected, onAdd, onRemove }: Props) {
                 <span className="text-xs text-white flex-1 truncate">{r.brand} {r.name}</span>
                 <button
                   onClick={() => onRemove(r.id)}
-                  className="text-gray-500 hover:text-red-400 text-sm leading-none"
+                  className="text-gray-500 hover:text-red-400 text-sm leading-none p-1"
                   title="Remove"
                 >
                   ✕
@@ -95,6 +110,14 @@ export default function RacquetSelector({ selected, onAdd, onRemove }: Props) {
               </div>
             ))}
           </div>
+          {onClose && selected.length > 0 && (
+            <button
+              onClick={onClose}
+              className="lg:hidden mt-3 w-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold py-2 rounded-lg transition-colors"
+            >
+              View Comparison →
+            </button>
+          )}
         </div>
       )}
 
@@ -125,7 +148,7 @@ export default function RacquetSelector({ selected, onAdd, onRemove }: Props) {
                       sel
                         ? 'bg-gray-800'
                         : canAdd
-                        ? 'hover:bg-gray-800/60'
+                        ? 'hover:bg-gray-800/60 active:bg-gray-800'
                         : 'opacity-40 cursor-not-allowed'
                     }`}
                     disabled={!sel && selectionFull}
