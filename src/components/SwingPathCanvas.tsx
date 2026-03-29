@@ -135,7 +135,8 @@ function drawRacquetScene(
   color: string,
   cx: number,    // horizontal centre of the "player zone" for this panel
   groundY: number,
-  scale: number  // px per metre
+  scale: number, // px per metre
+  labelOffset = 0 // vertical offset for annotation label (px) to avoid overlap
 ) {
   const shoulderX = cx - 10
   const shoulderY = groundY - 145 // approx shoulder height
@@ -320,10 +321,10 @@ function drawRacquetScene(
     }
   }
 
-  // ── Swing angle annotation ────────────────────────────────────────────────
+  // ── Swing angle annotation (offset per racquet to avoid overlap) ─────────
   if (phase >= 0.30 && phase <= 0.65) {
     const annX = shoulderX + 30
-    const annY = shoulderY + 30
+    const annY = shoulderY + 30 + labelOffset
     ctx.fillStyle = color + 'cc'
     ctx.font = 'bold 11px sans-serif'
     ctx.textAlign = 'left'
@@ -349,10 +350,9 @@ export default function SwingPathCanvas({ entries }: Props) {
     const h = canvas.height
     const groundY = h - 60
 
-    // Court scale: full court = 23.77 m, we show half (player side to net + opponent landing)
-    // Canvas width dedicated to court varies by number of panels
-    const n = entries.length || 1
-    const panelW = w / n
+    // Single shared court — player at left, full width
+    const playerX = w * 0.13
+    const scale   = (w * 0.82) / 14
 
     function draw(ts: number) {
       if (!startRef.current) startRef.current = ts
@@ -362,74 +362,33 @@ export default function SwingPathCanvas({ entries }: Props) {
       ctx!.clearRect(0, 0, w, h)
       drawBackground(ctx!, w, h, groundY)
 
+      // Draw court furniture once
+      drawPlayer(ctx!, playerX, groundY)
+      drawNet(ctx!, playerX + 11.89 / 2 * scale, groundY, scale)
+
+      // Opponent baseline marker
+      ctx!.strokeStyle = '#ffffff20'
+      ctx!.lineWidth = 1
+      const oppBaseX = playerX + 11.89 * scale
+      ctx!.beginPath()
+      ctx!.moveTo(oppBaseX, groundY - 6)
+      ctx!.lineTo(oppBaseX, groundY + 6)
+      ctx!.stroke()
+
+      // Overlay all racquet swing paths on the same court
       entries.forEach((entry, i) => {
-        const pLeft  = i * panelW
-        const pRight = pLeft + panelW
-
-        // Clip to panel
-        ctx!.save()
-        ctx!.beginPath()
-        ctx!.rect(pLeft, 0, panelW, h)
-        ctx!.clip()
-
-        // Player sits at left third of panel
-        const playerX = pLeft + panelW * 0.15
-        // Scale: pixels per metre — fit from player out to 14m (a bit past baseline)
-        const scale   = (panelW * 0.82) / 14
-
-        // Panel separator
-        if (i > 0) {
-          ctx!.strokeStyle = '#334155'
-          ctx!.lineWidth = 1
-          ctx!.setLineDash([4, 4])
-          ctx!.beginPath()
-          ctx!.moveTo(pLeft, 0)
-          ctx!.lineTo(pLeft, h)
-          ctx!.stroke()
-          ctx!.setLineDash([])
-        }
-
-        drawPlayer(ctx!, playerX, groundY)
-        drawNet(ctx!, playerX + 11.89 / 2 * scale, groundY, scale)
-
-        // Opponent baseline marker
-        ctx!.strokeStyle = '#ffffff20'
-        ctx!.lineWidth = 1
-        const oppBaseX = playerX + 11.89 * scale // full court length from player
-        ctx!.beginPath()
-        ctx!.moveTo(oppBaseX, groundY - 6)
-        ctx!.lineTo(oppBaseX, groundY + 6)
-        ctx!.stroke()
-
+        // Stagger phase slightly so balls don't perfectly overlap
+        const staggeredPhase = (phase + i * 0.12) % 1
         drawRacquetScene(
           ctx!,
-          phase,
+          staggeredPhase,
           entry.physics,
           COMPARISON_COLORS[i] ?? '#ffffff',
           playerX,
           groundY,
-          scale
+          scale,
+          i * 16  // stagger annotation labels vertically
         )
-
-        // Racquet label
-        const color = COMPARISON_COLORS[i] ?? '#ffffff'
-        ctx!.fillStyle = color
-        ctx!.font = 'bold 12px sans-serif'
-        ctx!.textAlign = 'center'
-        ctx!.fillText(
-          `${entry.racquet.brand} ${entry.racquet.name}`,
-          pLeft + panelW / 2,
-          24
-        )
-        ctx!.fillStyle = '#94a3b8'
-        ctx!.font = '11px sans-serif'
-        ctx!.fillText(
-          `${entry.racquet.year} · ${entry.racquet.headSize} in² · ${entry.racquet.stringPattern}`,
-          pLeft + panelW / 2,
-          40
-        )
-
-        ctx!.restore()
       })
 
       animRef.current = requestAnimationFrame(draw)
@@ -448,8 +407,8 @@ export default function SwingPathCanvas({ entries }: Props) {
         className="w-full rounded-xl"
         style={{ background: '#0f172a' }}
       />
-      {/* Legend row */}
-      <div className="mt-4 grid gap-4" style={{ gridTemplateColumns: `repeat(${entries.length}, 1fr)` }}>
+      {/* Legend grid — wraps at 3 per row for larger comparisons */}
+      <div className="mt-4 grid gap-4" style={{ gridTemplateColumns: `repeat(${Math.min(entries.length, 3)}, 1fr)` }}>
         {entries.map((e, i) => {
           const color = COMPARISON_COLORS[i]
           const p = e.physics

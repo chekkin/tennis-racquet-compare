@@ -12,21 +12,27 @@ interface Props {
 
 const ERA_ORDER: Era[] = ['classic', 'control', 'spin', 'power', 'all-court']
 
+// Deduplicated sorted brand list
+const ALL_BRANDS = Array.from(new Set(RACQUETS.map(r => r.brand))).sort()
+
 export default function RacquetSelector({ selected, onAdd, onRemove, onClose }: Props) {
   const [search, setSearch] = useState('')
   const [eraFilter, setEraFilter] = useState<Era | 'all'>('all')
+  const [brandFilter, setBrandFilter] = useState<string>('all')
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase()
     return RACQUETS.filter(r => {
       const matchEra = eraFilter === 'all' || r.era === eraFilter
+      const matchBrand = brandFilter === 'all' || r.brand === brandFilter
       const matchSearch =
+        !q ||
         r.name.toLowerCase().includes(q) ||
         r.brand.toLowerCase().includes(q) ||
         (r.famousUser ?? '').toLowerCase().includes(q)
-      return matchEra && matchSearch
+      return matchEra && matchBrand && matchSearch
     })
-  }, [search, eraFilter])
+  }, [search, eraFilter, brandFilter])
 
   const grouped = useMemo(() => {
     const map = new Map<Era, Racquet[]>()
@@ -35,13 +41,14 @@ export default function RacquetSelector({ selected, onAdd, onRemove, onClose }: 
     return map
   }, [filtered])
 
+  const MAX_RACQUETS = COMPARISON_COLORS.length
   const isSelected = (id: string) => selected.some(r => r.id === id)
-  const selectionFull = selected.length >= 3
+  const selectionFull = selected.length >= MAX_RACQUETS
 
   return (
     <aside className="w-[85vw] sm:w-72 flex-shrink-0 flex flex-col h-full bg-gray-900 border-r border-gray-800">
 
-      {/* Header row — includes close button for mobile */}
+      {/* Header */}
       <div className="p-4 border-b border-gray-800">
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-widest">
@@ -59,13 +66,27 @@ export default function RacquetSelector({ selected, onAdd, onRemove, onClose }: 
             </button>
           )}
         </div>
+
+        {/* Search */}
         <input
           type="text"
           placeholder="Search name, brand, player…"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="w-full bg-gray-800 text-white text-sm rounded-lg px-3 py-2 placeholder-gray-500 border border-gray-700 focus:outline-none focus:border-emerald-500"
+          className="w-full bg-gray-800 text-white text-sm rounded-lg px-3 py-2 placeholder-gray-500 border border-gray-700 focus:outline-none focus:border-emerald-500 mb-2"
         />
+
+        {/* Brand dropdown */}
+        <select
+          value={brandFilter}
+          onChange={e => setBrandFilter(e.target.value)}
+          className="w-full bg-gray-800 text-white text-sm rounded-lg px-3 py-2 border border-gray-700 focus:outline-none focus:border-emerald-500 appearance-none"
+        >
+          <option value="all">All Brands ({RACQUETS.length.toLocaleString()} racquets)</option>
+          {ALL_BRANDS.map(b => (
+            <option key={b} value={b}>{b}</option>
+          ))}
+        </select>
       </div>
 
       {/* Era filter pills */}
@@ -88,7 +109,7 @@ export default function RacquetSelector({ selected, onAdd, onRemove, onClose }: 
       {/* Selected badges */}
       {selected.length > 0 && (
         <div className="px-4 py-3 border-b border-gray-800">
-          <p className="text-xs text-gray-500 mb-2">Comparing ({selected.length}/3)</p>
+          <p className="text-xs text-gray-500 mb-2">Comparing ({selected.length}/{COMPARISON_COLORS.length})</p>
           <div className="flex flex-col gap-2">
             {selected.map((r, i) => (
               <div
@@ -121,6 +142,13 @@ export default function RacquetSelector({ selected, onAdd, onRemove, onClose }: 
         </div>
       )}
 
+      {/* Result count */}
+      <div className="px-4 py-2 border-b border-gray-800">
+        <p className="text-xs text-gray-500">
+          {filtered.length.toLocaleString()} racquet{filtered.length !== 1 ? 's' : ''} found
+        </p>
+      </div>
+
       {/* Racquet list */}
       <div className="flex-1 overflow-y-auto">
         {ERA_ORDER.map(era => {
@@ -130,7 +158,7 @@ export default function RacquetSelector({ selected, onAdd, onRemove, onClose }: 
             <div key={era}>
               <div className="px-4 py-2 sticky top-0 bg-gray-900 z-10">
                 <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest">
-                  {ERA_LABELS[era]}
+                  {ERA_LABELS[era]} ({racquets.length})
                 </span>
               </div>
               {racquets.map(r => {
