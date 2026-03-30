@@ -78,36 +78,82 @@ function drawNet(ctx: CanvasRenderingContext2D, x: number, groundY: number, scal
 }
 
 function drawPlayer(ctx: CanvasRenderingContext2D, x: number, groundY: number) {
-  // Simple silhouette
-  const bodyColor = '#334155'
+  // Coordinates matched to drawRacquetScene (shoulderX = x-10, shoulderY = groundY-145)
+  const hipX      = x - 1
+  const hipY      = groundY - 88
+  const shoulderY = groundY - 145
+  const rShoulderX = x - 10   // right shoulder (hitting arm pivot)
+  const lShoulderX = x - 32   // left shoulder (balance arm)
+  const headY     = groundY - 163
 
-  // Legs
-  ctx.strokeStyle = bodyColor
+  ctx.lineCap  = 'round'
+  ctx.lineJoin = 'round'
+
+  // ── Legs: semi-open forehand stance ─────────────────────────────────────
+  ctx.strokeStyle = '#1e3a5f'
+  ctx.lineWidth = 7
+  // Back leg (right foot further back / wider for weight)
+  ctx.beginPath()
+  ctx.moveTo(x + 20, groundY)
+  ctx.lineTo(x + 13, groundY - 50)
+  ctx.lineTo(x + 6,  hipY)
+  ctx.stroke()
+  // Front leg (left foot, slightly forward)
+  ctx.beginPath()
+  ctx.moveTo(x - 14, groundY)
+  ctx.lineTo(x - 9,  groundY - 50)
+  ctx.lineTo(x - 5,  hipY)
+  ctx.stroke()
+
+  // ── Shorts ──────────────────────────────────────────────────────────────
+  ctx.fillStyle = '#1e3a5f'
+  ctx.beginPath()
+  ctx.ellipse(x + 1, hipY + 10, 16, 12, 0, 0, Math.PI * 2)
+  ctx.fill()
+
+  // ── Torso (tennis shirt) ────────────────────────────────────────────────
+  ctx.strokeStyle = '#1a5c38'
+  ctx.lineWidth = 13
+  ctx.beginPath()
+  ctx.moveTo(hipX, hipY)
+  ctx.lineTo(rShoulderX, shoulderY)
+  ctx.stroke()
+
+  // Shoulder cross-bar
+  ctx.strokeStyle = '#1a5c38'
+  ctx.lineWidth = 8
+  ctx.beginPath()
+  ctx.moveTo(lShoulderX, shoulderY)
+  ctx.lineTo(rShoulderX + 6, shoulderY)
+  ctx.stroke()
+
+  // ── Left arm (non-dominant, outstretched for balance) ───────────────────
+  // Upper arm goes slightly back-and-down, forearm extends forward toward net
+  ctx.strokeStyle = '#7a9bbf'
   ctx.lineWidth = 5
   ctx.beginPath()
-  ctx.moveTo(x, groundY)
-  ctx.lineTo(x - 8, groundY - 50)
-  ctx.lineTo(x - 4, groundY - 85)
-  ctx.stroke()
-  ctx.beginPath()
-  ctx.moveTo(x, groundY)
-  ctx.lineTo(x + 6, groundY - 50)
-  ctx.lineTo(x + 2, groundY - 85)
+  ctx.moveTo(lShoulderX, shoulderY)
+  ctx.lineTo(lShoulderX - 12, shoulderY + 26)   // upper arm: down-and-back
+  ctx.lineTo(lShoulderX + 4,  shoulderY + 52)   // forearm: angles forward
   ctx.stroke()
 
-  // Body
-  ctx.strokeStyle = '#475569'
-  ctx.lineWidth = 7
+  // ── Head ────────────────────────────────────────────────────────────────
+  ctx.fillStyle = '#4a5568'
   ctx.beginPath()
-  ctx.moveTo(x - 1, groundY - 85)
-  ctx.lineTo(x, groundY - 140)
-  ctx.stroke()
-
-  // Head
-  ctx.fillStyle = '#64748b'
-  ctx.beginPath()
-  ctx.arc(x, groundY - 155, 14, 0, Math.PI * 2)
+  ctx.arc(x - 3, headY, 14, 0, Math.PI * 2)
   ctx.fill()
+
+  // Cap (top half) + brim
+  ctx.fillStyle = '#2d3748'
+  ctx.beginPath()
+  ctx.arc(x - 3, headY, 14, -Math.PI, 0)
+  ctx.fill()
+  ctx.strokeStyle = '#2d3748'
+  ctx.lineWidth = 4
+  ctx.beginPath()
+  ctx.moveTo(x - 18, headY)
+  ctx.lineTo(x + 12, headY)
+  ctx.stroke()
 }
 
 /**
@@ -203,12 +249,50 @@ function drawRacquetScene(
   ctx.textAlign = 'center'
   ctx.fillText(contactHeightLabel, contactX, groundY + 14)
 
-  // ── Arm ──────────────────────────────────────────────────────────────────
+  // ── Two-segment arm: shoulder → elbow → wrist/racquet ───────────────────
+  // Split arm into upper arm (55 %) + forearm (45 %) of total arm length.
+  // The elbow deviates perpendicularly from the straight-arm midpoint to
+  // simulate the natural bend:
+  //   • backswing  → elbow bows out/upward (arm loaded)
+  //   • contact    → arm extends, elbow nearly straight
+  //   • follow-thru → elbow rises as arm wraps over shoulder
+
+  const upperRatio = 0.50            // fraction of armLen to elbow
+  const perpAngle  = armAngle + Math.PI / 2   // 90° clockwise from arm dir
+  const perpX = Math.cos(perpAngle)
+  const perpY = Math.sin(perpAngle)
+
+  // Straight-line elbow position (before applying bend)
+  const elbowBaseX = shoulderX + Math.cos(armAngle) * armLen * upperRatio
+  const elbowBaseY = shoulderY + Math.sin(armAngle) * armLen * upperRatio
+
+  // How much to deviate perpendicular to the arm at the elbow
+  let elbowDev: number
+  if (phase < 0.22) {
+    elbowDev = lerp(10, 24, easeInOut(phase / 0.22))          // loading up
+  } else if (phase < 0.58) {
+    const p = (phase - 0.22) / 0.36
+    elbowDev = lerp(24, -4, easeOut(p))                        // drives through, slight hyper-extend feel
+  } else {
+    const p = (phase - 0.58) / 0.42
+    elbowDev = lerp(-4, 32, easeOut(p))                        // elbow rises in follow-through
+  }
+
+  const elbowX = elbowBaseX + perpX * elbowDev
+  const elbowY = elbowBaseY + perpY * elbowDev
+
+  // Forearm direction from elbow → racquet (for orienting the racquet head)
+  const forearmAngle = Math.atan2(racquetY - elbowY, racquetX - elbowX)
+
   ctx.strokeStyle = '#64748b'
   ctx.lineWidth = 5
   ctx.lineCap = 'round'
   ctx.beginPath()
   ctx.moveTo(shoulderX, shoulderY)
+  ctx.lineTo(elbowX, elbowY)
+  ctx.stroke()
+  ctx.beginPath()
+  ctx.moveTo(elbowX, elbowY)
   ctx.lineTo(racquetX, racquetY)
   ctx.stroke()
 
@@ -217,7 +301,7 @@ function drawRacquetScene(
   const headH = 20
   ctx.save()
   ctx.translate(racquetX, racquetY)
-  ctx.rotate(armAngle - Math.PI / 2)
+  ctx.rotate(forearmAngle - Math.PI / 2)   // orient racquet along forearm, not whole arm
 
   // Glow when near contact
   const contactPhase = 0.40

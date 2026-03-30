@@ -392,9 +392,9 @@ export default function CourtDepthCanvas({ entries }: Props) {
               </div>
               <div className="grid grid-cols-2 gap-2 text-xs mb-3">
                 <StatBox label="Depth rating" value={dl.text} valueColor={dl.color} />
-                <StatBox label="From net" value={`${p.landingFromNetM.toFixed(1)} m`} valueColor={color} />
+                <StatBox label="Court depth" value={`${p.landingFromNetM.toFixed(1)} m from net`} valueColor={color} />
                 <StatBox label="Net clearance" value={`+${p.netClearanceM.toFixed(2)} m`} valueColor={color} />
-                <StatBox label="Short of baseline" value={`${p.depthFromBaselineM.toFixed(1)} m`} valueColor={color} />
+                <StatBox label="Est. spin" value={`${p.spinRPM.toLocaleString()} RPM`} valueColor={color} />
               </div>
               {/* Depth bar */}
               <p className="text-xs text-gray-400 mb-1">Depth (from net)</p>
