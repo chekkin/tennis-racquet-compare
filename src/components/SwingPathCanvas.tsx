@@ -4,88 +4,164 @@ import { useEffect, useRef } from 'react'
 import { PhysicsProfile, lerp, easeOut, easeInOut } from '@/lib/physics'
 import { Racquet, COMPARISON_COLORS } from '@/data/racquets'
 
-interface RacquetEntry {
-  racquet: Racquet
-  physics: PhysicsProfile
-}
+interface RacquetEntry { racquet: Racquet; physics: PhysicsProfile }
 interface Props { entries: RacquetEntry[] }
 
-// ─── palette ──────────────────────────────────────────────────────────────────
-const SKIN   = '#c8a882'
+// ── palette ───────────────────────────────────────────────────────────────────
+const SKIN   = '#d4a574'
+const SKIN_S = '#b8876a'
 const SHIRT  = '#1a5c38'
 const SHORTS = '#1e3a5f'
-const SOCK   = '#d0dce8'
-const SHOE   = '#f4f0eb'
+const SOCK   = '#dde3ec'
+const SHOE   = '#f0ece0'
 const CAP    = '#1a2538'
+const OL     = '#0f1117'   // dark outline
 
-// ─── forehand arc constants ───────────────────────────────────────────────────
-// Arm angles in canvas coords  (0=right/net, 90=down, 180=left/back, 270=up)
+// ── keyframe skeleton ─────────────────────────────────────────────────────────
+// Joint positions [dx, dy] relative to [playerX, groundY].
+// +x = right (toward net),  -y = up (away from ground).
 //
-//  BACKSWING 120° → racquet dropped low-and-behind   (down-left of shoulder)
-//  CONTACT    60° → racquet meets ball in front       (down-right of shoulder)
-//  FOLLOWTHRU 240° → racquet over left shoulder      (up-left of shoulder)
-//  READY     350° → neutral in front                 (right, slightly up)
-//
-//  Arc goes counterclockwise: 120°→90°(low)→60°(contact)→0°→300°→240°(finish)
-const DEG           = Math.PI / 180
-const READY_A       = 350 * DEG
-const BACKSWING_A   = 120 * DEG
-const CONTACT_A     =  60 * DEG
-const FOLLOWTHRU_A  = 240 * DEG
-const FINISH_A      = 232 * DEG
-const SWING_ARC     = 240 * DEG
-const CONTACT_T     = (120 - 60) / 240   // = 0.25  (contact at 1/4 of swing)
+// Five poses covering one full forehand cycle:
+//   KF0  Ready        – neutral two-handed guard
+//   KF1  Backswing    – unit-turn, racquet dropped low-and-behind
+//   KF2  Contact      – arm fully extended, weight into ball
+//   KF3  Follow-thru  – arm sweeps up high
+//   KF4  Finish       – racquet wrapped over left shoulder
 
-function norm(a: number) { return ((a % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI) }
-function swingAng(t: number) { return norm(BACKSWING_A - t * SWING_ARC) }
+type Pt = [number, number]
+interface Pose {
+  hip: Pt
+  rSh: Pt; rEl: Pt; rWr: Pt  // dominant (right) arm
+  lSh: Pt; lEl: Pt; lHd: Pt  // balance (left) arm
+  head: Pt
+  stance: number              // 0=neutral  1=wide  2=weight-forward
+}
 
-// ─── drawing primitives ───────────────────────────────────────────────────────
+const KF: Pose[] = [
+  // KF0 – Ready
+  {
+    hip:  [ -2, -90 ],
+    rSh:  [  2, -152], rEl: [ 16, -126], rWr: [ 26, -106],
+    lSh:  [-24, -152], lEl: [-18, -126], lHd: [-10, -104],
+    head: [ -4, -174], stance: 0,
+  },
+  // KF1 – Backswing  (racquet dropped low-left, body turned)
+  {
+    hip:  [ -2, -84 ],
+    rSh:  [  6, -150], rEl: [ -8, -112], rWr: [-30, -76 ],
+    lSh:  [-18, -150], lEl: [-10, -122], lHd: [ 22, -104],
+    head: [  0, -171], stance: 1,
+  },
+  // KF2 – Contact  (arm extended toward net)
+  {
+    hip:  [  4, -90 ],
+    rSh:  [  2, -152], rEl: [ 28, -126], rWr: [ 64, -96 ],
+    lSh:  [-26, -152], lEl: [-20, -128], lHd: [-16, -116],
+    head: [  2, -175], stance: 1.5,
+  },
+  // KF3 – Follow-through high
+  {
+    hip:  [  6, -92 ],
+    rSh:  [  4, -152], rEl: [ 20, -170], rWr: [ -4, -194],
+    lSh:  [-24, -150], lEl: [-18, -126], lHd: [-12, -110],
+    head: [  2, -175], stance: 2,
+  },
+  // KF4 – Finish  (racquet over left shoulder)
+  {
+    hip:  [  6, -90 ],
+    rSh:  [  4, -150], rEl: [ -4, -174], rWr: [-26, -180],
+    lSh:  [-24, -150], lEl: [-16, -128], lHd: [ -8, -108],
+    head: [ -2, -173], stance: 2,
+  },
+]
 
-/** Filled rounded capsule between two points (thick rounded stroke). */
-function seg(
+// Phase at which each keyframe STARTS (last segment 0.80→1.0 = recovery back to KF0)
+const KF_T = [0, 0.22, 0.50, 0.68, 0.80] as const
+
+function lerpPt(a: Pt, b: Pt, t: number): Pt {
+  return [lerp(a[0], b[0], t), lerp(a[1], b[1], t)]
+}
+function lerpPose(a: Pose, b: Pose, t: number): Pose {
+  return {
+    hip:  lerpPt(a.hip,  b.hip,  t),
+    rSh:  lerpPt(a.rSh,  b.rSh,  t),
+    rEl:  lerpPt(a.rEl,  b.rEl,  t),
+    rWr:  lerpPt(a.rWr,  b.rWr,  t),
+    lSh:  lerpPt(a.lSh,  b.lSh,  t),
+    lEl:  lerpPt(a.lEl,  b.lEl,  t),
+    lHd:  lerpPt(a.lHd,  b.lHd,  t),
+    head: lerpPt(a.head, b.head, t),
+    stance: lerp(a.stance, b.stance, t),
+  }
+}
+
+function getPose(phase: number): Pose {
+  // Recovery: KF4 → KF0
+  if (phase >= 0.80) {
+    return lerpPose(KF[4], KF[0], easeInOut((phase - 0.80) / 0.20))
+  }
+  // Find segment
+  for (let i = KF_T.length - 2; i >= 0; i--) {
+    if (phase >= KF_T[i]) {
+      const segLen = KF_T[i + 1] - KF_T[i]
+      const t = (phase - KF_T[i]) / segLen
+      // Easing per segment: setup=easeInOut, swing=easeOut, others=easeInOut
+      const ease = (i === 1 || i === 2) ? easeOut : easeInOut
+      return lerpPose(KF[i], KF[i + 1], ease(t))
+    }
+  }
+  return KF[0]
+}
+
+// ── drawing helpers ───────────────────────────────────────────────────────────
+
+/** Capsule (thick rounded stroke). Outline version: dark border then fill. */
+function capsule(
   ctx: CanvasRenderingContext2D,
   x1: number, y1: number, x2: number, y2: number,
   w: number, color: string,
 ) {
   ctx.save()
-  ctx.strokeStyle = color
-  ctx.lineWidth = w
-  ctx.lineCap = 'round'
-  ctx.beginPath()
-  ctx.moveTo(x1, y1)
-  ctx.lineTo(x2, y2)
-  ctx.stroke()
+  ctx.strokeStyle = color; ctx.lineWidth = w; ctx.lineCap = 'round'
+  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke()
   ctx.restore()
 }
+function capsuleOL(
+  ctx: CanvasRenderingContext2D,
+  x1: number, y1: number, x2: number, y2: number,
+  w: number, fill: string,
+) {
+  capsule(ctx, x1, y1, x2, y2, w + 3, OL)
+  capsule(ctx, x1, y1, x2, y2, w, fill)
+}
 
-/** Filled circle. */
-function dot(ctx: CanvasRenderingContext2D, cx: number, cy: number, r: number, color: string) {
+/** Filled circle with optional outline. */
+function circ(
+  ctx: CanvasRenderingContext2D,
+  cx: number, cy: number, r: number, fill: string, stroke?: string, sw = 2,
+) {
   ctx.save()
-  ctx.fillStyle = color
-  ctx.beginPath()
-  ctx.arc(cx, cy, r, 0, Math.PI * 2)
+  ctx.fillStyle = fill
+  ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2)
   ctx.fill()
+  if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = sw; ctx.stroke() }
   ctx.restore()
 }
 
-// ─── background & net ─────────────────────────────────────────────────────────
+// ── background & net ──────────────────────────────────────────────────────────
 
 function drawBackground(ctx: CanvasRenderingContext2D, w: number, h: number, groundY: number) {
   const grad = ctx.createLinearGradient(0, 0, 0, h)
   grad.addColorStop(0, '#0f172a')
   grad.addColorStop(1, '#1e293b')
-  ctx.fillStyle = grad
-  ctx.fillRect(0, 0, w, h)
-  ctx.fillStyle = '#1a4d2e'
-  ctx.fillRect(0, groundY, w, h - groundY)
-  ctx.strokeStyle = '#ffffff30'
-  ctx.lineWidth = 2
+  ctx.fillStyle = grad; ctx.fillRect(0, 0, w, h)
+  ctx.fillStyle = '#1a4d2e'; ctx.fillRect(0, groundY, w, h - groundY)
+  ctx.strokeStyle = '#ffffff30'; ctx.lineWidth = 2
   ctx.beginPath(); ctx.moveTo(0, groundY); ctx.lineTo(w, groundY); ctx.stroke()
 }
 
 function drawNet(ctx: CanvasRenderingContext2D, x: number, groundY: number, scale: number) {
-  const netH = 0.91 * scale
-  const postH = 1.07 * scale
+  const netH = 0.91 * scale, postH = 1.07 * scale
   ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 3; ctx.lineCap = 'round'
   ctx.beginPath(); ctx.moveTo(x, groundY); ctx.lineTo(x, groundY - postH); ctx.stroke()
   ctx.strokeStyle = '#ffffff80'; ctx.lineWidth = 2
@@ -99,322 +175,265 @@ function drawNet(ctx: CanvasRenderingContext2D, x: number, groundY: number, scal
   ctx.beginPath(); ctx.moveTo(x - 5, groundY - netH); ctx.lineTo(x + 5, groundY - netH); ctx.stroke()
 }
 
-// ─── quadratic bezier ─────────────────────────────────────────────────────────
+// ── bezier helper ─────────────────────────────────────────────────────────────
 
 function qBez(
-  p0: [number,number], p1: [number,number], p2: [number,number], t: number
-): [number,number] {
+  p0: [number, number], p1: [number, number], p2: [number, number], t: number,
+): [number, number] {
   const m = 1 - t
-  return [m*m*p0[0]+2*m*t*p1[0]+t*t*p2[0], m*m*p0[1]+2*m*t*p1[1]+t*t*p2[1]]
+  return [
+    m * m * p0[0] + 2 * m * t * p1[0] + t * t * p2[0],
+    m * m * p0[1] + 2 * m * t * p1[1] + t * t * p2[1],
+  ]
 }
 
-// ─── player body ──────────────────────────────────────────────────────────────
-//
-//  phase 0.00–0.18  setup / backswing  (body turns sideways)
-//  phase 0.18–0.62  forward swing      (body uncoils, drives through contact)
-//  phase 0.62–0.76  hold finish
-//  phase 0.76–1.00  recovery
+// ── player body (legs + torso + head + left arm) ──────────────────────────────
+// The RIGHT arm is drawn separately by drawSwingArm so multiple racquets can overlay.
 
 function drawPlayerBody(
   ctx: CanvasRenderingContext2D,
-  phase: number,
+  pose: Pose,
   px: number,
   groundY: number,
 ) {
-  // sub-progress values
-  const setupT = phase < 0.18 ? phase / 0.18 : 0
-  const swingT = phase >= 0.18 && phase < 0.62 ? (phase - 0.18) / 0.44 : phase >= 0.62 ? 1 : 0
-  const activeST = phase < 0.18 ? 0 : swingT
+  const A = (pt: Pt): [number, number] => [px + pt[0], groundY + pt[1]]
 
-  // body rotation: 0=facing net, 1=fully sideways
-  const bodyRot = phase < 0.18
-    ? easeInOut(setupT) * 0.7
-    : phase < 0.50
-    ? lerp(0.7, 0, easeOut(swingT / 0.7))
-    : 0
+  const [hipX, hipY] = A(pose.hip)
+  const [rShX, rShY] = A(pose.rSh)
+  const [lShX, lShY] = A(pose.lSh)
+  const [lElX, lElY] = A(pose.lEl)
+  const [lHdX, lHdY] = A(pose.lHd)
+  const [hdX,  hdY]  = A(pose.head)
 
-  const rSX = px - 10 + lerp(0, -10, bodyRot)  // right shoulder X
-  const lSX = px - 32 + lerp(0,  12, bodyRot)  // left shoulder X
-  const sY  = groundY - 148                     // shoulder Y
+  // ── leg geometry (derived from hip + stance progress) ────────────────────
+  const s = pose.stance
+  const sw = Math.min(s, 1)       // 0→1: stance width
+  const wf = Math.max(0, s - 1)   // 0→1: weight forward
 
-  // knee bend: deeper during backswing, drives up through contact
-  const crouch = phase < 0.18 ? easeInOut(setupT) * 10
-               : phase < 0.48 ? lerp(10, -5, easeOut(swingT / 0.6))
-               : 0
-  const kb = Math.max(0, crouch)
+  // Hip attachment points (split slightly)
+  const bHX = hipX + 8, fHX = hipX - 6
 
-  const hipX = lerp(px - 1, px + 5, Math.max(0, Math.min((activeST - 0.2) / 0.5, 1)))
-  const hipY = groundY - 86 + kb
+  // Knee positions
+  const bKnX = bHX + lerp(3,  6,  wf),   bKnY = groundY - lerp(52, 48, wf)
+  const fKnX = fHX - lerp(2,  6,  wf),   fKnY = groundY - 50
 
-  const ws = Math.max(0, Math.min((activeST - 0.2) / 0.5, 1))
+  // Ankle positions
+  const bAnX = bHX + lerp(lerp(14, 22, sw), 14, wf),  bAnY = groundY - 5
+  const fAnX = fHX - lerp(lerp( 8, 16, sw), 20, wf),  fAnY = groundY - 5
 
-  // key leg points
-  const bHipX = px + 6,  bHipY = hipY
-  const fHipX = px - 4,  fHipY = hipY
-  const bKnX  = lerp(px+12, px+14, ws),  bKnY = groundY - 52 - kb
-  const fKnX  = lerp(px -9, px-11, ws),  fKnY = groundY - 50 - kb * 0.6
-  const bAnX  = px + 17, bAnY = groundY - 6
-  const fAnX  = px - 13, fAnY = groundY - 6
-
-  // left arm animation (balance arm)
-  let leX: number, leY: number, lhX: number, lhY: number
-  if (activeST <= CONTACT_T) {
-    const t = easeOut(activeST / CONTACT_T)
-    leX = lerp(lSX + 2,   lSX + 22, t); leY = lerp(sY + 22, sY + 8,  t)
-    lhX = lerp(lSX - 6,   lSX + 50, t); lhY = lerp(sY + 48, sY + 12, t)
-  } else {
-    const t = easeOut((activeST - CONTACT_T) / (1 - CONTACT_T))
-    leX = lerp(lSX + 22, lSX - 8,  t); leY = lerp(sY + 8,  sY + 30, t)
-    lhX = lerp(lSX + 50, lSX - 20, t); lhY = lerp(sY + 12, sY + 58, t)
-  }
-
-  const headX = rSX + 7
-  const headY = groundY - 170
-
-  // ── ground shadow ────────────────────────────────────────────────────────
+  // ── ground shadow ─────────────────────────────────────────────────────────
   ctx.save()
-  ctx.fillStyle = 'rgba(0,0,0,0.22)'
-  ctx.beginPath()
-  ctx.ellipse(px + 3, groundY, 32, 5, 0, 0, Math.PI * 2)
-  ctx.fill()
+  ctx.fillStyle = 'rgba(0,0,0,0.20)'
+  ctx.beginPath(); ctx.ellipse(px + 2, groundY, 30, 4.5, 0, 0, Math.PI * 2); ctx.fill()
   ctx.restore()
 
-  // ── back leg (drawn first — further from camera) ─────────────────────────
-  // thigh (shorts)
-  seg(ctx, bHipX, bHipY, bKnX, bKnY, 13, SHORTS)
-  // shin (sock / skin)
-  seg(ctx, bKnX, bKnY, bAnX, bAnY, 9, SOCK)
-  // back shoe
+  // ── back leg (right, further from camera) ─────────────────────────────────
+  capsuleOL(ctx, bHX, hipY, bKnX, bKnY, 13, SHORTS)
+  capsuleOL(ctx, bKnX, bKnY, bAnX, bAnY, 9, SOCK)
   ctx.save()
-  ctx.fillStyle = SHOE
-  ctx.strokeStyle = '#ccc'; ctx.lineWidth = 0.8
-  ctx.beginPath()
-  ctx.ellipse(bAnX + 9, groundY - 2, 15, 5, -0.12, 0, Math.PI * 2)
+  ctx.fillStyle = SHOE; ctx.strokeStyle = OL; ctx.lineWidth = 1.5
+  ctx.beginPath(); ctx.ellipse(bAnX + 8, groundY - 2, 14, 4.5, -0.08, 0, Math.PI * 2)
   ctx.fill(); ctx.stroke()
   ctx.restore()
 
-  // ── front leg ────────────────────────────────────────────────────────────
-  seg(ctx, fHipX, fHipY, fKnX, fKnY, 13, SHORTS)
-  seg(ctx, fKnX, fKnY, fAnX, fAnY, 9, SOCK)
+  // ── front leg (left, closer to camera) ───────────────────────────────────
+  capsuleOL(ctx, fHX, hipY, fKnX, fKnY, 13, SHORTS)
+  capsuleOL(ctx, fKnX, fKnY, fAnX, fAnY, 9, SOCK)
   ctx.save()
-  ctx.fillStyle = SHOE; ctx.strokeStyle = '#ccc'; ctx.lineWidth = 0.8
-  ctx.beginPath()
-  ctx.ellipse(fAnX + 5, groundY - 2, 15, 5, 0.1, 0, Math.PI * 2)
+  ctx.fillStyle = SHOE; ctx.strokeStyle = OL; ctx.lineWidth = 1.5
+  ctx.beginPath(); ctx.ellipse(fAnX + 5, groundY - 2, 14, 4.5, 0.10, 0, Math.PI * 2)
   ctx.fill(); ctx.stroke()
   ctx.restore()
 
-  // ── shorts band (covers the join between thighs) ─────────────────────────
+  // ── shorts band ───────────────────────────────────────────────────────────
   ctx.save()
-  ctx.fillStyle = SHORTS
-  ctx.beginPath()
-  ctx.ellipse(hipX + 1, hipY + 9, 17, 11, 0, 0, Math.PI * 2)
-  ctx.fill()
+  ctx.fillStyle = SHORTS; ctx.strokeStyle = OL; ctx.lineWidth = 1.5
+  ctx.beginPath(); ctx.ellipse(hipX, hipY + 8, 16, 10, 0, 0, Math.PI * 2)
+  ctx.fill(); ctx.stroke()
   ctx.restore()
 
-  // ── torso (filled shirt polygon) ─────────────────────────────────────────
+  // ── shirt (filled polygon shoulder-to-hip) ────────────────────────────────
   ctx.save()
-  ctx.fillStyle = SHIRT
+  ctx.fillStyle = SHIRT; ctx.strokeStyle = OL; ctx.lineWidth = 1.8
   ctx.beginPath()
   ctx.moveTo(hipX - 10, hipY + 2)
-  ctx.lineTo(lSX - 2, sY + 4)
-  ctx.lineTo(rSX + 6, sY + 2)
-  ctx.lineTo(hipX + 13, hipY + 2)
-  ctx.closePath()
-  ctx.fill()
+  ctx.lineTo(lShX,      lShY + 6)
+  ctx.lineTo(rShX,      rShY + 6)
+  ctx.lineTo(hipX + 12, hipY + 2)
+  ctx.closePath(); ctx.fill(); ctx.stroke()
   ctx.restore()
 
-  // shirt collar V highlight
+  // shirt collar highlight
   ctx.save()
   ctx.strokeStyle = '#2d7a4a'; ctx.lineWidth = 2; ctx.lineCap = 'round'
+  const nkX0 = (lShX + rShX) / 2 + 3
   ctx.beginPath()
-  ctx.moveTo((lSX + rSX) / 2 - 2, sY + 2)
-  ctx.lineTo((lSX + rSX) / 2 + 3, sY + 12)
+  ctx.moveTo(nkX0 - 3, (lShY + rShY) / 2 + 2)
+  ctx.lineTo(nkX0 + 2, (lShY + rShY) / 2 + 12)
   ctx.stroke()
   ctx.restore()
 
-  // ── left arm (balance / non-dominant) ────────────────────────────────────
-  seg(ctx, lSX, sY, leX, leY, 10, SKIN)   // upper arm
-  seg(ctx, leX, leY, lhX, lhY, 8, SKIN)   // forearm
-  dot(ctx, lhX, lhY, 5, SKIN)              // hand
+  // ── left arm (balance arm) ────────────────────────────────────────────────
+  capsuleOL(ctx, lShX, lShY, lElX, lElY, 10, SKIN)
+  capsuleOL(ctx, lElX, lElY, lHdX, lHdY,  8, SKIN)
+  circ(ctx, lHdX, lHdY, 5, SKIN, OL, 1.5)
 
-  // ── neck ─────────────────────────────────────────────────────────────────
-  const neckBaseX = (lSX + rSX) / 2 + 5
-  seg(ctx, neckBaseX, sY + 2, headX, headY + 14, 8, SKIN)
+  // ── neck ──────────────────────────────────────────────────────────────────
+  const nkX = (lShX + rShX) / 2 + 4
+  const nkY = (lShY + rShY) / 2 + 2
+  capsuleOL(ctx, nkX, nkY, hdX, hdY + 13, 8, SKIN)
 
-  // ── head ─────────────────────────────────────────────────────────────────
-  dot(ctx, headX, headY, 15, SKIN)
+  // ── head ──────────────────────────────────────────────────────────────────
+  circ(ctx, hdX, hdY, 16, SKIN, OL, 1.8)
+
+  // cap (top half)
   ctx.save()
-  ctx.fillStyle = CAP
-  ctx.beginPath()
-  ctx.arc(headX, headY, 15, -Math.PI, 0)
-  ctx.fill()
+  ctx.fillStyle = CAP; ctx.strokeStyle = OL; ctx.lineWidth = 1.8
+  ctx.beginPath(); ctx.arc(hdX, hdY, 17, -Math.PI, 0.06); ctx.closePath()
+  ctx.fill(); ctx.stroke()
   // brim
-  ctx.strokeStyle = CAP; ctx.lineWidth = 5; ctx.lineCap = 'round'
-  ctx.beginPath(); ctx.moveTo(headX - 17, headY); ctx.lineTo(headX + 20, headY); ctx.stroke()
+  ctx.strokeStyle = CAP; ctx.lineWidth = 6; ctx.lineCap = 'round'
+  ctx.beginPath(); ctx.moveTo(hdX - 18, hdY + 1); ctx.lineTo(hdX + 22, hdY + 1); ctx.stroke()
+  ctx.strokeStyle = OL; ctx.lineWidth = 1
+  ctx.beginPath(); ctx.moveTo(hdX - 18, hdY + 1); ctx.lineTo(hdX + 22, hdY + 1); ctx.stroke()
   ctx.restore()
 
-  // ear / face side detail
-  dot(ctx, headX - 10, headY + 3, 4, '#b8926a')
+  // ear
+  circ(ctx, hdX - 11, hdY + 4, 4, SKIN_S, OL, 1)
+
+  // face: eye + smile
+  circ(ctx, hdX + 4, hdY - 2, 2.5, '#1a1a2e')
+  ctx.save()
+  ctx.strokeStyle = '#7a4f30'; ctx.lineWidth = 1.5; ctx.lineCap = 'round'
+  ctx.beginPath(); ctx.arc(hdX + 3, hdY + 3, 4, 0.1, Math.PI - 0.1); ctx.stroke()
+  ctx.restore()
 }
 
-// ─── swing arm, racquet, ball ─────────────────────────────────────────────────
+// ── hitting arm + racquet + ball ──────────────────────────────────────────────
 
 function drawSwingArm(
   ctx: CanvasRenderingContext2D,
-  phase: number,
-  physics: PhysicsProfile,
-  color: string,
+  pose: Pose,
   px: number,
   groundY: number,
+  color: string,
+  physics: PhysicsProfile,
   scale: number,
-  labelOffset = 0,
+  phase: number,
+  labelOffset: number,
 ) {
-  const setupT  = phase < 0.18 ? phase / 0.18 : 0
-  const swingT  = phase >= 0.18 && phase < 0.62 ? (phase - 0.18) / 0.44 : phase >= 0.62 ? 1 : 0
-  const recovT  = phase >= 0.76 ? (phase - 0.76) / 0.24 : 0
-  const activeST = phase < 0.18 ? 0 : swingT
+  const A = (pt: Pt): [number, number] => [px + pt[0], groundY + pt[1]]
 
-  const bodyRot = phase < 0.18
-    ? easeInOut(setupT) * 0.7
-    : phase < 0.50
-    ? lerp(0.7, 0, easeOut(swingT / 0.7))
-    : 0
+  const [rShX, rShY] = A(pose.rSh)
+  const [rElX, rElY] = A(pose.rEl)
+  const [rWrX, rWrY] = A(pose.rWr)
 
-  const rSX = px - 10 + lerp(0, -10, bodyRot)
-  const sY  = groundY - 148
-  const ARM = 115
+  // Forearm direction (elbow → wrist)
+  const foreA = Math.atan2(rWrY - rElY, rWrX - rElX)
 
-  // arm angle
-  let armA: number
-  if (phase < 0.18) {
-    armA = norm(READY_A - easeInOut(setupT) * 230 * DEG)
-  } else if (phase < 0.62) {
-    armA = swingAng(easeOut(swingT))
-  } else if (phase < 0.76) {
-    armA = FINISH_A
-  } else {
-    armA = norm(FINISH_A + easeInOut(recovT) * 118 * DEG)
-  }
-
-  const rqX = rSX + Math.cos(armA) * ARM
-  const rqY = sY  + Math.sin(armA) * ARM
-
-  // elbow
-  const eRatio = 0.48
-  const ex0 = rSX + Math.cos(armA) * ARM * eRatio
-  const ey0 = sY  + Math.sin(armA) * ARM * eRatio
-  const pA  = armA + Math.PI / 2
-  let eDev: number
-  if (activeST < CONTACT_T) {
-    eDev = lerp(22, -8, easeOut(activeST / CONTACT_T))
-  } else {
-    eDev = lerp(-8, 30, easeOut((activeST - CONTACT_T) / (1 - CONTACT_T)))
-  }
-  const eX = ex0 + Math.cos(pA) * eDev
-  const eY = ey0 + Math.sin(pA) * eDev
-  const foreA = Math.atan2(rqY - eY, rqX - eX)
-
-  // fixed contact point (shoulder at neutral, no body rotation)
-  const cX = (px - 10) + Math.cos(CONTACT_A) * ARM
-  const cY = sY         + Math.sin(CONTACT_A) * ARM
-
-  // ── swing arc guide ──────────────────────────────────────────────────────
+  // ── swing path trail (wrist path over full cycle) ─────────────────────────
   ctx.save()
-  ctx.setLineDash([4, 7])
-  ctx.strokeStyle = color + '25'
-  ctx.lineWidth = 1.5
+  ctx.setLineDash([3, 6]); ctx.strokeStyle = color + '22'; ctx.lineWidth = 1.5
   ctx.beginPath()
-  ctx.arc(rSX, sY, ARM, BACKSWING_A, FOLLOWTHRU_A, true)
-  ctx.stroke()
-  ctx.setLineDash([])
-  ctx.restore()
+  for (let i = 0; i <= 50; i++) {
+    const p = getPose(i / 50)
+    const wx = px + p.rWr[0], wy = groundY + p.rWr[1]
+    i === 0 ? ctx.moveTo(wx, wy) : ctx.lineTo(wx, wy)
+  }
+  ctx.stroke(); ctx.setLineDash([]); ctx.restore()
 
-  // contact marker
+  // ── upper arm ─────────────────────────────────────────────────────────────
+  capsuleOL(ctx, rShX, rShY, rElX, rElY, 12, SKIN)
+
+  // ── forearm ───────────────────────────────────────────────────────────────
+  capsuleOL(ctx, rElX, rElY, rWrX, rWrY, 10, SKIN)
+
+  // ── hand ──────────────────────────────────────────────────────────────────
+  circ(ctx, rWrX, rWrY, 6, SKIN, OL, 1.5)
+
+  // ── racquet ───────────────────────────────────────────────────────────────
+  // Glow near contact (phase 0.48–0.58)
+  const contactPhase = 0.50
+  const glow = Math.max(0, 1 - Math.abs(phase - contactPhase) / 0.10)
+
+  const HW = 14, HH = 19
+  // Head center in local coords (local -y = forearm direction = away from body)
+  const headCY = -(18 + HH)   // = -37
+
   ctx.save()
-  ctx.strokeStyle = color + '40'; ctx.lineWidth = 1; ctx.setLineDash([3, 5])
-  ctx.beginPath(); ctx.moveTo(cX, groundY); ctx.lineTo(cX, cY - 10); ctx.stroke()
-  ctx.setLineDash([])
-  ctx.restore()
-  ctx.fillStyle = color + '80'; ctx.font = '10px monospace'; ctx.textAlign = 'center'
-  ctx.fillText(`${Math.round(physics.contactHeightCm)} cm`, cX, groundY + 14)
+  ctx.translate(rWrX, rWrY)
+  // rotate so local -y aligns with forearm direction (head beyond hand, grip toward elbow)
+  ctx.rotate(foreA + Math.PI / 2)
 
-  // ── hitting arm (capsule segments) ───────────────────────────────────────
-  seg(ctx, rSX, sY, eX, eY, 11, SKIN)   // upper arm
-  seg(ctx, eX, eY, rqX, rqY, 9, SKIN)   // forearm
-  dot(ctx, rqX, rqY, 6, SKIN)            // hand / grip
-
-  // ── racquet ──────────────────────────────────────────────────────────────
-  const HW = 14, HH = 20   // head half-width, half-height
-
+  // Grip (local +y side = toward elbow)
   ctx.save()
-  ctx.translate(rqX, rqY)
-  ctx.rotate(foreA - Math.PI / 2)
+  ctx.strokeStyle = '#3d2b1f'; ctx.lineWidth = 9; ctx.lineCap = 'round'
+  ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, 26); ctx.stroke()
+  ctx.strokeStyle = '#5c3d28'; ctx.lineWidth = 7
+  ctx.beginPath(); ctx.moveTo(0, 2); ctx.lineTo(0, 24); ctx.stroke()
+  ctx.restore()
+  // butt cap
+  circ(ctx, 0, 29, 5, '#2a2a2a')
 
-  // Handle / grip (extends from bottom of oval in local coords)
-  const gripStart = HH + 3
-  const gripEnd   = HH + 28
-
-  // Throat: two angled lines converging from handle to oval base
+  // Throat lines (converge from grip end to head base)
   ctx.save()
   ctx.strokeStyle = '#6b7280'; ctx.lineWidth = 2; ctx.lineCap = 'butt'
-  ctx.beginPath()
-  ctx.moveTo(-3, gripStart - 1)
-  ctx.lineTo(-HW * 0.55, HH - 1)
-  ctx.stroke()
-  ctx.beginPath()
-  ctx.moveTo( 3, gripStart - 1)
-  ctx.lineTo( HW * 0.55, HH - 1)
-  ctx.stroke()
+  ctx.beginPath(); ctx.moveTo(-3, 0); ctx.lineTo(-HW * 0.5, -18); ctx.stroke()
+  ctx.beginPath(); ctx.moveTo( 3, 0); ctx.lineTo( HW * 0.5, -18); ctx.stroke()
   ctx.restore()
 
-  // Grip tape (wrapped look: two slightly different tones)
-  ctx.save()
-  ctx.strokeStyle = '#3d2b1f'; ctx.lineWidth = 8; ctx.lineCap = 'round'
-  ctx.beginPath(); ctx.moveTo(0, gripStart); ctx.lineTo(0, gripEnd); ctx.stroke()
-  ctx.strokeStyle = '#5c3d28'; ctx.lineWidth = 6
-  ctx.beginPath(); ctx.moveTo(0, gripStart + 2); ctx.lineTo(0, gripEnd - 2); ctx.stroke()
-  // butt cap
-  dot(ctx, 0, gripEnd + 3, 5, '#2d2d2d')
-  ctx.restore()
-
-  // Glow near contact
-  const angDiff = Math.abs(norm(armA - CONTACT_A))
-  const glow = Math.max(0, 1 - Math.min(angDiff, 2 * Math.PI - angDiff) / (35 * DEG))
+  // Glow halo on frame
   if (glow > 0) {
-    const g = ctx.createRadialGradient(0, 0, 0, 0, 0, HH * 2.2)
+    const g = ctx.createRadialGradient(0, headCY, 0, 0, headCY, HH * 2.6)
     g.addColorStop(0, color + Math.round(glow * 80).toString(16).padStart(2, '0'))
     g.addColorStop(1, color + '00')
     ctx.fillStyle = g
-    ctx.beginPath(); ctx.ellipse(0, 0, HW * 2.2, HH * 2.2, 0, 0, Math.PI * 2); ctx.fill()
+    ctx.beginPath(); ctx.ellipse(0, headCY, HW * 2.2, HH * 2.2, 0, 0, Math.PI * 2); ctx.fill()
   }
 
-  // Frame
+  // Frame outline then frame fill
+  ctx.strokeStyle = OL; ctx.lineWidth = 5
+  ctx.shadowColor = glow > 0.3 ? color : 'transparent'; ctx.shadowBlur = glow * 14
+  ctx.beginPath(); ctx.ellipse(0, headCY, HW, HH, 0, 0, Math.PI * 2); ctx.stroke()
   ctx.strokeStyle = color; ctx.lineWidth = 3
-  ctx.shadowColor = color; ctx.shadowBlur = glow > 0.3 ? 10 : 4
-  ctx.beginPath(); ctx.ellipse(0, 0, HW, HH, 0, 0, Math.PI * 2); ctx.stroke()
+  ctx.beginPath(); ctx.ellipse(0, headCY, HW, HH, 0, 0, Math.PI * 2); ctx.stroke()
   ctx.shadowBlur = 0
 
-  // Strings (denser grid)
+  // Strings
   ctx.strokeStyle = color + '55'; ctx.lineWidth = 0.8
   for (let i = -2; i <= 2; i++) {
     const sx = i * (HW - 1) / 2.2
-    ctx.beginPath(); ctx.moveTo(sx, -HH + 4); ctx.lineTo(sx, HH - 4); ctx.stroke()
+    ctx.beginPath(); ctx.moveTo(sx, headCY - HH + 4); ctx.lineTo(sx, headCY + HH - 4); ctx.stroke()
   }
   for (let i = -3; i <= 3; i++) {
-    const sy = i * (HH - 4) / 3.2
+    const sy = headCY + i * (HH - 3) / 3.2
     ctx.beginPath(); ctx.moveTo(-HW + 4, sy); ctx.lineTo(HW - 4, sy); ctx.stroke()
   }
 
   ctx.restore()
 
-  // ── ball ─────────────────────────────────────────────────────────────────
-  const ballStart = 0.18 + 0.44 * CONTACT_T   // ≈ 0.29
+  // ── contact height marker ─────────────────────────────────────────────────
+  // Fixed at the contact keyframe's wrist position
+  const cX = px + KF[2].rWr[0]
+  const cY = groundY + KF[2].rWr[1]
+  ctx.save()
+  ctx.strokeStyle = color + '40'; ctx.lineWidth = 1; ctx.setLineDash([3, 5])
+  ctx.beginPath(); ctx.moveTo(cX, groundY); ctx.lineTo(cX, cY - 10); ctx.stroke()
+  ctx.setLineDash([])
+  ctx.fillStyle = color + 'cc'
+  ctx.font = '10px monospace'; ctx.textAlign = 'center'
+  ctx.fillText(`${Math.round(physics.contactHeightCm)} cm`, cX, groundY + 14)
+  ctx.restore()
+
+  // ── ball ──────────────────────────────────────────────────────────────────
+  // Launch from contact point just after contact phase
+  const ballStart = 0.52
   if (phase >= ballStart) {
     const bp = Math.min((phase - ballStart) / (1 - ballStart), 1)
-    const p0: [number,number] = [cX, cY]
+    const p0: [number, number] = [cX, cY]
     const netX = px + (11.89 / 2) * scale
-    const p1: [number,number] = [netX, groundY - (0.91 + physics.netClearanceM) * scale]
-    const p2: [number,number] = [px + physics.landingFromNetM * scale, groundY - 3]
+    const p1: [number, number] = [netX, groundY - (0.91 + physics.netClearanceM) * scale]
+    const p2: [number, number] = [px + physics.landingFromNetM * scale, groundY - 3]
     const [bx, by] = qBez(p0, p1, p2, easeOut(bp))
     const br = lerp(7, 5, bp)
 
@@ -424,12 +443,14 @@ function drawSwingArm(
     ctx.beginPath(); ctx.arc(bx, by, br, 0, Math.PI * 2); ctx.fill()
     ctx.shadowBlur = 0
 
-    for (let i = 1; i <= 4; i++) {
-      const [tx, ty] = qBez(p0, p1, p2, Math.max(0, easeOut(bp) - i * 0.06))
-      ctx.fillStyle = `rgba(253,224,71,${0.15 - i * 0.03})`
+    // motion trail
+    for (let i = 1; i <= 3; i++) {
+      const [tx, ty] = qBez(p0, p1, p2, Math.max(0, easeOut(bp) - i * 0.07))
+      ctx.fillStyle = `rgba(253,224,71,${0.12 - i * 0.03})`
       ctx.beginPath(); ctx.arc(tx, ty, br - i, 0, Math.PI * 2); ctx.fill()
     }
 
+    // bounce ring
     if (bp > 0.88) {
       const rp = (bp - 0.88) / 0.12
       ctx.strokeStyle = `rgba(253,224,71,${1 - rp})`; ctx.lineWidth = 2
@@ -437,14 +458,18 @@ function drawSwingArm(
     }
   }
 
-  // ── annotation ───────────────────────────────────────────────────────────
-  if (phase >= 0.22 && phase <= 0.58) {
-    ctx.fillStyle = color + 'cc'; ctx.font = 'bold 11px sans-serif'; ctx.textAlign = 'left'
-    ctx.fillText(`${Math.round(physics.swingAngleDeg)}° low-to-high`, px + 28, sY + 26 + labelOffset)
+  // ── swing angle label ─────────────────────────────────────────────────────
+  if (phase >= 0.28 && phase <= 0.60) {
+    ctx.fillStyle = color + 'cc'
+    ctx.font = 'bold 11px sans-serif'; ctx.textAlign = 'left'
+    ctx.fillText(
+      `${Math.round(physics.swingAngleDeg)}° low-to-high`,
+      px + 34, groundY - 150 + labelOffset,
+    )
   }
 }
 
-// ─── main component ───────────────────────────────────────────────────────────
+// ── main component ────────────────────────────────────────────────────────────
 
 export default function SwingPathCanvas({ entries }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -457,11 +482,11 @@ export default function SwingPathCanvas({ entries }: Props) {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    const CYCLE_MS = 3400
+    const CYCLE_MS = 3600
     const w = canvas.width, h = canvas.height
     const groundY = h - 60
-    const playerX = w * 0.13
-    const scale   = (w * 0.82) / 14
+    const playerX = w * 0.18    // extra left margin for backswing
+    const scale   = (w * 0.77) / 14
 
     function draw(ts: number) {
       if (!startRef.current) startRef.current = ts
@@ -470,8 +495,10 @@ export default function SwingPathCanvas({ entries }: Props) {
       ctx!.clearRect(0, 0, w, h)
       drawBackground(ctx!, w, h, groundY)
 
-      // Player body — use first racquet's phase for body animation
-      drawPlayerBody(ctx!, phase, playerX, groundY)
+      // Body uses first racquet's phase
+      const bodyPose = getPose(phase)
+      drawPlayerBody(ctx!, bodyPose, playerX, groundY)
+
       drawNet(ctx!, playerX + (11.89 / 2) * scale, groundY, scale)
 
       // Opponent baseline tick
@@ -479,13 +506,13 @@ export default function SwingPathCanvas({ entries }: Props) {
       const oppX = playerX + 11.89 * scale
       ctx!.beginPath(); ctx!.moveTo(oppX, groundY - 6); ctx!.lineTo(oppX, groundY + 6); ctx!.stroke()
 
-      // Each racquet's arm + ball (staggered phase)
+      // Each racquet: staggered arm + ball
       entries.forEach((entry, i) => {
+        const p = (phase + i * 0.12) % 1
         drawSwingArm(
-          ctx!, (phase + i * 0.12) % 1,
-          entry.physics,
+          ctx!, getPose(p), playerX, groundY,
           COMPARISON_COLORS[i] ?? '#ffffff',
-          playerX, groundY, scale, i * 16,
+          entry.physics, scale, p, i * 16,
         )
       })
 
@@ -505,7 +532,10 @@ export default function SwingPathCanvas({ entries }: Props) {
         className="w-full rounded-xl"
         style={{ background: '#0f172a' }}
       />
-      <div className="mt-4 grid gap-4" style={{ gridTemplateColumns: `repeat(${Math.min(entries.length, 3)}, 1fr)` }}>
+      <div
+        className="mt-4 grid gap-4"
+        style={{ gridTemplateColumns: `repeat(${Math.min(entries.length, 3)}, 1fr)` }}
+      >
         {entries.map((e, i) => {
           const color = COMPARISON_COLORS[i]
           const p = e.physics
@@ -513,7 +543,9 @@ export default function SwingPathCanvas({ entries }: Props) {
             <div key={e.racquet.id} className="bg-gray-800/60 rounded-xl p-4">
               <div className="flex items-center gap-2 mb-3">
                 <span className="w-3 h-3 rounded-full" style={{ backgroundColor: color }} />
-                <span className="text-sm font-semibold text-white">{e.racquet.brand} {e.racquet.name}</span>
+                <span className="text-sm font-semibold text-white">
+                  {e.racquet.brand} {e.racquet.name}
+                </span>
               </div>
               <div className="grid grid-cols-2 gap-2 text-xs">
                 <Stat label="Swing style"    value={swingLabel(p.swingAngleDeg)}           color={color} />
@@ -524,8 +556,10 @@ export default function SwingPathCanvas({ entries }: Props) {
               <div className="mt-3">
                 <p className="text-xs text-gray-400 mb-1">Spin potential</p>
                 <div className="h-1.5 bg-gray-700 rounded-full">
-                  <div className="h-1.5 rounded-full transition-all"
-                    style={{ width: `${p.spinPotential * 100}%`, backgroundColor: color }} />
+                  <div
+                    className="h-1.5 rounded-full transition-all"
+                    style={{ width: `${p.spinPotential * 100}%`, backgroundColor: color }}
+                  />
                 </div>
               </div>
             </div>
