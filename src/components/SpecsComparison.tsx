@@ -1,8 +1,65 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import { PhysicsProfile } from '@/lib/physics'
 import { Racquet, COMPARISON_COLORS } from '@/data/racquets'
+
+// ─── Lightbox ─────────────────────────────────────────────────────────────────
+
+function Lightbox({
+  src,
+  alt,
+  onClose,
+}: {
+  src: string
+  alt: string
+  onClose: () => void
+}) {
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [onClose])
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center"
+      style={{ background: 'rgba(0,0,0,0.88)' }}
+      onClick={onClose}
+    >
+      {/* Close button */}
+      <button
+        className="absolute top-4 right-5 text-white/60 hover:text-white text-4xl leading-none"
+        onClick={onClose}
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      {/* Image */}
+      <div
+        className="relative flex items-center justify-center"
+        style={{ maxWidth: '90vw', maxHeight: '90vh' }}
+        onClick={e => e.stopPropagation()}
+      >
+        <img
+          src={src}
+          alt={alt}
+          style={{
+            maxWidth: '88vw',
+            maxHeight: '86vh',
+            objectFit: 'contain',
+            borderRadius: '12px',
+            boxShadow: '0 8px 60px rgba(0,0,0,0.7)',
+          }}
+        />
+        <p className="absolute bottom-0 left-0 right-0 text-center text-sm text-white/60 pb-2">
+          {alt}
+        </p>
+      </div>
+    </div>
+  )
+}
 
 interface RacquetEntry {
   racquet: Racquet
@@ -173,6 +230,10 @@ function SpecBar({
 // ─── main component ───────────────────────────────────────────────────────────
 
 export default function SpecsComparison({ entries }: Props) {
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
+  const openLightbox = useCallback((src: string, alt: string) => setLightbox({ src, alt }), [])
+  const closeLightbox = useCallback(() => setLightbox(null), [])
+
   if (entries.length === 0) return null
 
   const colors = entries.map((_, i) => COMPARISON_COLORS[i])
@@ -195,6 +256,11 @@ export default function SpecsComparison({ entries }: Props) {
   return (
     <div className="w-full space-y-8">
 
+      {/* ── Lightbox overlay ────────────────────────────────────────────── */}
+      {lightbox && (
+        <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={closeLightbox} />
+      )}
+
       {/* ── Hero racquet images ─────────────────────────────────────────── */}
       {entries.some(e => e.racquet.imageUrl) && (
         <div className={`grid gap-4`} style={{ gridTemplateColumns: `repeat(${entries.length}, 1fr)` }}>
@@ -205,19 +271,34 @@ export default function SpecsComparison({ entries }: Props) {
               style={{
                 background: `linear-gradient(160deg, ${colors[i]}22 0%, ${colors[i]}08 100%)`,
                 border: `1px solid ${colors[i]}40`,
-                minHeight: '220px',
+                minHeight: '340px',
               }}
             >
               {e.racquet.imageUrl ? (
-                <img
-                  src={e.racquet.imageUrl}
-                  alt={e.racquet.name}
-                  className="w-full object-contain"
-                  style={{ maxHeight: '180px', padding: '16px 16px 8px' }}
-                  loading="lazy"
-                />
+                <button
+                  className="flex-1 w-full flex items-center justify-center group"
+                  style={{ padding: '24px 20px 12px', cursor: 'zoom-in' }}
+                  onClick={() => openLightbox(e.racquet.imageUrl!, `${e.racquet.brand} ${e.racquet.name}`)}
+                  title="Click to view full size"
+                  aria-label={`View ${e.racquet.name} full size`}
+                >
+                  <img
+                    src={e.racquet.imageUrl}
+                    alt={e.racquet.name}
+                    className="w-full object-contain transition-transform duration-200 group-hover:scale-105"
+                    style={{ maxHeight: '280px' }}
+                    loading="lazy"
+                  />
+                  {/* zoom hint */}
+                  <span
+                    className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity text-xs px-2 py-1 rounded-full"
+                    style={{ background: `${colors[i]}cc`, color: '#fff' }}
+                  >
+                    ⤢ Full size
+                  </span>
+                </button>
               ) : (
-                <div className="flex-1 flex items-center justify-center w-full" style={{ minHeight: '160px' }}>
+                <div className="flex-1 flex items-center justify-center w-full" style={{ minHeight: '260px' }}>
                   <svg viewBox="0 0 60 80" className="w-20 h-28 opacity-20" fill="none" stroke="currentColor" strokeWidth="2">
                     <ellipse cx="22" cy="32" rx="18" ry="24" transform="rotate(-20 22 32)" style={{ stroke: colors[i] }} />
                     <line x1="34" y1="48" x2="52" y2="76" style={{ stroke: colors[i] }} strokeWidth="5" strokeLinecap="round" />
@@ -301,9 +382,11 @@ export default function SpecsComparison({ entries }: Props) {
                 <th key={e.racquet.id} className="text-left px-4 py-3 font-medium" style={{ color: colors[i] }}>
                   <div className="flex flex-col items-start gap-2">
                     {e.racquet.imageUrl && (
-                      <div
-                        className="w-20 h-20 rounded-lg flex items-center justify-center overflow-hidden"
-                        style={{ backgroundColor: colors[i] + '15' }}
+                      <button
+                        className="w-20 h-20 rounded-lg flex items-center justify-center overflow-hidden hover:opacity-80 transition-opacity"
+                        style={{ backgroundColor: colors[i] + '15', cursor: 'zoom-in' }}
+                        onClick={() => openLightbox(e.racquet.imageUrl!, `${e.racquet.brand} ${e.racquet.name}`)}
+                        title="View full size"
                       >
                         <img
                           src={e.racquet.imageUrl}
@@ -311,7 +394,7 @@ export default function SpecsComparison({ entries }: Props) {
                           className="w-full h-full object-contain p-1"
                           loading="lazy"
                         />
-                      </div>
+                      </button>
                     )}
                     <span>{e.racquet.brand} {e.racquet.name}</span>
                   </div>
@@ -355,17 +438,19 @@ export default function SpecsComparison({ entries }: Props) {
         {entries.map((e, i) => (
           <div key={e.racquet.id} className="bg-gray-800/60 rounded-xl p-4 border-l-4" style={{ borderColor: colors[i] }}>
             {e.racquet.imageUrl && (
-              <div
-                className="w-full h-32 rounded-lg mb-3 flex items-center justify-center overflow-hidden"
-                style={{ backgroundColor: colors[i] + '12' }}
+              <button
+                className="w-full h-40 rounded-lg mb-3 flex items-center justify-center overflow-hidden group hover:opacity-90 transition-opacity"
+                style={{ backgroundColor: colors[i] + '12', cursor: 'zoom-in' }}
+                onClick={() => openLightbox(e.racquet.imageUrl!, `${e.racquet.brand} ${e.racquet.name}`)}
+                title="View full size"
               >
                 <img
                   src={e.racquet.imageUrl}
                   alt={e.racquet.name}
-                  className="h-full object-contain"
+                  className="h-full object-contain transition-transform duration-200 group-hover:scale-105"
                   loading="lazy"
                 />
-              </div>
+              </button>
             )}
             <p className="text-sm font-semibold text-white mb-2">{e.racquet.brand} {e.racquet.name} ({e.racquet.year})</p>
             <p className="text-xs text-gray-400 leading-relaxed">{e.racquet.description}</p>
