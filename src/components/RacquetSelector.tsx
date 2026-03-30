@@ -15,21 +15,40 @@ const ERA_ORDER: Era[] = ['classic', 'control', 'spin', 'power', 'all-court']
 // Deduplicated sorted brand list
 const ALL_BRANDS = Array.from(new Set(RACQUETS.map(r => r.brand))).sort()
 
+/**
+ * Fuzzy match: each space-separated token in the query must either appear as
+ * a substring OR as a character subsequence somewhere in the target string.
+ * e.g. "pdrv 25" matches "Pure Drive 2025", "bld 98" matches "Blade 98 18x20"
+ */
+function fuzzyMatch(query: string, target: string): boolean {
+  const t = target.toLowerCase()
+  const tokens = query.toLowerCase().split(/\s+/).filter(Boolean)
+  return tokens.every(token => {
+    // Fast path: exact substring
+    if (t.includes(token)) return true
+    // Subsequence match: every character of token must appear in order in target
+    let ti = 0
+    for (let i = 0; i < t.length && ti < token.length; i++) {
+      if (t[i] === token[ti]) ti++
+    }
+    return ti === token.length
+  })
+}
+
 export default function RacquetSelector({ selected, onAdd, onRemove, onClose }: Props) {
   const [search, setSearch] = useState('')
   const [eraFilter, setEraFilter] = useState<Era | 'all'>('all')
   const [brandFilter, setBrandFilter] = useState<string>('all')
 
   const filtered = useMemo(() => {
-    const q = search.toLowerCase()
+    const q = search.trim()
     return RACQUETS.filter(r => {
       const matchEra = eraFilter === 'all' || r.era === eraFilter
       const matchBrand = brandFilter === 'all' || r.brand === brandFilter
       const matchSearch =
         !q ||
-        r.name.toLowerCase().includes(q) ||
-        r.brand.toLowerCase().includes(q) ||
-        (r.famousUser ?? '').toLowerCase().includes(q)
+        fuzzyMatch(q, `${r.brand} ${r.name}`) ||
+        (r.famousUser ? fuzzyMatch(q, r.famousUser) : false)
       return matchEra && matchBrand && matchSearch
     })
   }, [search, eraFilter, brandFilter])
