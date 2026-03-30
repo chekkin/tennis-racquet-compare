@@ -201,16 +201,26 @@ function drawRacquetScene(
   const followThruAngle = 75  * (Math.PI / 180)
   const readyAngle      = 165 * (Math.PI / 180)
 
+  // Extended follow-through finishes slightly past the initial followThruAngle
+  // so the racquet wraps further around before the arm returns to ready.
+  const finishAngle = 45 * (Math.PI / 180)
+
   let armAngle: number
   if (phase < 0.20) {
     // Ready → backswing
     armAngle = lerp(readyAngle, backswingAngle, easeInOut(phase / 0.20))
-  } else if (phase < 0.60) {
-    // Backswing → contact → follow-through
-    const p = (phase - 0.20) / 0.40
+  } else if (phase < 0.62) {
+    // Backswing → through contact → follow-through peak
+    const p = (phase - 0.20) / 0.42
     armAngle = lerp(backswingAngle, followThruAngle, easeOut(p))
+  } else if (phase < 0.72) {
+    // Follow-through continues — racquet wraps to finish position
+    const p = (phase - 0.62) / 0.10
+    armAngle = lerp(followThruAngle, finishAngle, easeOut(p))
   } else {
-    armAngle = followThruAngle
+    // Recovery: arm smoothly returns to ready for next cycle
+    const p = (phase - 0.72) / 0.28
+    armAngle = lerp(finishAngle, readyAngle, easeInOut(p))
   }
 
   const armLen = 115
@@ -223,7 +233,7 @@ function drawRacquetScene(
   ctx.strokeStyle = color + '30'
   ctx.lineWidth = 1.5
   ctx.beginPath()
-  ctx.arc(shoulderX, shoulderY, armLen, backswingAngle, followThruAngle, true) // ccw arc
+  ctx.arc(shoulderX, shoulderY, armLen, backswingAngle, finishAngle, true) // ccw arc through full follow-through
   ctx.stroke()
   ctx.setLineDash([])
   ctx.restore()

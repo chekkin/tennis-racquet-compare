@@ -108,8 +108,10 @@ function drawTopDownCourt(
     const startX = originX + courtW / 2
     const startY = originY + courtH  // at player baseline
 
-    // Landing: in opponent's court, offset slightly per racquet so lines don't stack
-    const landingY = originY + (COURT_LENGTH - p.landingFromNetM) * pxPerM + (i - 1) * 4
+    // Landing: in opponent's court (above the net line in top-down view).
+    // Net is at originY + NET_POS*pxPerM; ball travels landingFromNetM past it
+    // toward the opponent's baseline, so subtract from NET_POS.
+    const landingY = originY + (NET_POS - p.landingFromNetM) * pxPerM + (i - 1) * 4
     const landingX = originX + courtW / 2 + (i - 1) * 12
 
     if (phase > 0) {
