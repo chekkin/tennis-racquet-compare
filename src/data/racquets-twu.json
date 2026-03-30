@@ -776,7 +776,8 @@
     "stiffness": 65,
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Aero Lite 2026. Head: 100 in\u00b2 \u00b7 SW: 302 \u00b7 RA: 65."
+    "description": "Babolat Pure Aero Lite 2026. Head: 100 in\u00b2 \u00b7 SW: 302 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BPALTR-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-aero-lite",
@@ -814,7 +815,8 @@
     "stiffness": 66,
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Aero 2026. Head: 100 in\u00b2 \u00b7 SW: 320 \u00b7 RA: 66."
+    "description": "Babolat Pure Aero 2026. Head: 100 in\u00b2 \u00b7 SW: 320 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BPAR26-1.jpg&nw=1462"
   },
   {
     "id": "babolat-drive-z-118",
@@ -852,7 +854,8 @@
     "stiffness": 66,
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Aero 98 2026. Head: 98 in\u00b2 \u00b7 SW: 322 \u00b7 RA: 66."
+    "description": "Babolat Pure Aero 98 2026. Head: 98 in\u00b2 \u00b7 SW: 322 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BPA98R-1.jpg&nw=1462"
   },
   {
     "id": "babolat-play-pure-drive",
@@ -1004,7 +1007,8 @@
     "stiffness": 65,
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Aero Plus 2026. Head: 100 in\u00b2 \u00b7 SW: 330 \u00b7 RA: 65."
+    "description": "Babolat Pure Aero Plus 2026. Head: 100 in\u00b2 \u00b7 SW: 330 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BPAPLR-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-aero-super-lite-2026",
@@ -1023,7 +1027,8 @@
     "stiffness": 64,
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Aero Super Lite 2026. Head: 100 in\u00b2 \u00b7 SW: 273 \u00b7 RA: 64."
+    "description": "Babolat Pure Aero Super Lite 2026. Head: 100 in\u00b2 \u00b7 SW: 273 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BPARSL-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-aero-team-2019",
@@ -1080,7 +1085,8 @@
     "stiffness": 66,
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Aero Team 2026. Head: 100 in\u00b2 \u00b7 SW: 306 \u00b7 RA: 66."
+    "description": "Babolat Pure Aero Team 2026. Head: 100 in\u00b2 \u00b7 SW: 306 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BPAT26-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-aero-tour",
@@ -1422,7 +1428,8 @@
     "stiffness": 67,
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Drive 107 2025. Head: 107 in\u00b2 \u00b7 SW: 307 \u00b7 RA: 67."
+    "description": "Babolat Pure Drive 107 2025. Head: 107 in\u00b2 \u00b7 SW: 307 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BPD17R-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-drive-2021",
@@ -1612,7 +1619,8 @@
     "stiffness": 68,
     "era": "spin",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Drive Lite 2025. Head: 100 in\u00b2 \u00b7 SW: 295 \u00b7 RA: 68."
+    "description": "Babolat Pure Drive Lite 2025. Head: 100 in\u00b2 \u00b7 SW: 295 \u00b7 RA: 68.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BPDLR-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-drive-plus-2018",
@@ -1726,7 +1734,8 @@
     "stiffness": 66,
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Drive 2025. Head: 100 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 66."
+    "description": "Babolat Pure Drive 2025. Head: 100 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BPD25R-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-drive-98-2025",
@@ -1745,7 +1754,8 @@
     "stiffness": 67,
     "era": "spin",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Drive 98 2025. Head: 98 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 67."
+    "description": "Babolat Pure Drive 98 2025. Head: 98 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PD98R-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-drive-plus-2021",
@@ -1802,7 +1812,8 @@
     "stiffness": 69,
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Drive Plus 2025. Head: 100 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 69."
+    "description": "Babolat Pure Drive Plus 2025. Head: 100 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 69.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BPDP25-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-drive-roddick-gt-plus",
@@ -2030,7 +2041,8 @@
     "stiffness": 67,
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Drive Team 2025. Head: 100 in\u00b2 \u00b7 SW: 308 \u00b7 RA: 67."
+    "description": "Babolat Pure Drive Team 2025. Head: 100 in\u00b2 \u00b7 SW: 308 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BRPTR-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-drive-vs",
@@ -2486,7 +2498,8 @@
     "stiffness": 65,
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Strike 100. Head: 100 in\u00b2 \u00b7 SW: 303 \u00b7 RA: 65."
+    "description": "Babolat Pure Strike 100. Head: 100 in\u00b2 \u00b7 SW: 303 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=STRPS-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-strike-100-team",
@@ -2638,7 +2651,8 @@
     "stiffness": 63,
     "era": "control",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Strike 97. Head: 97 in\u00b2 \u00b7 SW: 321 \u00b7 RA: 63."
+    "description": "Babolat Pure Strike 97. Head: 97 in\u00b2 \u00b7 SW: 321 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PS97-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-strike-tour",
@@ -4633,7 +4647,8 @@
     "stiffness": 63,
     "era": "control",
     "uiColor": "#b45309",
-    "description": "Dunlop CX 200 Tour 16x19. Head: 95 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 63."
+    "description": "Dunlop CX 200 Tour 16x19. Head: 95 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=DCX2T6-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-biomimetic-s-8-0-lite",
@@ -4671,7 +4686,8 @@
     "stiffness": 66,
     "era": "all-court",
     "uiColor": "#b45309",
-    "description": "Dunlop CX 400 Tour. Head: 100 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 66."
+    "description": "Dunlop CX 400 Tour. Head: 100 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=DCX4T-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-f4-0-tour",
@@ -4728,7 +4744,8 @@
     "stiffness": 61,
     "era": "all-court",
     "uiColor": "#b45309",
-    "description": "Dunlop CX 200 OS. Head: 105 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 61."
+    "description": "Dunlop CX 200 OS. Head: 105 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 61.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=DCX2OS-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-cx-200-os",
@@ -4747,7 +4764,8 @@
     "stiffness": 63,
     "era": "all-court",
     "uiColor": "#b45309",
-    "description": "Dunlop CX 200 OS. Head: 105 in\u00b2 \u00b7 SW: 319 \u00b7 RA: 63."
+    "description": "Dunlop CX 200 OS. Head: 105 in\u00b2 \u00b7 SW: 319 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=DCX2OS-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-cx-200",
@@ -4766,7 +4784,8 @@
     "stiffness": 64,
     "era": "control",
     "uiColor": "#b45309",
-    "description": "Dunlop CX 200. Head: 98 in\u00b2 \u00b7 SW: 314 \u00b7 RA: 64."
+    "description": "Dunlop CX 200. Head: 98 in\u00b2 \u00b7 SW: 314 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=DCX2S-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-cx-400",
@@ -4804,7 +4823,8 @@
     "stiffness": 64,
     "era": "control",
     "uiColor": "#b45309",
-    "description": "Dunlop CX 200. Head: 98 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 64."
+    "description": "Dunlop CX 200. Head: 98 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=DCX2S-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-fx-500-2023",
@@ -4842,7 +4862,8 @@
     "stiffness": 66,
     "era": "all-court",
     "uiColor": "#b45309",
-    "description": "Dunlop CX 400 Tour. Head: 100 in\u00b2 \u00b7 SW: 322 \u00b7 RA: 66."
+    "description": "Dunlop CX 400 Tour. Head: 100 in\u00b2 \u00b7 SW: 322 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=DCX4T-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-fx-500",
@@ -4861,7 +4882,8 @@
     "stiffness": 71,
     "era": "power",
     "uiColor": "#b45309",
-    "description": "Dunlop FX 500. Head: 100 in\u00b2 \u00b7 SW: 314 \u00b7 RA: 71."
+    "description": "Dunlop FX 500. Head: 100 in\u00b2 \u00b7 SW: 314 \u00b7 RA: 71.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=DFX500-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-cx-200-tour-18x20",
@@ -4956,7 +4978,8 @@
     "stiffness": 71,
     "era": "spin",
     "uiColor": "#b45309",
-    "description": "Dunlop FX 500 LS. Head: 100 in\u00b2 \u00b7 SW: 300 \u00b7 RA: 71."
+    "description": "Dunlop FX 500 LS. Head: 100 in\u00b2 \u00b7 SW: 300 \u00b7 RA: 71.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=FX5LS-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-fx-500-lite",
@@ -4975,7 +4998,8 @@
     "stiffness": 70,
     "era": "spin",
     "uiColor": "#b45309",
-    "description": "Dunlop FX 500 Lite. Head: 100 in\u00b2 \u00b7 SW: 293 \u00b7 RA: 70."
+    "description": "Dunlop FX 500 Lite. Head: 100 in\u00b2 \u00b7 SW: 293 \u00b7 RA: 70.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=FX5LR-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-fx-500-tour-2023",
@@ -5127,7 +5151,8 @@
     "stiffness": 69,
     "era": "all-court",
     "uiColor": "#b45309",
-    "description": "Dunlop FX 500 Tour. Head: 98 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 69."
+    "description": "Dunlop FX 500 Tour. Head: 98 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 69.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=FX5TR-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-force-105",
@@ -5393,7 +5418,8 @@
     "stiffness": 68,
     "era": "all-court",
     "uiColor": "#b45309",
-    "description": "Dunlop SX 300. Head: 100 in\u00b2 \u00b7 SW: 322 \u00b7 RA: 68."
+    "description": "Dunlop SX 300. Head: 100 in\u00b2 \u00b7 SW: 322 \u00b7 RA: 68.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=DSX300-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-sx300-tour",
@@ -6628,7 +6654,8 @@
     "stiffness": 64,
     "era": "control",
     "uiColor": "#b91c1c",
-    "description": "Head Boom Pro 2024. Head: 98 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 64."
+    "description": "Head Boom Pro 2024. Head: 98 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HBOOMP-1.jpg&nw=1462"
   },
   {
     "id": "head-boom-pro-2022",
@@ -6799,7 +6826,8 @@
     "stiffness": 64,
     "era": "control",
     "uiColor": "#b91c1c",
-    "description": "Head Extreme Pro 2024. Head: 98 in\u00b2 \u00b7 SW: 322 \u00b7 RA: 64."
+    "description": "Head Extreme Pro 2024. Head: 98 in\u00b2 \u00b7 SW: 322 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HREP24-1.jpg&nw=1462"
   },
   {
     "id": "head-crossbow-8",
@@ -6856,7 +6884,8 @@
     "stiffness": 62,
     "era": "all-court",
     "uiColor": "#b91c1c",
-    "description": "Head Boom Team 2024. Head: 102 in\u00b2 \u00b7 SW: 309 \u00b7 RA: 62."
+    "description": "Head Boom Team 2024. Head: 102 in\u00b2 \u00b7 SW: 309 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HBOOMT-1.jpg&nw=1462"
   },
   {
     "id": "head-crossbow-6",
@@ -8718,7 +8747,8 @@
     "stiffness": 57,
     "era": "all-court",
     "uiColor": "#b91c1c",
-    "description": "Head Gravity MP 2025. Head: 100 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 57."
+    "description": "Head Gravity MP 2025. Head: 100 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 57.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HRMPG-1.jpg&nw=1462"
   },
   {
     "id": "head-graphene-xt-speed-s",
@@ -8756,7 +8786,8 @@
     "stiffness": 57,
     "era": "all-court",
     "uiColor": "#b91c1c",
-    "description": "Head Gravity MP L 2025. Head: 100 in\u00b2 \u00b7 SW: 308 \u00b7 RA: 57."
+    "description": "Head Gravity MP L 2025. Head: 100 in\u00b2 \u00b7 SW: 308 \u00b7 RA: 57.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HRMLPG-1.jpg&nw=1462"
   },
   {
     "id": "head-graphene-xt-speed-pro",
@@ -8889,7 +8920,8 @@
     "stiffness": 59,
     "era": "all-court",
     "uiColor": "#b91c1c",
-    "description": "Head Gravity Tour 2025. Head: 98 in\u00b2 \u00b7 SW: 328 \u00b7 RA: 59."
+    "description": "Head Gravity Tour 2025. Head: 98 in\u00b2 \u00b7 SW: 328 \u00b7 RA: 59.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HGTRR-1.jpg&nw=1462"
   },
   {
     "id": "head-liquid-metal-8-os",
@@ -8927,7 +8959,8 @@
     "stiffness": 59,
     "era": "control",
     "uiColor": "#b91c1c",
-    "description": "Head Gravity Pro 2025. Head: 100 in\u00b2 \u00b7 SW: 329 \u00b7 RA: 59."
+    "description": "Head Gravity Pro 2025. Head: 100 in\u00b2 \u00b7 SW: 329 \u00b7 RA: 59.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HGPRR-1.jpg&nw=1462"
   },
   {
     "id": "head-liquid-metal-4-os",
@@ -8965,7 +8998,8 @@
     "stiffness": 57,
     "era": "all-court",
     "uiColor": "#b91c1c",
-    "description": "Head Gravity Team 2025. Head: 104 in\u00b2 \u00b7 SW: 304 \u00b7 RA: 57."
+    "description": "Head Gravity Team 2025. Head: 104 in\u00b2 \u00b7 SW: 304 \u00b7 RA: 57.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HRTMPG-1.jpg&nw=1462"
   },
   {
     "id": "head-metallix-4-os",
@@ -9478,7 +9512,8 @@
     "stiffness": 61,
     "era": "control",
     "uiColor": "#b91c1c",
-    "description": "Head Prestige MP L 2023. Head: 99 in\u00b2 \u00b7 SW: 309 \u00b7 RA: 61."
+    "description": "Head Prestige MP L 2023. Head: 99 in\u00b2 \u00b7 SW: 309 \u00b7 RA: 61.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HPRMPL-1.jpg&nw=1462"
   },
   {
     "id": "head-prestige-classic-2-0",
@@ -9744,7 +9779,8 @@
     "stiffness": 60,
     "era": "all-court",
     "uiColor": "#b91c1c",
-    "description": "Head Speed MP 2026. Head: 100 in\u00b2 \u00b7 SW: 329 \u00b7 RA: 60."
+    "description": "Head Speed MP 2026. Head: 100 in\u00b2 \u00b7 SW: 329 \u00b7 RA: 60.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HSPMP6-1.jpg&nw=1462"
   },
   {
     "id": "head-speed-mp-2024",
@@ -9839,7 +9875,8 @@
     "stiffness": 61,
     "era": "control",
     "uiColor": "#b91c1c",
-    "description": "Head Speed Tour 2026. Head: 97 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 61."
+    "description": "Head Speed Tour 2026. Head: 97 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 61.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HSPDT6-1.jpg&nw=1462"
   },
   {
     "id": "head-youtek-extreme-pro",
@@ -9915,7 +9952,8 @@
     "stiffness": 62,
     "era": "control",
     "uiColor": "#b91c1c",
-    "description": "Head Speed Pro 2022. Head: 100 in\u00b2 \u00b7 SW: 326 \u00b7 RA: 62."
+    "description": "Head Speed Pro 2022. Head: 100 in\u00b2 \u00b7 SW: 326 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=SPDP-1.jpg&nw=1462"
   },
   {
     "id": "head-speed-mp-ul-2026",
@@ -9934,7 +9972,8 @@
     "stiffness": 61,
     "era": "all-court",
     "uiColor": "#b91c1c",
-    "description": "Head Speed MP UL 2026. Head: 100 in\u00b2 \u00b7 SW: 291 \u00b7 RA: 61."
+    "description": "Head Speed MP UL 2026. Head: 100 in\u00b2 \u00b7 SW: 291 \u00b7 RA: 61.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HSMPUL-1.jpg&nw=1462"
   },
   {
     "id": "head-speed-mp-l-2026",
@@ -9953,7 +9992,8 @@
     "stiffness": 61,
     "era": "all-court",
     "uiColor": "#b91c1c",
-    "description": "Head Speed MP L 2026. Head: 100 in\u00b2 \u00b7 SW: 316 \u00b7 RA: 61."
+    "description": "Head Speed MP L 2026. Head: 100 in\u00b2 \u00b7 SW: 316 \u00b7 RA: 61.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HSMPL6-1.jpg&nw=1462"
   },
   {
     "id": "head-speed-mp-l-2024",
@@ -9991,7 +10031,8 @@
     "stiffness": 61,
     "era": "control",
     "uiColor": "#b91c1c",
-    "description": "Head Speed Pro 2026. Head: 100 in\u00b2 \u00b7 SW: 328 \u00b7 RA: 61."
+    "description": "Head Speed Pro 2026. Head: 100 in\u00b2 \u00b7 SW: 328 \u00b7 RA: 61.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HSPDP6-1.jpg&nw=1462"
   },
   {
     "id": "head-speed-team-2026",
@@ -10010,7 +10051,8 @@
     "stiffness": 62,
     "era": "all-court",
     "uiColor": "#b91c1c",
-    "description": "Head Speed Team 2026. Head: 105 in\u00b2 \u00b7 SW: 303 \u00b7 RA: 62."
+    "description": "Head Speed Team 2026. Head: 105 in\u00b2 \u00b7 SW: 303 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HSPTM6-1.jpg&nw=1462"
   },
   {
     "id": "head-youtek-graphene-prestige-pwr",
@@ -11530,7 +11572,8 @@
     "stiffness": 61,
     "era": "control",
     "uiColor": "#7c3aed",
-    "description": "Prince ATS Textreme Tour 95. Head: 95 in\u00b2 \u00b7 SW: 324 \u00b7 RA: 61."
+    "description": "Prince ATS Textreme Tour 95. Head: 95 in\u00b2 \u00b7 SW: 324 \u00b7 RA: 61.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=ATR95-1.jpg&nw=1462"
   },
   {
     "id": "prince-exo3-black",
@@ -11663,7 +11706,8 @@
     "stiffness": 61,
     "era": "control",
     "uiColor": "#7c3aed",
-    "description": "Prince ATS Textreme Tour 100P. Head: 100 in\u00b2 \u00b7 SW: 322 \u00b7 RA: 61."
+    "description": "Prince ATS Textreme Tour 100P. Head: 100 in\u00b2 \u00b7 SW: 322 \u00b7 RA: 61.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=ATR10P-1.jpg&nw=1462"
   },
   {
     "id": "prince-classic-graphite-100-longbody",
@@ -11701,7 +11745,8 @@
     "stiffness": 62,
     "era": "control",
     "uiColor": "#7c3aed",
-    "description": "Prince ATS Textreme Tour 98. Head: 98 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 62."
+    "description": "Prince ATS Textreme Tour 98. Head: 98 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=ATR98-1.jpg&nw=1462"
   },
   {
     "id": "prince-exo3-graphite-100-mp-w-inserts",
@@ -13943,7 +13988,8 @@
     "stiffness": 66,
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Prince Textreme Warrior 100. Head: 100 in\u00b2 \u00b7 SW: 315 \u00b7 RA: 66."
+    "description": "Prince Textreme Warrior 100. Head: 100 in\u00b2 \u00b7 SW: 315 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=W100-1.jpg&nw=1462"
   },
   {
     "id": "prince-textreme-warrior-100l",
@@ -18712,7 +18758,8 @@
     "stiffness": 66,
     "era": "all-court",
     "uiColor": "#0369a1",
-    "description": "Volkl Vostra V4. Head: 105 in\u00b2 \u00b7 SW: 306 \u00b7 RA: 66."
+    "description": "Volkl Vostra V4. Head: 105 in\u00b2 \u00b7 SW: 306 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VOSV4-1.jpg&nw=1462"
   },
   {
     "id": "volkl-v-sense-v1-os",
@@ -18826,7 +18873,8 @@
     "stiffness": 68,
     "era": "spin",
     "uiColor": "#0369a1",
-    "description": "Volkl Vostra V6. Head: 100 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 68."
+    "description": "Volkl Vostra V6. Head: 100 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 68.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VOSV6-1.jpg&nw=1462"
   },
   {
     "id": "volkl-v-sense-9",
@@ -18864,7 +18912,8 @@
     "stiffness": 67,
     "era": "all-court",
     "uiColor": "#0369a1",
-    "description": "Volkl Vostra V8 300g. Head: 100 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 67."
+    "description": "Volkl Vostra V8 300g. Head: 100 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VOSV8M-1.jpg&nw=1462"
   },
   {
     "id": "wilson-blx-blade-98",
@@ -18921,7 +18970,8 @@
     "stiffness": 67,
     "era": "spin",
     "uiColor": "#0369a1",
-    "description": "Volkl Vostra V8 285g. Head: 100 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 67."
+    "description": "Volkl Vostra V8 285g. Head: 100 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VOSV8L-1.jpg&nw=1462"
   },
   {
     "id": "volkl-vostra-v8-315g",
@@ -19548,7 +19598,8 @@
     "stiffness": 60,
     "era": "all-court",
     "uiColor": "#1e293b",
-    "description": "Wilson Blade 100 V9. Head: 100 in\u00b2 \u00b7 SW: 322 \u00b7 RA: 60."
+    "description": "Wilson Blade 100 V9. Head: 100 in\u00b2 \u00b7 SW: 322 \u00b7 RA: 60.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WB1009-1.jpg&nw=1462"
   },
   {
     "id": "wilson-blx-tour",
@@ -19928,7 +19979,8 @@
     "stiffness": 69,
     "era": "spin",
     "uiColor": "#1e293b",
-    "description": "Wilson Blade 100L V9. Head: 100 in\u00b2 \u00b7 SW: 308 \u00b7 RA: 69."
+    "description": "Wilson Blade 100L V9. Head: 100 in\u00b2 \u00b7 SW: 308 \u00b7 RA: 69.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WB100L-1.jpg&nw=1462"
   },
   {
     "id": "wilson-blade-104-v10",
@@ -20061,7 +20113,8 @@
     "stiffness": 62,
     "era": "all-court",
     "uiColor": "#1e293b",
-    "description": "Wilson Blade 98 16x19 V9. Head: 98 in\u00b2 \u00b7 SW: 324 \u00b7 RA: 62."
+    "description": "Wilson Blade 98 16x19 V9. Head: 98 in\u00b2 \u00b7 SW: 324 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WB9816-1.jpg&nw=1462"
   },
   {
     "id": "wilson-blade-98-16x19-cv",
@@ -20156,7 +20209,8 @@
     "stiffness": 60,
     "era": "all-court",
     "uiColor": "#1e293b",
-    "description": "Wilson Blade 98 18x20 V9. Head: 98 in\u00b2 \u00b7 SW: 330 \u00b7 RA: 60."
+    "description": "Wilson Blade 98 18x20 V9. Head: 98 in\u00b2 \u00b7 SW: 330 \u00b7 RA: 60.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WB18V-1.jpg&nw=1462"
   },
   {
     "id": "wilson-blade-98-16x19-v7-reverse",
@@ -20745,7 +20799,8 @@
     "stiffness": 54,
     "era": "control",
     "uiColor": "#1e293b",
-    "description": "Wilson Clash 100 v3. Head: 100 in\u00b2 \u00b7 SW: 308 \u00b7 RA: 54."
+    "description": "Wilson Clash 100 v3. Head: 100 in\u00b2 \u00b7 SW: 308 \u00b7 RA: 54.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=CL103V-1.jpg&nw=1462"
   },
   {
     "id": "wilson-burn-fst-99",
@@ -20840,7 +20895,8 @@
     "stiffness": 57,
     "era": "control",
     "uiColor": "#1e293b",
-    "description": "Wilson Clash 100 Pro v3. Head: 100 in\u00b2 \u00b7 SW: 327 \u00b7 RA: 57."
+    "description": "Wilson Clash 100 Pro v3. Head: 100 in\u00b2 \u00b7 SW: 327 \u00b7 RA: 57.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=CL1P3V-1.jpg&nw=1462"
   },
   {
     "id": "wilson-clash-100l",
@@ -21030,7 +21086,8 @@
     "stiffness": 54,
     "era": "control",
     "uiColor": "#1e293b",
-    "description": "Wilson Clash 100L v3. Head: 100 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 54."
+    "description": "Wilson Clash 100L v3. Head: 100 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 54.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=CL1L3V-1.jpg&nw=1462"
   },
   {
     "id": "wilson-clash-100s",
@@ -22341,7 +22398,8 @@
     "stiffness": 67,
     "era": "all-court",
     "uiColor": "#1e293b",
-    "description": "Wilson Shift 99. Head: 99 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 67."
+    "description": "Wilson Shift 99. Head: 99 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WSP300-1.jpg&nw=1462"
   },
   {
     "id": "wilson-rf-01",
@@ -22360,7 +22418,8 @@
     "stiffness": 64,
     "era": "all-court",
     "uiColor": "#1e293b",
-    "description": "Wilson RF 01. Head: 98 in\u00b2 \u00b7 SW: 319 \u00b7 RA: 64."
+    "description": "Wilson RF 01. Head: 98 in\u00b2 \u00b7 SW: 319 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WRF1R-1.jpg&nw=1462"
   },
   {
     "id": "wilson-six-one-team",
@@ -22398,7 +22457,8 @@
     "stiffness": 67,
     "era": "all-court",
     "uiColor": "#1e293b",
-    "description": "Wilson RF 01 Pro. Head: 98 in\u00b2 \u00b7 SW: 331 \u00b7 RA: 67."
+    "description": "Wilson RF 01 Pro. Head: 98 in\u00b2 \u00b7 SW: 331 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WRFPR-1.jpg&nw=1462"
   },
   {
     "id": "wilson-pro-staff-x-v14",
@@ -22455,7 +22515,8 @@
     "stiffness": 68,
     "era": "all-court",
     "uiColor": "#1e293b",
-    "description": "Wilson Shift 99 Pro. Head: 99 in\u00b2 \u00b7 SW: 332 \u00b7 RA: 68."
+    "description": "Wilson Shift 99 Pro. Head: 99 in\u00b2 \u00b7 SW: 332 \u00b7 RA: 68.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WSP315-1.jpg&nw=1462"
   },
   {
     "id": "wilson-rf-01-future",
@@ -22474,7 +22535,8 @@
     "stiffness": 64,
     "era": "all-court",
     "uiColor": "#1e293b",
-    "description": "Wilson RF 01 Future. Head: 98 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 64."
+    "description": "Wilson RF 01 Future. Head: 98 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WRFFR-1.jpg&nw=1462"
   },
   {
     "id": "wilson-pro-staff-six-one-100-v14",
@@ -22493,7 +22555,8 @@
     "stiffness": 65,
     "era": "all-court",
     "uiColor": "#1e293b",
-    "description": "Wilson Pro Staff Six.One 100 v14. Head: 100 in\u00b2 \u00b7 SW: 326 \u00b7 RA: 65."
+    "description": "Wilson Pro Staff Six.One 100 v14. Head: 100 in\u00b2 \u00b7 SW: 326 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WPS614-1.jpg&nw=1462"
   },
   {
     "id": "wilson-steam-96",
@@ -23386,7 +23449,8 @@
     "stiffness": 70,
     "era": "classic",
     "uiColor": "#059669",
-    "description": "Yonex EZONE 100+. Head: 100 in\u00b2 \u00b7 SW: 335 \u00b7 RA: 70."
+    "description": "Yonex EZONE 100+. Head: 100 in\u00b2 \u00b7 SW: 335 \u00b7 RA: 70.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=LEZ10B-1.jpg&nw=1462"
   },
   {
     "id": "yonex-ezone-100-2022",
@@ -23557,7 +23621,8 @@
     "stiffness": 66,
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Yonex EZONE 105. Head: 105 in\u00b2 \u00b7 SW: 304 \u00b7 RA: 66."
+    "description": "Yonex EZONE 105. Head: 105 in\u00b2 \u00b7 SW: 304 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=EZ105B-1.jpg&nw=1462"
   },
   {
     "id": "yonex-ezone-105-2025",
@@ -23614,7 +23679,8 @@
     "stiffness": 68,
     "era": "spin",
     "uiColor": "#059669",
-    "description": "Yonex EZONE 100L. Head: 100 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 68."
+    "description": "Yonex EZONE 100L. Head: 100 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 68.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=EZ1LBB-1.jpg&nw=1462"
   },
   {
     "id": "yonex-ezone-100-2022",
@@ -23747,7 +23813,8 @@
     "stiffness": 64,
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Yonex EZONE 98+. Head: 98 in\u00b2 \u00b7 SW: 334 \u00b7 RA: 64."
+    "description": "Yonex EZONE 98+. Head: 98 in\u00b2 \u00b7 SW: 334 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=LEZ98B-1.jpg&nw=1462"
   },
   {
     "id": "yonex-ezone-ai-100",
@@ -23804,7 +23871,8 @@
     "stiffness": 62,
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Yonex EZONE 98 Tour. Head: 98 in\u00b2 \u00b7 SW: 330 \u00b7 RA: 62."
+    "description": "Yonex EZONE 98 Tour. Head: 98 in\u00b2 \u00b7 SW: 330 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=EZ98TB-1.jpg&nw=1462"
   },
   {
     "id": "yonex-ezone-ace",
@@ -23842,7 +23910,8 @@
     "stiffness": 64,
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Yonex EZONE 98L. Head: 98 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 64."
+    "description": "Yonex EZONE 98L. Head: 98 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=EZ98LB-1.jpg&nw=1462"
   },
   {
     "id": "yonex-ezone-98-305g-blue",
@@ -24032,7 +24101,8 @@
     "stiffness": 66,
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Yonex Percept 100D. Head: 100 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 66."
+    "description": "Yonex Percept 100D. Head: 100 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PERC1D-1.jpg&nw=1462"
   },
   {
     "id": "yonex-ezone-dr-100",
@@ -24089,7 +24159,8 @@
     "stiffness": 60,
     "era": "control",
     "uiColor": "#059669",
-    "description": "Yonex Percept 97. Head: 97 in\u00b2 \u00b7 SW: 315 \u00b7 RA: 60."
+    "description": "Yonex Percept 97. Head: 97 in\u00b2 \u00b7 SW: 315 \u00b7 RA: 60.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PERC97-1.jpg&nw=1462"
   },
   {
     "id": "yonex-ezone-lite",
@@ -24165,7 +24236,8 @@
     "stiffness": 66,
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Yonex Percept 100. Head: 100 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 66."
+    "description": "Yonex Percept 100. Head: 100 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PERC10-1.jpg&nw=1462"
   },
   {
     "id": "yonex-ezone-dr-98-blue",
@@ -24222,7 +24294,8 @@
     "stiffness": 62,
     "era": "control",
     "uiColor": "#059669",
-    "description": "Yonex Percept 97D. Head: 97 in\u00b2 \u00b7 SW: 329 \u00b7 RA: 62."
+    "description": "Yonex Percept 97D. Head: 97 in\u00b2 \u00b7 SW: 329 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PERC9D-1.jpg&nw=1462"
   },
   {
     "id": "yonex-percept-97h",
@@ -24241,7 +24314,8 @@
     "stiffness": 62,
     "era": "control",
     "uiColor": "#059669",
-    "description": "Yonex Percept 97H. Head: 97 in\u00b2 \u00b7 SW: 333 \u00b7 RA: 62."
+    "description": "Yonex Percept 97H. Head: 97 in\u00b2 \u00b7 SW: 333 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PERC9H-1.jpg&nw=1462"
   },
   {
     "id": "yonex-rds-002",
@@ -24849,7 +24923,8 @@
     "stiffness": 65,
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Yonex VCORE 100 8th Gen. Head: 100 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 65."
+    "description": "Yonex VCORE 100 8th Gen. Head: 100 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VC108G-1.jpg&nw=1462"
   },
   {
     "id": "yonex-vcore-100-2023",
@@ -25077,7 +25152,8 @@
     "stiffness": 66,
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Yonex VCORE 100L 8th Gen. Head: 100 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 66."
+    "description": "Yonex VCORE 100L 8th Gen. Head: 100 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=YRVC1L-1.jpg&nw=1462"
   },
   {
     "id": "yonex-vcore-100l",
@@ -25115,7 +25191,8 @@
     "stiffness": 64,
     "era": "control",
     "uiColor": "#059669",
-    "description": "Yonex VCORE 95. Head: 95 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 64."
+    "description": "Yonex VCORE 95. Head: 95 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=YVC95-1.jpg&nw=1462"
   },
   {
     "id": "yonex-vcore-95-2018",
@@ -25153,7 +25230,8 @@
     "stiffness": 65,
     "era": "classic",
     "uiColor": "#059669",
-    "description": "Yonex VCORE 100+ 8th Gen. Head: 100 in\u00b2 \u00b7 SW: 341 \u00b7 RA: 65."
+    "description": "Yonex VCORE 100+ 8th Gen. Head: 100 in\u00b2 \u00b7 SW: 341 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VC1P8G-1.jpg&nw=1462"
   },
   {
     "id": "yonex-vcore-98-tour-2023",
@@ -25210,7 +25288,8 @@
     "stiffness": 64,
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Yonex VCORE 98 Tour 8th Gen. Head: 98 in\u00b2 \u00b7 SW: 334 \u00b7 RA: 64."
+    "description": "Yonex VCORE 98 Tour 8th Gen. Head: 98 in\u00b2 \u00b7 SW: 334 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VC9T8G-1.jpg&nw=1462"
   },
   {
     "id": "yonex-vcore-98-305",
@@ -25267,7 +25346,8 @@
     "stiffness": 62,
     "era": "control",
     "uiColor": "#059669",
-    "description": "Yonex VCORE 95 8th Gen. Head: 95 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 62."
+    "description": "Yonex VCORE 95 8th Gen. Head: 95 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VC958G-1.jpg&nw=1462"
   },
   {
     "id": "yonex-vcore-98-305-galaxy-black",
@@ -25305,7 +25385,8 @@
     "stiffness": 63,
     "era": "control",
     "uiColor": "#059669",
-    "description": "Yonex VCORE 98 8th Gen. Head: 98 in\u00b2 \u00b7 SW: 321 \u00b7 RA: 63."
+    "description": "Yonex VCORE 98 8th Gen. Head: 98 in\u00b2 \u00b7 SW: 321 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VC988G-1.jpg&nw=1462"
   },
   {
     "id": "yonex-vcore-98",
@@ -25362,7 +25443,8 @@
     "stiffness": 64,
     "era": "classic",
     "uiColor": "#059669",
-    "description": "Yonex VCORE 98+. Head: 98 in\u00b2 \u00b7 SW: 340 \u00b7 RA: 64."
+    "description": "Yonex VCORE 98+. Head: 98 in\u00b2 \u00b7 SW: 340 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=YV98P-1.jpg&nw=1462"
   },
   {
     "id": "yonex-vcore-98l",
@@ -25381,7 +25463,8 @@
     "stiffness": 65,
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Yonex VCORE 98L. Head: 98 in\u00b2 \u00b7 SW: 307 \u00b7 RA: 65."
+    "description": "Yonex VCORE 98L. Head: 98 in\u00b2 \u00b7 SW: 307 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=YVC98L-1.jpg&nw=1462"
   },
   {
     "id": "yonex-vcore-pro-100-300",
@@ -25970,7 +26053,8 @@
     "stiffness": 63,
     "era": "classic",
     "uiColor": "#059669",
-    "description": "Yonex VCORE 98+ 8th Gen. Head: 98 in\u00b2 \u00b7 SW: 335 \u00b7 RA: 63."
+    "description": "Yonex VCORE 98+ 8th Gen. Head: 98 in\u00b2 \u00b7 SW: 335 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VC9P8G-1.jpg&nw=1462"
   },
   {
     "id": "babolat-boost-aero-2026-racquet-grey-yellow-2026",
@@ -25989,7 +26073,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Boost Aero 2026 Racquet Grey/Yellow. Head: 102 in\u00b2 \u00b7 SW: 312 \u00b7 RA: 65."
+    "description": "Babolat Boost Aero 2026 Racquet Grey/Yellow. Head: 102 in\u00b2 \u00b7 SW: 312 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BBOASR-1.jpg&nw=1462"
   },
   {
     "id": "babolat-boost-aero-2026-racquet-pink-grey-2026",
@@ -26008,7 +26093,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Boost Aero 2026 Racquet Pink Grey. Head: 102 in\u00b2 \u00b7 SW: 312 \u00b7 RA: 65."
+    "description": "Babolat Boost Aero 2026 Racquet Pink Grey. Head: 102 in\u00b2 \u00b7 SW: 312 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BBOASP-1.jpg&nw=1462"
   },
   {
     "id": "babolat-boost-aero-racquet-grey-yellow-white-2025",
@@ -26027,7 +26113,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Boost Aero Racquet Grey/Yellow/White. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Babolat Boost Aero Racquet Grey/Yellow/White. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BABOOA-1.jpg&nw=1462"
   },
   {
     "id": "babolat-boost-drive-green-racquets-2025",
@@ -26046,7 +26133,8 @@
     ],
     "era": "spin",
     "uiColor": "#2563eb",
-    "description": "Babolat Boost Drive Green Racquets. Head: 98 in\u00b2 \u00b7 SW: 314 \u00b7 RA: 67."
+    "description": "Babolat Boost Drive Green Racquets. Head: 98 in\u00b2 \u00b7 SW: 314 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BBDG20-1.jpg&nw=1462"
   },
   {
     "id": "babolat-boost-drive-racquet-2025-2025",
@@ -26065,7 +26153,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Boost Drive Racquet 2025. Head: 105 in\u00b2 \u00b7 SW: 312 \u00b7 RA: 65."
+    "description": "Babolat Boost Drive Racquet 2025. Head: 105 in\u00b2 \u00b7 SW: 312 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BBSTDR-1.jpg&nw=1462"
   },
   {
     "id": "babolat-boost-drive-w-racquet-2025-2025",
@@ -26084,7 +26173,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Boost Drive W Racquet 2025. Head: 105 in\u00b2 \u00b7 SW: 312 \u00b7 RA: 65."
+    "description": "Babolat Boost Drive W Racquet 2025. Head: 105 in\u00b2 \u00b7 SW: 312 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BBDWRB-1.jpg&nw=1462"
   },
   {
     "id": "babolat-drive-23-graphite-composite-racquet-2025-2025",
@@ -26103,7 +26193,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Drive 23\" Graphite Composite Racquet 2025. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Babolat Drive 23\" Graphite Composite Racquet 2025. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BDJ23R-1.jpg&nw=1462"
   },
   {
     "id": "babolat-evo-aero-2026-2026",
@@ -26122,7 +26213,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Evo Aero 2026. Head: 102 in\u00b2 \u00b7 SW: 307 \u00b7 RA: 59."
+    "description": "Babolat Evo Aero 2026. Head: 102 in\u00b2 \u00b7 SW: 307 \u00b7 RA: 59.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BEA26R-1.jpg&nw=1462"
   },
   {
     "id": "babolat-evo-drive-lite-white-racquet-2025-2025",
@@ -26141,7 +26233,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Evo Drive Lite White Racquet 2025. Head: 104 in\u00b2 \u00b7 SW: 290 \u00b7 RA: 62."
+    "description": "Babolat Evo Drive Lite White Racquet 2025. Head: 104 in\u00b2 \u00b7 SW: 290 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BELWR-1.jpg&nw=1462"
   },
   {
     "id": "babolat-evo-drive-racquet-2025-2025",
@@ -26160,7 +26253,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Evo Drive Racquet 2025. Head: 102 in\u00b2 \u00b7 SW: 292 \u00b7 RA: 64."
+    "description": "Babolat Evo Drive Racquet 2025. Head: 102 in\u00b2 \u00b7 SW: 292 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BEDR-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-drive-super-lite-2025-2025",
@@ -26179,7 +26273,8 @@
     ],
     "era": "spin",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Drive Super Lite 2025. Head: 100 in\u00b2 \u00b7 SW: 295 \u00b7 RA: 68."
+    "description": "Babolat Pure Drive Super Lite 2025. Head: 100 in\u00b2 \u00b7 SW: 295 \u00b7 RA: 68.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BPDSLR-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-strike-100-16x20-2026",
@@ -26198,7 +26293,8 @@
     ],
     "era": "control",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Strike 100 16x20. Head: 100 in\u00b2 \u00b7 SW: 320 \u00b7 RA: 61."
+    "description": "Babolat Pure Strike 100 16x20. Head: 100 in\u00b2 \u00b7 SW: 320 \u00b7 RA: 61.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PS1620-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-strike-100-16x20-carbon-grey-2026",
@@ -26217,7 +26313,8 @@
     ],
     "era": "control",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Strike 100 16x20 Carbon Grey. Head: 100 in\u00b2 \u00b7 SW: 320 \u00b7 RA: 60."
+    "description": "Babolat Pure Strike 100 16x20 Carbon Grey. Head: 100 in\u00b2 \u00b7 SW: 320 \u00b7 RA: 60.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PS1020-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-strike-100-carbon-grey-2024",
@@ -26236,7 +26333,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Strike 100 Carbon Grey. Head: 100 in\u00b2 \u00b7 SW: 324 \u00b7 RA: 63."
+    "description": "Babolat Pure Strike 100 Carbon Grey. Head: 100 in\u00b2 \u00b7 SW: 324 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PS1019-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-strike-97-carbon-grey-2025",
@@ -26255,7 +26353,8 @@
     ],
     "era": "control",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Strike 97 Carbon Grey. Head: 97 in\u00b2 \u00b7 SW: 321 \u00b7 RA: 63."
+    "description": "Babolat Pure Strike 97 Carbon Grey. Head: 97 in\u00b2 \u00b7 SW: 321 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PS97SN-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-strike-98-16x19-2024",
@@ -26274,7 +26373,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Strike 98 16x19. Head: 98 in\u00b2 \u00b7 SW: 330 \u00b7 RA: 64."
+    "description": "Babolat Pure Strike 98 16x19. Head: 98 in\u00b2 \u00b7 SW: 330 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PSRKT-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-strike-98-16x19-carbon-grey-2026",
@@ -26293,7 +26393,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Strike 98 16x19 Carbon Grey. Head: 98 in\u00b2 \u00b7 SW: 330 \u00b7 RA: 64."
+    "description": "Babolat Pure Strike 98 16x19 Carbon Grey. Head: 98 in\u00b2 \u00b7 SW: 330 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PS9816-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-strike-98-18x20-2024",
@@ -26312,7 +26413,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Strike 98 18x20. Head: 98 in\u00b2 \u00b7 SW: 332 \u00b7 RA: 63."
+    "description": "Babolat Pure Strike 98 18x20. Head: 98 in\u00b2 \u00b7 SW: 332 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PSSTRR-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-strike-98-18x20-carbon-grey-2026",
@@ -26331,7 +26433,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Strike 98 18x20 Carbon Grey. Head: 98 in\u00b2 \u00b7 SW: 332 \u00b7 RA: 63."
+    "description": "Babolat Pure Strike 98 18x20 Carbon Grey. Head: 98 in\u00b2 \u00b7 SW: 332 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PS9818-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-strike-lite-carbon-grey-2025",
@@ -26350,7 +26453,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Strike Lite Carbon Grey. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Babolat Pure Strike Lite Carbon Grey. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PS10L-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-strike-lite-racket-2024",
@@ -26369,7 +26473,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Strike Lite Racket. Head: 100 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 66."
+    "description": "Babolat Pure Strike Lite Racket. Head: 100 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PSLITE-1.jpg&nw=1462"
   },
   {
     "id": "babolat-pure-strike-team-carbon-grey-2024",
@@ -26388,7 +26493,8 @@
     ],
     "era": "all-court",
     "uiColor": "#2563eb",
-    "description": "Babolat Pure Strike Team Carbon Grey. Head: 100 in\u00b2 \u00b7 SW: 307 \u00b7 RA: 64."
+    "description": "Babolat Pure Strike Team Carbon Grey. Head: 100 in\u00b2 \u00b7 SW: 307 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PSTE25-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-cx-200-ls-2024",
@@ -26407,7 +26513,8 @@
     ],
     "era": "spin",
     "uiColor": "#ea580c",
-    "description": "Dunlop CX 200 LS. Head: 98 in\u00b2 \u00b7 SW: 309 \u00b7 RA: 98."
+    "description": "Dunlop CX 200 LS. Head: 98 in\u00b2 \u00b7 SW: 309 \u00b7 RA: 98.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=DCX2LS-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-cx-400-tour-limited-edition-2025",
@@ -26426,7 +26533,8 @@
     ],
     "era": "all-court",
     "uiColor": "#ea580c",
-    "description": "Dunlop CX 400 Tour Limited Edition. Head: 100 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 66."
+    "description": "Dunlop CX 400 Tour Limited Edition. Head: 100 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=CX40LE-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-fx-500-super-lite-2026",
@@ -26445,7 +26553,8 @@
     ],
     "era": "all-court",
     "uiColor": "#ea580c",
-    "description": "Dunlop FX 500 Super Lite. Head: 100 in\u00b2 \u00b7 SW: 289 \u00b7 RA: 66."
+    "description": "Dunlop FX 500 Super Lite. Head: 100 in\u00b2 \u00b7 SW: 289 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=DF50SL-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-fx-700-racquets-2026",
@@ -26464,7 +26573,8 @@
     ],
     "era": "spin",
     "uiColor": "#ea580c",
-    "description": "Dunlop FX 700 Racquets. Head: 107 in\u00b2 \u00b7 SW: 321 \u00b7 RA: 68."
+    "description": "Dunlop FX 700 Racquets. Head: 107 in\u00b2 \u00b7 SW: 321 \u00b7 RA: 68.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=FX700R-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-sx-300-ls-racquet-2025-2025",
@@ -26483,7 +26593,8 @@
     ],
     "era": "all-court",
     "uiColor": "#ea580c",
-    "description": "Dunlop SX 300 LS Racquet 2025. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Dunlop SX 300 LS Racquet 2025. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=DSXLSR-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-sx-300-lite-racquet-2025-2025",
@@ -26502,7 +26613,8 @@
     ],
     "era": "all-court",
     "uiColor": "#ea580c",
-    "description": "Dunlop SX 300 Lite Racquet 2025. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Dunlop SX 300 Lite Racquet 2025. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=DSXLIR-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-sx-300-racquet-2025-2025",
@@ -26521,7 +26633,8 @@
     ],
     "era": "all-court",
     "uiColor": "#ea580c",
-    "description": "Dunlop SX 300 Racquet 2025. Head: 100 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 69."
+    "description": "Dunlop SX 300 Racquet 2025. Head: 100 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 69.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=DSX3R-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-sx-300-tour-racquet-2025-2025",
@@ -26540,7 +26653,8 @@
     ],
     "era": "all-court",
     "uiColor": "#ea580c",
-    "description": "Dunlop SX 300 Tour Racquet 2025. Head: 98 in\u00b2 \u00b7 SW: 321 \u00b7 RA: 69."
+    "description": "Dunlop SX 300 Tour Racquet 2025. Head: 98 in\u00b2 \u00b7 SW: 321 \u00b7 RA: 69.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=DSXTR3-1.jpg&nw=1462"
   },
   {
     "id": "dunlop-sx-600-2022",
@@ -26559,7 +26673,8 @@
     ],
     "era": "all-court",
     "uiColor": "#ea580c",
-    "description": "Dunlop SX 600. Head: 105 in\u00b2 \u00b7 SW: 309 \u00b7 RA: 60."
+    "description": "Dunlop SX 600. Head: 105 in\u00b2 \u00b7 SW: 309 \u00b7 RA: 60.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=DSX600-1.jpg&nw=1462"
   },
   {
     "id": "head-boom-mp-2026-2026",
@@ -26578,7 +26693,8 @@
     ],
     "era": "control",
     "uiColor": "#d97706",
-    "description": "Head Boom MP 2026. Head: 100 in\u00b2 \u00b7 SW: 316 \u00b7 RA: 61."
+    "description": "Head Boom MP 2026. Head: 100 in\u00b2 \u00b7 SW: 316 \u00b7 RA: 61.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HBOMP6-1.jpg&nw=1462"
   },
   {
     "id": "head-boom-mp-2026-purple-2026",
@@ -26597,7 +26713,8 @@
     ],
     "era": "control",
     "uiColor": "#d97706",
-    "description": "Head Boom MP 2026 Purple. Head: 100 in\u00b2 \u00b7 SW: 316 \u00b7 RA: 61."
+    "description": "Head Boom MP 2026 Purple. Head: 100 in\u00b2 \u00b7 SW: 316 \u00b7 RA: 61.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HBOMPA-1.jpg&nw=1462"
   },
   {
     "id": "head-boom-mp-l-2024-2024",
@@ -26616,7 +26733,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Boom MP L 2024. Head: 100 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 62."
+    "description": "Head Boom MP L 2024. Head: 100 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HBMPL-1.jpg&nw=1462"
   },
   {
     "id": "head-boom-mp-l-2024-alternate-2024",
@@ -26635,7 +26753,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Boom MP L 2024 Alternate. Head: 100 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 62."
+    "description": "Head Boom MP L 2024 Alternate. Head: 100 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HBMPLA-1.jpg&nw=1462"
   },
   {
     "id": "head-boom-mp-l-2026-2026",
@@ -26654,7 +26773,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Boom MP L 2026. Head: 100 in\u00b2 \u00b7 SW: 305 \u00b7 RA: 63."
+    "description": "Head Boom MP L 2026. Head: 100 in\u00b2 \u00b7 SW: 305 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HBMPL6-1.jpg&nw=1462"
   },
   {
     "id": "head-boom-mp-l-2026-purple-2026",
@@ -26673,7 +26793,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Boom MP L 2026 Purple. Head: 100 in\u00b2 \u00b7 SW: 305 \u00b7 RA: 63."
+    "description": "Head Boom MP L 2026 Purple. Head: 100 in\u00b2 \u00b7 SW: 305 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BMPLA6-1.jpg&nw=1462"
   },
   {
     "id": "head-boom-mp-ul-2026-2026",
@@ -26692,7 +26813,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Boom MP UL 2026. Head: 100 in\u00b2 \u00b7 SW: 290 \u00b7 RA: 62."
+    "description": "Head Boom MP UL 2026. Head: 100 in\u00b2 \u00b7 SW: 290 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HBMPUL-1.jpg&nw=1462"
   },
   {
     "id": "head-boom-mp-ul-2026-purple-2026",
@@ -26711,7 +26833,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Boom MP UL 2026 Purple. Head: 100 in\u00b2 \u00b7 SW: 290 \u00b7 RA: 62."
+    "description": "Head Boom MP UL 2026 Purple. Head: 100 in\u00b2 \u00b7 SW: 290 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BMPULA-1.jpg&nw=1462"
   },
   {
     "id": "head-boom-pro-2026-2026",
@@ -26730,7 +26853,8 @@
     ],
     "era": "power",
     "uiColor": "#d97706",
-    "description": "Head Boom Pro 2026. Head: 98 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 98."
+    "description": "Head Boom Pro 2026. Head: 98 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 98.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HBOOP6-1.jpg&nw=1462"
   },
   {
     "id": "head-boom-team-2026-2026",
@@ -26749,7 +26873,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Boom Team 2026. Head: 107 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 62."
+    "description": "Head Boom Team 2026. Head: 107 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HBOT26-1.jpg&nw=1462"
   },
   {
     "id": "head-boom-team-2026-purple-2026",
@@ -26768,7 +26893,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Boom Team 2026 Purple. Head: 107 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 62."
+    "description": "Head Boom Team 2026 Purple. Head: 107 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HBMTAL-1.jpg&nw=1462"
   },
   {
     "id": "head-extreme-mp-2024-2024",
@@ -26787,7 +26913,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Extreme MP 2024. Head: 100 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 66."
+    "description": "Head Extreme MP 2024. Head: 100 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HREM24-1.jpg&nw=1462"
   },
   {
     "id": "head-extreme-mp-l-2024-2024",
@@ -26806,7 +26933,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Extreme MP L 2024. Head: 100 in\u00b2 \u00b7 SW: 308 \u00b7 RA: 64."
+    "description": "Head Extreme MP L 2024. Head: 100 in\u00b2 \u00b7 SW: 308 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HEMPL4-1.jpg&nw=1462"
   },
   {
     "id": "head-extreme-team-2024-2024",
@@ -26825,7 +26953,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Extreme Team 2024. Head: 105 in\u00b2 \u00b7 SW: 304 \u00b7 RA: 61."
+    "description": "Head Extreme Team 2024. Head: 105 in\u00b2 \u00b7 SW: 304 \u00b7 RA: 61.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HRET24-1.jpg&nw=1462"
   },
   {
     "id": "head-ig-boom-xceed-2026",
@@ -26844,7 +26973,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head IG Boom XCeed. Head: 107 in\u00b2 \u00b7 SW: 307 \u00b7 RA: 67."
+    "description": "Head IG Boom XCeed. Head: 107 in\u00b2 \u00b7 SW: 307 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=XCEEDB-1.jpg&nw=1462"
   },
   {
     "id": "head-instinct-mp-2025-2025",
@@ -26863,7 +26993,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Instinct MP 2025. Head: 100 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 64."
+    "description": "Head Instinct MP 2025. Head: 100 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HINMP-1.jpg&nw=1462"
   },
   {
     "id": "head-pwr-115-2026",
@@ -26882,7 +27013,8 @@
     ],
     "era": "spin",
     "uiColor": "#d97706",
-    "description": "Head PWR 115. Head: 115 in\u00b2 \u00b7 SW: 312 \u00b7 RA: 67."
+    "description": "Head PWR 115. Head: 115 in\u00b2 \u00b7 SW: 312 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HPWR15-1.jpg&nw=1462"
   },
   {
     "id": "head-prestige-mp-2023-2023",
@@ -26901,7 +27033,8 @@
     ],
     "era": "power",
     "uiColor": "#d97706",
-    "description": "Head Prestige MP 2023. Head: 99 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 99."
+    "description": "Head Prestige MP 2023. Head: 99 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 99.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HPRMPR-1.jpg&nw=1462"
   },
   {
     "id": "head-radical-mp-2025-2025",
@@ -26920,7 +27053,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Radical MP 2025. Head: 98 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 66."
+    "description": "Head Radical MP 2025. Head: 98 in\u00b2 \u00b7 SW: 323 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HRMP-1.jpg&nw=1462"
   },
   {
     "id": "head-radical-pro-2025-2025",
@@ -26939,7 +27073,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Radical Pro 2025. Head: 98 in\u00b2 \u00b7 SW: 329 \u00b7 RA: 65."
+    "description": "Head Radical Pro 2025. Head: 98 in\u00b2 \u00b7 SW: 329 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HPRR-1.jpg&nw=1462"
   },
   {
     "id": "head-radical-team-2025-2025",
@@ -26958,7 +27093,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Radical Team 2025. Head: 102 in\u00b2 \u00b7 SW: 303 \u00b7 RA: 63."
+    "description": "Head Radical Team 2025. Head: 102 in\u00b2 \u00b7 SW: 303 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HRRT-1.jpg&nw=1462"
   },
   {
     "id": "head-radical-team-l-2025-2025",
@@ -26977,7 +27113,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Radical Team L 2025. Head: 102 in\u00b2 \u00b7 SW: 304 \u00b7 RA: 66."
+    "description": "Head Radical Team L 2025. Head: 102 in\u00b2 \u00b7 SW: 304 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HRRTL-1.jpg&nw=1462"
   },
   {
     "id": "head-speed-mp-legend-2025-2025",
@@ -26996,7 +27133,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Speed MP Legend 2025. Head: 100 in\u00b2 \u00b7 SW: 329 \u00b7 RA: 60."
+    "description": "Head Speed MP Legend 2025. Head: 100 in\u00b2 \u00b7 SW: 329 \u00b7 RA: 60.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HSMPL5-1.jpg&nw=1462"
   },
   {
     "id": "head-speed-pwr-2024",
@@ -27015,7 +27153,8 @@
     ],
     "era": "all-court",
     "uiColor": "#d97706",
-    "description": "Head Speed PWR. Head: 115 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Head Speed PWR. Head: 115 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HSPW-1.jpg&nw=1462"
   },
   {
     "id": "head-speed-pro-legend-2024",
@@ -27034,7 +27173,8 @@
     ],
     "era": "control",
     "uiColor": "#d97706",
-    "description": "Head Speed Pro Legend. Head: 100 in\u00b2 \u00b7 SW: 333 \u00b7 RA: 60."
+    "description": "Head Speed Pro Legend. Head: 100 in\u00b2 \u00b7 SW: 333 \u00b7 RA: 60.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HSPDPL-1.jpg&nw=1462"
   },
   {
     "id": "head-speed-pro-legend-2025-2025",
@@ -27053,7 +27193,8 @@
     ],
     "era": "control",
     "uiColor": "#d97706",
-    "description": "Head Speed Pro Legend 2025. Head: 100 in\u00b2 \u00b7 SW: 328 \u00b7 RA: 61."
+    "description": "Head Speed Pro Legend 2025. Head: 100 in\u00b2 \u00b7 SW: 328 \u00b7 RA: 61.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HSPPL5-1.jpg&nw=1462"
   },
   {
     "id": "head-squared-2026",
@@ -27072,7 +27213,8 @@
     ],
     "era": "control",
     "uiColor": "#d97706",
-    "description": "Head Squared. Head: 100 in\u00b2 \u00b7 SW: 291 \u00b7 RA: 60."
+    "description": "Head Squared. Head: 100 in\u00b2 \u00b7 SW: 291 \u00b7 RA: 60.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=HSQUR-1.jpg&nw=1462"
   },
   {
     "id": "prince-o3-legacy-105-racquet-2024-2024",
@@ -27091,7 +27233,8 @@
     ],
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Prince O3 Legacy 105 Racquet 2024. Head: 105 in\u00b2 \u00b7 SW: 316 \u00b7 RA: 63."
+    "description": "Prince O3 Legacy 105 Racquet 2024. Head: 105 in\u00b2 \u00b7 SW: 316 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PLEG5-1.jpg&nw=1462"
   },
   {
     "id": "prince-o3-legacy-120-racquet-2024-2024",
@@ -27110,7 +27253,8 @@
     ],
     "era": "spin",
     "uiColor": "#059669",
-    "description": "Prince O3 Legacy 120 Racquet 2024. Head: 120 in\u00b2 \u00b7 SW: 330 \u00b7 RA: 69."
+    "description": "Prince O3 Legacy 120 Racquet 2024. Head: 120 in\u00b2 \u00b7 SW: 330 \u00b7 RA: 69.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PLEG2-1.jpg&nw=1462"
   },
   {
     "id": "prince-phantom-100p-racquet-2024-2024",
@@ -27129,7 +27273,8 @@
     ],
     "era": "control",
     "uiColor": "#059669",
-    "description": "Prince Phantom 100P Racquet 2024. Head: 100 in\u00b2 \u00b7 SW: 324 \u00b7 RA: 59."
+    "description": "Prince Phantom 100P Racquet 2024. Head: 100 in\u00b2 \u00b7 SW: 324 \u00b7 RA: 59.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PHNP1-1.jpg&nw=1462"
   },
   {
     "id": "prince-phantom-100x-18x20-racquet-2024-2024",
@@ -27148,7 +27293,8 @@
     ],
     "era": "control",
     "uiColor": "#059669",
-    "description": "Prince Phantom 100X 18x20 Racquet 2024. Head: 100 in\u00b2 \u00b7 SW: 327 \u00b7 RA: 59."
+    "description": "Prince Phantom 100X 18x20 Racquet 2024. Head: 100 in\u00b2 \u00b7 SW: 327 \u00b7 RA: 59.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PHNX2-1.jpg&nw=1462"
   },
   {
     "id": "prince-phantom-100x-290g-racquet-2024-2024",
@@ -27167,7 +27313,8 @@
     ],
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Prince Phantom 100X 290g Racquet 2024. Head: 100 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 59."
+    "description": "Prince Phantom 100X 290g Racquet 2024. Head: 100 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 59.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PHNX9-1.jpg&nw=1462"
   },
   {
     "id": "prince-phantom-100x-305g-racquet-2024-2024",
@@ -27186,7 +27333,8 @@
     ],
     "era": "control",
     "uiColor": "#059669",
-    "description": "Prince Phantom 100X 305g Racquet 2024. Head: 100 in\u00b2 \u00b7 SW: 320 \u00b7 RA: 59."
+    "description": "Prince Phantom 100X 305g Racquet 2024. Head: 100 in\u00b2 \u00b7 SW: 320 \u00b7 RA: 59.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PHNX5-1.jpg&nw=1462"
   },
   {
     "id": "prince-phantom-107g-racquet-2024-2024",
@@ -27205,7 +27353,8 @@
     ],
     "era": "control",
     "uiColor": "#059669",
-    "description": "Prince Phantom 107G Racquet 2024. Head: 107 in\u00b2 \u00b7 SW: 320 \u00b7 RA: 62."
+    "description": "Prince Phantom 107G Racquet 2024. Head: 107 in\u00b2 \u00b7 SW: 320 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PHN7G-1.jpg&nw=1462"
   },
   {
     "id": "prince-ripcord-100-265g-2025",
@@ -27224,7 +27373,8 @@
     ],
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Prince Ripcord 100 265g. Head: 100 in\u00b2 \u00b7 SW: 308 \u00b7 RA: 65."
+    "description": "Prince Ripcord 100 265g. Head: 100 in\u00b2 \u00b7 SW: 308 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=RPCDL-1.jpg&nw=1462"
   },
   {
     "id": "prince-ripcord-100-280g-2025",
@@ -27243,7 +27393,8 @@
     ],
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Prince Ripcord 100 280g. Head: 100 in\u00b2 \u00b7 SW: 315 \u00b7 RA: 66."
+    "description": "Prince Ripcord 100 280g. Head: 100 in\u00b2 \u00b7 SW: 315 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=RPCDM-1.jpg&nw=1462"
   },
   {
     "id": "prince-ripcord-100-300g-2025",
@@ -27262,7 +27413,8 @@
     ],
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Prince Ripcord 100 300g. Head: 100 in\u00b2 \u00b7 SW: 322 \u00b7 RA: 68."
+    "description": "Prince Ripcord 100 300g. Head: 100 in\u00b2 \u00b7 SW: 322 \u00b7 RA: 68.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=RPCDH-1.jpg&nw=1462"
   },
   {
     "id": "prince-ripcord-98-xs-2024",
@@ -27281,7 +27433,8 @@
     ],
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Prince Ripcord 98 XS. Head: 98 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 67."
+    "description": "Prince Ripcord 98 XS. Head: 98 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PRIPXS-1.jpg&nw=1462"
   },
   {
     "id": "prince-warrior-100-265g-2025",
@@ -27300,7 +27453,8 @@
     ],
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Prince Warrior 100 (265g). Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Prince Warrior 100 (265g). Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=P5WA26-1.jpg&nw=1462"
   },
   {
     "id": "prince-warrior-100-285g-2025",
@@ -27319,7 +27473,8 @@
     ],
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Prince Warrior 100 (285g). Head: 100 in\u00b2 \u00b7 SW: 311 \u00b7 RA: 65."
+    "description": "Prince Warrior 100 (285g). Head: 100 in\u00b2 \u00b7 SW: 311 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=P5WA28-1.jpg&nw=1462"
   },
   {
     "id": "prince-warrior-100-285g-racquets-2025",
@@ -27338,7 +27493,8 @@
     ],
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Prince Warrior 100 (285g) Racquets. Head: 100 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 65."
+    "description": "Prince Warrior 100 (285g) Racquets. Head: 100 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PWAR28-1.jpg&nw=1462"
   },
   {
     "id": "prince-warrior-100-300g-2025",
@@ -27357,7 +27513,8 @@
     ],
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Prince Warrior 100 (300g). Head: 100 in\u00b2 \u00b7 SW: 314 \u00b7 RA: 65."
+    "description": "Prince Warrior 100 (300g). Head: 100 in\u00b2 \u00b7 SW: 314 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=P5WA30-1.jpg&nw=1462"
   },
   {
     "id": "prince-warrior-100-300g-racquets-2026",
@@ -27376,7 +27533,8 @@
     ],
     "era": "all-court",
     "uiColor": "#059669",
-    "description": "Prince Warrior 100 (300g) Racquets. Head: 100 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 65."
+    "description": "Prince Warrior 100 (300g) Racquets. Head: 100 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PWAR10-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-fire-260-os-2024",
@@ -27395,7 +27553,8 @@
     ],
     "era": "spin",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre Fire 260 OS. Head: 110 in\u00b2 \u00b7 SW: 292 \u00b7 RA: 67."
+    "description": "Tecnifibre Fire 260 OS. Head: 110 in\u00b2 \u00b7 SW: 292 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TFFI26-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-fire-270-2026",
@@ -27414,7 +27573,8 @@
     ],
     "era": "spin",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre Fire 270. Head: 100 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 68."
+    "description": "Tecnifibre Fire 270. Head: 100 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 68.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TFFI70-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-fire-285-2026",
@@ -27433,7 +27593,8 @@
     ],
     "era": "spin",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre Fire 285. Head: 100 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 67."
+    "description": "Tecnifibre Fire 285. Head: 100 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TFFI28-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-fire-300-2026",
@@ -27452,7 +27613,8 @@
     ],
     "era": "all-court",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre Fire 300. Head: 100 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 69."
+    "description": "Tecnifibre Fire 300. Head: 100 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 69.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TFFI30-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-fire-305s-2026",
@@ -27471,7 +27633,8 @@
     ],
     "era": "all-court",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre Fire 305S. Head: 98 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 66."
+    "description": "Tecnifibre Fire 305S. Head: 98 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TFFI35-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-tf-x1-255-v2-2026",
@@ -27490,7 +27653,8 @@
     ],
     "era": "all-court",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre TF-X1 255 V2. Head: 100 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Tecnifibre TF-X1 255 V2. Head: 100 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TFX155-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-tf-x1-300-v2-2024",
@@ -27509,7 +27673,8 @@
     ],
     "era": "power",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre TF-X1 300 V2. Head: 100 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 71."
+    "description": "Tecnifibre TF-X1 300 V2. Head: 100 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 71.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TFX132-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-tf-x1-305-v2-2025",
@@ -27528,7 +27693,8 @@
     ],
     "era": "all-court",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre TF-X1 305 V2. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Tecnifibre TF-X1 305 V2. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TFX135-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-tf40-290g-16x19-2025",
@@ -27547,7 +27713,8 @@
     ],
     "era": "all-court",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre TF40 (290g) 16x19. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Tecnifibre TF40 (290g) 16x19. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TF40R9-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-tf40-305g-16x19-2025",
@@ -27566,7 +27733,8 @@
     ],
     "era": "all-court",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre TF40 (305g) 16x19. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Tecnifibre TF40 (305g) 16x19. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TF40R1-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-tf40-305g-18x20-2024",
@@ -27585,7 +27753,8 @@
     ],
     "era": "all-court",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre TF40 (305g) 18x20. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Tecnifibre TF40 (305g) 18x20. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TF40R2-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-tf40-315g-16x19-2026",
@@ -27604,7 +27773,8 @@
     ],
     "era": "all-court",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre TF40 (315g) 16x19. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Tecnifibre TF40 (315g) 16x19. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TF40R5-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-tfight-300-cny-limited-edition-2026",
@@ -27623,7 +27793,8 @@
     ],
     "era": "all-court",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre TFight 300 CNY Limited Edition. Head: 100 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 65."
+    "description": "Tecnifibre TFight 300 CNY Limited Edition. Head: 100 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TF30CN-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-tfight-300-racquet-2025-2025",
@@ -27642,7 +27813,8 @@
     ],
     "era": "all-court",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre TFight 300 Racquet 2025. Head: 100 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 65."
+    "description": "Tecnifibre TFight 300 Racquet 2025. Head: 100 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TF30ST-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-tfight-300s-racquet-2025-2025",
@@ -27661,7 +27833,8 @@
     ],
     "era": "all-court",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre TFight 300S Racquet 2025. Head: 98 in\u00b2 \u00b7 SW: 321 \u00b7 RA: 66."
+    "description": "Tecnifibre TFight 300S Racquet 2025. Head: 98 in\u00b2 \u00b7 SW: 321 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TF300S-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-tfight-305s-id-2026",
@@ -27680,7 +27853,8 @@
     ],
     "era": "control",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre TFight 305S ID. Head: 98 in\u00b2 \u00b7 SW: 324 \u00b7 RA: 63."
+    "description": "Tecnifibre TFight 305S ID. Head: 98 in\u00b2 \u00b7 SW: 324 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TF3SID-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-tfight-305s-racquet-2025-2025",
@@ -27699,7 +27873,8 @@
     ],
     "era": "control",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre TFight 305S Racquet 2025. Head: 98 in\u00b2 \u00b7 SW: 324 \u00b7 RA: 63."
+    "description": "Tecnifibre TFight 305S Racquet 2025. Head: 98 in\u00b2 \u00b7 SW: 324 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TF305S-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-tfight-315s-racquet-2025-2025",
@@ -27718,7 +27893,8 @@
     ],
     "era": "all-court",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre TFight 315S Racquet 2025. Head: 98 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 65."
+    "description": "Tecnifibre TFight 315S Racquet 2025. Head: 98 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TF315S-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-tfight-isoflex-255-2025",
@@ -27737,7 +27913,8 @@
     ],
     "era": "spin",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre TFight ISOFLEX 255. Head: 100 in\u00b2 \u00b7 SW: 299 \u00b7 RA: 67."
+    "description": "Tecnifibre TFight ISOFLEX 255. Head: 100 in\u00b2 \u00b7 SW: 299 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TF255S-1.jpg&nw=1462"
   },
   {
     "id": "tecnifibre-tfight-isoflex-285-racquet-2025-2025",
@@ -27756,7 +27933,8 @@
     ],
     "era": "all-court",
     "uiColor": "#0891b2",
-    "description": "Tecnifibre TFight ISOFLEX 285 Racquet 2025. Head: 100 in\u00b2 \u00b7 SW: 303 \u00b7 RA: 63."
+    "description": "Tecnifibre TFight ISOFLEX 285 Racquet 2025. Head: 100 in\u00b2 \u00b7 SW: 303 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=TF285S-1.jpg&nw=1462"
   },
   {
     "id": "volkl-c10-pro-25th-anniversary-2026",
@@ -27775,7 +27953,8 @@
     ],
     "era": "all-court",
     "uiColor": "#be185d",
-    "description": "Volkl C10 Pro 25th Anniversary. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Volkl C10 Pro 25th Anniversary. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=C10PAN-1.jpg&nw=1462"
   },
   {
     "id": "volkl-c10-pro-v10-2025",
@@ -27794,7 +27973,8 @@
     ],
     "era": "control",
     "uiColor": "#be185d",
-    "description": "Volkl C10 Pro v10. Head: 98 in\u00b2 \u00b7 SW: 326 \u00b7 RA: 62."
+    "description": "Volkl C10 Pro v10. Head: 98 in\u00b2 \u00b7 SW: 326 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=C10P10-1.jpg&nw=1462"
   },
   {
     "id": "volkl-v-cell-1-racquets-2024",
@@ -27813,7 +27993,8 @@
     ],
     "era": "spin",
     "uiColor": "#be185d",
-    "description": "Volkl V-Cell 1 Racquets. Head: 115 in\u00b2 \u00b7 SW: 312 \u00b7 RA: 70."
+    "description": "Volkl V-Cell 1 Racquets. Head: 115 in\u00b2 \u00b7 SW: 312 \u00b7 RA: 70.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VC1-1.jpg&nw=1462"
   },
   {
     "id": "volkl-v1-classic-v12-2025",
@@ -27832,7 +28013,8 @@
     ],
     "era": "spin",
     "uiColor": "#be185d",
-    "description": "Volkl V1 Classic v12. Head: 102 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 68."
+    "description": "Volkl V1 Classic v12. Head: 102 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 68.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=V1CL12-1.jpg&nw=1462"
   },
   {
     "id": "volkl-v1-evo-v2-2025",
@@ -27851,7 +28033,8 @@
     ],
     "era": "all-court",
     "uiColor": "#be185d",
-    "description": "Volkl V1 EVO v2. Head: 102 in\u00b2 \u00b7 SW: 326 \u00b7 RA: 64."
+    "description": "Volkl V1 EVO v2. Head: 102 in\u00b2 \u00b7 SW: 326 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=V1EV2-1.jpg&nw=1462"
   },
   {
     "id": "volkl-vostra-1-power-arm-2024",
@@ -27870,7 +28053,8 @@
     ],
     "era": "spin",
     "uiColor": "#be185d",
-    "description": "Volkl Vostra 1 Power Arm. Head: 115 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 69."
+    "description": "Volkl Vostra 1 Power Arm. Head: 115 in\u00b2 \u00b7 SW: 317 \u00b7 RA: 69.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VOS1PA-1.jpg&nw=1462"
   },
   {
     "id": "volkl-vostra-v1-mp-2026",
@@ -27889,7 +28073,8 @@
     ],
     "era": "all-court",
     "uiColor": "#be185d",
-    "description": "Volkl Vostra V1 MP. Head: 102 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 67."
+    "description": "Volkl Vostra V1 MP. Head: 102 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VOSV1M-1.jpg&nw=1462"
   },
   {
     "id": "volkl-vostra-v1-pro-2025",
@@ -27908,7 +28093,8 @@
     ],
     "era": "spin",
     "uiColor": "#be185d",
-    "description": "Volkl Vostra V1 Pro. Head: 99 in\u00b2 \u00b7 SW: 321 \u00b7 RA: 67."
+    "description": "Volkl Vostra V1 Pro. Head: 99 in\u00b2 \u00b7 SW: 321 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VOSV1P-1.jpg&nw=1462"
   },
   {
     "id": "volkl-vostra-v10-320g-2026",
@@ -27927,7 +28113,8 @@
     ],
     "era": "all-court",
     "uiColor": "#be185d",
-    "description": "Volkl Vostra V10 320g. Head: 98 in\u00b2 \u00b7 SW: 327 \u00b7 RA: 65."
+    "description": "Volkl Vostra V10 320g. Head: 98 in\u00b2 \u00b7 SW: 327 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VOSV1B-1.jpg&nw=1462"
   },
   {
     "id": "volkl-vostra-v2-2024",
@@ -27946,7 +28133,8 @@
     ],
     "era": "spin",
     "uiColor": "#be185d",
-    "description": "Volkl Vostra V2. Head: 115 in\u00b2 \u00b7 SW: 315 \u00b7 RA: 69."
+    "description": "Volkl Vostra V2. Head: 115 in\u00b2 \u00b7 SW: 315 \u00b7 RA: 69.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VOSV2-1.jpg&nw=1462"
   },
   {
     "id": "volkl-vostra-v3-2026",
@@ -27965,7 +28153,8 @@
     ],
     "era": "spin",
     "uiColor": "#be185d",
-    "description": "Volkl Vostra V3. Head: 110 in\u00b2 \u00b7 SW: 311 \u00b7 RA: 67."
+    "description": "Volkl Vostra V3. Head: 110 in\u00b2 \u00b7 SW: 311 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VOS3V-1.jpg&nw=1462"
   },
   {
     "id": "volkl-vostra-v5-2026",
@@ -27984,7 +28173,8 @@
     ],
     "era": "spin",
     "uiColor": "#be185d",
-    "description": "Volkl Vostra V5. Head: 100 in\u00b2 \u00b7 SW: 290 \u00b7 RA: 69."
+    "description": "Volkl Vostra V5. Head: 100 in\u00b2 \u00b7 SW: 290 \u00b7 RA: 69.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VOSV5-1.jpg&nw=1462"
   },
   {
     "id": "volkl-vostra-v7-2025",
@@ -28003,7 +28193,8 @@
     ],
     "era": "all-court",
     "uiColor": "#be185d",
-    "description": "Volkl Vostra V7. Head: 100 in\u00b2 \u00b7 SW: 320 \u00b7 RA: 69."
+    "description": "Volkl Vostra V7. Head: 100 in\u00b2 \u00b7 SW: 320 \u00b7 RA: 69.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VOS7V-1.jpg&nw=1462"
   },
   {
     "id": "volkl-vostra-v9-305g-2024",
@@ -28022,7 +28213,8 @@
     ],
     "era": "all-court",
     "uiColor": "#be185d",
-    "description": "Volkl Vostra V9 305g. Head: 100 in\u00b2 \u00b7 SW: 316 \u00b7 RA: 65."
+    "description": "Volkl Vostra V9 305g. Head: 100 in\u00b2 \u00b7 SW: 316 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VOSV9-1.jpg&nw=1462"
   },
   {
     "id": "wilson-blade-100ul-v9-2024",
@@ -28041,7 +28233,8 @@
     ],
     "era": "all-court",
     "uiColor": "#dc2626",
-    "description": "Wilson Blade 100UL v9. Head: 100 in\u00b2 \u00b7 SW: 304 \u00b7 RA: 65."
+    "description": "Wilson Blade 100UL v9. Head: 100 in\u00b2 \u00b7 SW: 304 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WBULV-1.jpg&nw=1462"
   },
   {
     "id": "wilson-burn-100-v5-2025",
@@ -28060,7 +28253,8 @@
     ],
     "era": "power",
     "uiColor": "#dc2626",
-    "description": "Wilson Burn 100 v5. Head: 100 in\u00b2 \u00b7 SW: 320 \u00b7 RA: 72."
+    "description": "Wilson Burn 100 v5. Head: 100 in\u00b2 \u00b7 SW: 320 \u00b7 RA: 72.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BRN1V5-1.jpg&nw=1462"
   },
   {
     "id": "wilson-burn-100s-v5-2026",
@@ -28079,7 +28273,8 @@
     ],
     "era": "spin",
     "uiColor": "#dc2626",
-    "description": "Wilson Burn 100S v5. Head: 100 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 73."
+    "description": "Wilson Burn 100S v5. Head: 100 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 73.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BRNSV5-1.jpg&nw=1462"
   },
   {
     "id": "wilson-burn-100uls-v5-racquets-2026",
@@ -28098,7 +28293,8 @@
     ],
     "era": "spin",
     "uiColor": "#dc2626",
-    "description": "Wilson Burn 100ULS v5 Racquets. Head: 100 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 67."
+    "description": "Wilson Burn 100ULS v5 Racquets. Head: 100 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=BRULS5-1.jpg&nw=1462"
   },
   {
     "id": "wilson-clash-100-v3-reverse-2025",
@@ -28117,7 +28313,8 @@
     ],
     "era": "control",
     "uiColor": "#dc2626",
-    "description": "Wilson Clash 100 v3 Reverse. Head: 100 in\u00b2 \u00b7 SW: 311 \u00b7 RA: 54."
+    "description": "Wilson Clash 100 v3 Reverse. Head: 100 in\u00b2 \u00b7 SW: 311 \u00b7 RA: 54.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WC103R-1.jpg&nw=1462"
   },
   {
     "id": "wilson-clash-100l-v3-reverse-2025",
@@ -28136,7 +28333,8 @@
     ],
     "era": "control",
     "uiColor": "#dc2626",
-    "description": "Wilson Clash 100L v3 Reverse. Head: 100 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 54."
+    "description": "Wilson Clash 100L v3 Reverse. Head: 100 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 54.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WC1L3R-1.jpg&nw=1462"
   },
   {
     "id": "wilson-clash-100ul-v3-2025",
@@ -28155,7 +28353,8 @@
     ],
     "era": "all-court",
     "uiColor": "#dc2626",
-    "description": "Wilson Clash 100UL v3. Head: 100 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Wilson Clash 100UL v3. Head: 100 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WC1UL3-1.jpg&nw=1462"
   },
   {
     "id": "wilson-pro-staff-97-classic-2026",
@@ -28174,7 +28373,8 @@
     ],
     "era": "all-court",
     "uiColor": "#dc2626",
-    "description": "Wilson Pro Staff 97 Classic. Head: 97 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 66."
+    "description": "Wilson Pro Staff 97 Classic. Head: 97 in\u00b2 \u00b7 SW: 325 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WPS97C-1.jpg&nw=1462"
   },
   {
     "id": "wilson-pro-staff-97l-classic-2026",
@@ -28193,7 +28393,8 @@
     ],
     "era": "spin",
     "uiColor": "#dc2626",
-    "description": "Wilson Pro Staff 97L Classic. Head: 97 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 68."
+    "description": "Wilson Pro Staff 97L Classic. Head: 97 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 68.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WPS97L-1.jpg&nw=1462"
   },
   {
     "id": "wilson-pro-staff-97ul-classic-2026",
@@ -28212,7 +28413,8 @@
     ],
     "era": "all-court",
     "uiColor": "#dc2626",
-    "description": "Wilson Pro Staff 97UL Classic. Head: 97 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 67."
+    "description": "Wilson Pro Staff 97UL Classic. Head: 97 in\u00b2 \u00b7 SW: 301 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WPSULC-1.jpg&nw=1462"
   },
   {
     "id": "wilson-pro-staff-precision-103-2026",
@@ -28231,7 +28433,8 @@
     ],
     "era": "all-court",
     "uiColor": "#dc2626",
-    "description": "Wilson Pro Staff Precision 103. Head: 103 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Wilson Pro Staff Precision 103. Head: 103 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WPS103-1.jpg&nw=1462"
   },
   {
     "id": "wilson-pro-staff-precision-105-2026",
@@ -28250,7 +28453,8 @@
     ],
     "era": "all-court",
     "uiColor": "#dc2626",
-    "description": "Wilson Pro Staff Precision 105. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Wilson Pro Staff Precision 105. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WPS105-1.jpg&nw=1462"
   },
   {
     "id": "wilson-rf-01-future-lite-2026",
@@ -28269,7 +28473,8 @@
     ],
     "era": "all-court",
     "uiColor": "#dc2626",
-    "description": "Wilson RF 01 Future Lite. Head: 98 in\u00b2 \u00b7 SW: 294 \u00b7 RA: 63."
+    "description": "Wilson RF 01 Future Lite. Head: 98 in\u00b2 \u00b7 SW: 294 \u00b7 RA: 63.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WRFFL-1.jpg&nw=1462"
   },
   {
     "id": "wilson-shift-99l-2025",
@@ -28288,7 +28493,8 @@
     ],
     "era": "all-court",
     "uiColor": "#dc2626",
-    "description": "Wilson Shift 99L. Head: 99 in\u00b2 \u00b7 SW: 311 \u00b7 RA: 68."
+    "description": "Wilson Shift 99L. Head: 99 in\u00b2 \u00b7 SW: 311 \u00b7 RA: 68.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WSP285-1.jpg&nw=1462"
   },
   {
     "id": "wilson-shift-99l-us-open-racquet-2025-2025",
@@ -28307,7 +28513,8 @@
     ],
     "era": "all-court",
     "uiColor": "#dc2626",
-    "description": "Wilson Shift 99L US Open Racquet 2025. Head: 99 in\u00b2 \u00b7 SW: 311 \u00b7 RA: 68."
+    "description": "Wilson Shift 99L US Open Racquet 2025. Head: 99 in\u00b2 \u00b7 SW: 311 \u00b7 RA: 68.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WS9LUS-1.jpg&nw=1462"
   },
   {
     "id": "wilson-us-open-shift-99-300g-2025",
@@ -28326,7 +28533,8 @@
     ],
     "era": "all-court",
     "uiColor": "#dc2626",
-    "description": "Wilson US Open Shift 99 (300g ). Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Wilson US Open Shift 99 (300g ). Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=USSH99-1.jpg&nw=1462"
   },
   {
     "id": "wilson-ultra-100-v5-2025",
@@ -28345,7 +28553,8 @@
     ],
     "era": "all-court",
     "uiColor": "#dc2626",
-    "description": "Wilson Ultra 100 v5. Head: 100 in\u00b2 \u00b7 SW: 322 \u00b7 RA: 67."
+    "description": "Wilson Ultra 100 v5. Head: 100 in\u00b2 \u00b7 SW: 322 \u00b7 RA: 67.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WU1005-1.jpg&nw=1462"
   },
   {
     "id": "wilson-ultra-100l-v5-2025",
@@ -28364,7 +28573,8 @@
     ],
     "era": "all-court",
     "uiColor": "#dc2626",
-    "description": "Wilson Ultra 100L v5. Head: 100 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 64."
+    "description": "Wilson Ultra 100L v5. Head: 100 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WU10L5-1.jpg&nw=1462"
   },
   {
     "id": "wilson-ultra-100ul-v5-2025",
@@ -28383,7 +28593,8 @@
     ],
     "era": "all-court",
     "uiColor": "#dc2626",
-    "description": "Wilson Ultra 100UL v5. Head: 100 in\u00b2 \u00b7 SW: 290 \u00b7 RA: 65."
+    "description": "Wilson Ultra 100UL v5. Head: 100 in\u00b2 \u00b7 SW: 290 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WU1UL5-1.jpg&nw=1462"
   },
   {
     "id": "wilson-ultra-111-v5-2025",
@@ -28402,7 +28613,8 @@
     ],
     "era": "all-court",
     "uiColor": "#dc2626",
-    "description": "Wilson Ultra 111 v5. Head: 111 in\u00b2 \u00b7 SW: 290 \u00b7 RA: 66."
+    "description": "Wilson Ultra 111 v5. Head: 111 in\u00b2 \u00b7 SW: 290 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WU1115-1.jpg&nw=1462"
   },
   {
     "id": "wilson-ultra-99-pro-v5-2025",
@@ -28421,7 +28633,8 @@
     ],
     "era": "spin",
     "uiColor": "#dc2626",
-    "description": "Wilson Ultra 99 Pro v5. Head: 99 in\u00b2 \u00b7 SW: 330 \u00b7 RA: 69."
+    "description": "Wilson Ultra 99 Pro v5. Head: 99 in\u00b2 \u00b7 SW: 330 \u00b7 RA: 69.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WU99P5-1.jpg&nw=1462"
   },
   {
     "id": "wilson-ultra-pro-v4-18x20-2017",
@@ -28440,7 +28653,8 @@
     ],
     "era": "control",
     "uiColor": "#dc2626",
-    "description": "Wilson Ultra Pro V4 18x20. Head: 97 in\u00b2 \u00b7 SW: 319 \u00b7 RA: 62."
+    "description": "Wilson Ultra Pro V4 18x20. Head: 97 in\u00b2 \u00b7 SW: 319 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WUP18V-1.jpg&nw=1462"
   },
   {
     "id": "wilson-ultra-team-v5-2025",
@@ -28459,7 +28673,8 @@
     ],
     "era": "all-court",
     "uiColor": "#dc2626",
-    "description": "Wilson Ultra Team v5. Head: 100 in\u00b2 \u00b7 SW: 312 \u00b7 RA: 64."
+    "description": "Wilson Ultra Team v5. Head: 100 in\u00b2 \u00b7 SW: 312 \u00b7 RA: 64.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=WUTEV5-1.jpg&nw=1462"
   },
   {
     "id": "yonex-astrel-105-2023",
@@ -28478,7 +28693,8 @@
     ],
     "era": "spin",
     "uiColor": "#7c3aed",
-    "description": "Yonex ASTREL 105. Head: 105 in\u00b2 \u00b7 SW: 305 \u00b7 RA: 69."
+    "description": "Yonex ASTREL 105. Head: 105 in\u00b2 \u00b7 SW: 305 \u00b7 RA: 69.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=YAS105-1.jpg&nw=1462"
   },
   {
     "id": "yonex-astrel-120-2023",
@@ -28497,7 +28713,8 @@
     ],
     "era": "spin",
     "uiColor": "#7c3aed",
-    "description": "Yonex ASTREL 120. Head: 120 in\u00b2 \u00b7 SW: 315 \u00b7 RA: 68."
+    "description": "Yonex ASTREL 120. Head: 120 in\u00b2 \u00b7 SW: 315 \u00b7 RA: 68.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=YAS120-1.jpg&nw=1462"
   },
   {
     "id": "yonex-astrel-100-racquets-2024",
@@ -28516,7 +28733,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex Astrel 100 Racquets. Head: 100 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Yonex Astrel 100 Racquets. Head: 100 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=YAS100-1.jpg&nw=1462"
   },
   {
     "id": "yonex-ezone-ace-racquet-2025-2025",
@@ -28535,7 +28753,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex EZONE Ace Racquet 2025. Head: 102 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 65."
+    "description": "Yonex EZONE Ace Racquet 2025. Head: 102 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=EZACBB-1.jpg&nw=1462"
   },
   {
     "id": "yonex-ezone-alpha-100-275g-2026",
@@ -28554,7 +28773,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex EZONE Alpha 100 (275g). Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Yonex EZONE Alpha 100 (275g). Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=EZAPR-1.jpg&nw=1462"
   },
   {
     "id": "yonex-ezone-alpha-100-l-260g-2026",
@@ -28573,7 +28793,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex EZONE Alpha 100 L (260g). Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Yonex EZONE Alpha 100 L (260g). Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=EZAPLR-1.jpg&nw=1462"
   },
   {
     "id": "yonex-ezone-alpha-sl-245g-2024",
@@ -28592,7 +28813,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex EZONE Alpha SL (245g). Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Yonex EZONE Alpha SL (245g). Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=EZASLB-1.jpg&nw=1462"
   },
   {
     "id": "yonex-ezone-100sl-2025",
@@ -28611,7 +28833,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex Ezone 100SL. Head: 100 in\u00b2 \u00b7 SW: 300 \u00b7 RA: 66."
+    "description": "Yonex Ezone 100SL. Head: 100 in\u00b2 \u00b7 SW: 300 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=EZ1SLB-1.jpg&nw=1462"
   },
   {
     "id": "yonex-muse-100-2025",
@@ -28630,7 +28853,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex Muse 100. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Yonex Muse 100. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=YMUS10-1.jpg&nw=1462"
   },
   {
     "id": "yonex-muse-100l-2026",
@@ -28649,7 +28873,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex Muse 100L. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Yonex Muse 100L. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=YMU10L-1.jpg&nw=1462"
   },
   {
     "id": "yonex-muse-107-2025",
@@ -28668,7 +28893,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex Muse 107. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Yonex Muse 107. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=YMUS7-1.jpg&nw=1462"
   },
   {
     "id": "yonex-muse-98-2025",
@@ -28687,7 +28913,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex Muse 98. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Yonex Muse 98. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=YMUS8-1.jpg&nw=1462"
   },
   {
     "id": "yonex-percept-100-midnight-navy-2025",
@@ -28706,7 +28933,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex Percept 100 Midnight Navy. Head: 100 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 66."
+    "description": "Yonex Percept 100 Midnight Navy. Head: 100 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PERM-1.jpg&nw=1462"
   },
   {
     "id": "yonex-percept-100d-midnight-navy-2025",
@@ -28725,7 +28953,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex Percept 100D Midnight Navy. Head: 100 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 66."
+    "description": "Yonex Percept 100D Midnight Navy. Head: 100 in\u00b2 \u00b7 SW: 318 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PERM1D-1.jpg&nw=1462"
   },
   {
     "id": "yonex-percept-100l-2026",
@@ -28744,7 +28973,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex Percept 100L. Head: 100 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 66."
+    "description": "Yonex Percept 100L. Head: 100 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PERC1L-1.jpg&nw=1462"
   },
   {
     "id": "yonex-percept-100l-midnight-navy-2026",
@@ -28763,7 +28993,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex Percept 100L Midnight Navy. Head: 100 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 66."
+    "description": "Yonex Percept 100L Midnight Navy. Head: 100 in\u00b2 \u00b7 SW: 313 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=YPER1L-1.jpg&nw=1462"
   },
   {
     "id": "yonex-percept-97-l-2026",
@@ -28782,7 +29013,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex Percept 97 L. Head: 97 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 66."
+    "description": "Yonex Percept 97 L. Head: 97 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PERC9L-1.jpg&nw=1462"
   },
   {
     "id": "yonex-percept-97-midnight-navy-2024",
@@ -28801,7 +29033,8 @@
     ],
     "era": "control",
     "uiColor": "#7c3aed",
-    "description": "Yonex Percept 97 Midnight Navy. Head: 97 in\u00b2 \u00b7 SW: 315 \u00b7 RA: 60."
+    "description": "Yonex Percept 97 Midnight Navy. Head: 97 in\u00b2 \u00b7 SW: 315 \u00b7 RA: 60.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PERM97-1.jpg&nw=1462"
   },
   {
     "id": "yonex-percept-97d-midnight-navy-2025",
@@ -28820,7 +29053,8 @@
     ],
     "era": "control",
     "uiColor": "#7c3aed",
-    "description": "Yonex Percept 97D Midnight Navy. Head: 97 in\u00b2 \u00b7 SW: 329 \u00b7 RA: 62."
+    "description": "Yonex Percept 97D Midnight Navy. Head: 97 in\u00b2 \u00b7 SW: 329 \u00b7 RA: 62.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=PERM9D-1.jpg&nw=1462"
   },
   {
     "id": "yonex-percept-97l-midnight-navy-2026",
@@ -28839,7 +29073,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex Percept 97L Midnight Navy. Head: 97 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 66."
+    "description": "Yonex Percept 97L Midnight Navy. Head: 97 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 66.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=YPER9L-1.jpg&nw=1462"
   },
   {
     "id": "yonex-vcore-100d-8th-gen-2026",
@@ -28858,7 +29093,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex VCORE 100D 8th Gen. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Yonex VCORE 100D 8th Gen. Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VC1D8G-1.jpg&nw=1462"
   },
   {
     "id": "yonex-vcore-95-racquet-sand-beige-2023",
@@ -28877,7 +29113,8 @@
     ],
     "era": "power",
     "uiColor": "#7c3aed",
-    "description": "Yonex VCORE 95 Racquet  Sand Beige. Head: 95 in\u00b2 \u00b7 SW: 321 \u00b7 RA: 95."
+    "description": "Yonex VCORE 95 Racquet  Sand Beige. Head: 95 in\u00b2 \u00b7 SW: 321 \u00b7 RA: 95.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=YVC95S-1.jpg&nw=1462"
   },
   {
     "id": "yonex-vcore-98l-8th-gen-2021",
@@ -28896,7 +29133,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex VCORE 98L 8th Gen. Head: 98 in\u00b2 \u00b7 SW: 307 \u00b7 RA: 65."
+    "description": "Yonex VCORE 98L 8th Gen. Head: 98 in\u00b2 \u00b7 SW: 307 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=YRVC9L-1.jpg&nw=1462"
   },
   {
     "id": "yonex-vcore-game-270g-2026",
@@ -28915,7 +29153,8 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex VCORE Game 270g. Head: 100 in\u00b2 \u00b7 SW: 305 \u00b7 RA: 65."
+    "description": "Yonex VCORE Game 270g. Head: 100 in\u00b2 \u00b7 SW: 305 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VCGRB-1.jpg&nw=1462"
   },
   {
     "id": "yonex-vcore-alpha-sl-245g-2026",
@@ -28934,6 +29173,7 @@
     ],
     "era": "all-court",
     "uiColor": "#7c3aed",
-    "description": "Yonex Vcore Alpha SL (245g). Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65."
+    "description": "Yonex Vcore Alpha SL (245g). Head: 98 in\u00b2 \u00b7 SW: 310 \u00b7 RA: 65.",
+    "imageUrl": "https://img.tennisonly.com.au/watermark/rs.php?path=VCASLB-1.jpg&nw=1462"
   }
 ]

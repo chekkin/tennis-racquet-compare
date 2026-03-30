@@ -257,7 +257,22 @@ export default function SpecsComparison({ entries }: Props) {
               <th className="text-left px-4 py-3 text-gray-400 font-medium">Specification</th>
               {entries.map((e, i) => (
                 <th key={e.racquet.id} className="text-left px-4 py-3 font-medium" style={{ color: colors[i] }}>
-                  {e.racquet.brand} {e.racquet.name}
+                  <div className="flex flex-col items-start gap-2">
+                    {e.racquet.imageUrl && (
+                      <div
+                        className="w-20 h-20 rounded-lg flex items-center justify-center overflow-hidden"
+                        style={{ backgroundColor: colors[i] + '15' }}
+                      >
+                        <img
+                          src={e.racquet.imageUrl}
+                          alt={e.racquet.name}
+                          className="w-full h-full object-contain p-1"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <span>{e.racquet.brand} {e.racquet.name}</span>
+                  </div>
                 </th>
               ))}
             </tr>
@@ -297,6 +312,19 @@ export default function SpecsComparison({ entries }: Props) {
       <div className="grid gap-4" style={{ gridTemplateColumns: `repeat(${entries.length}, 1fr)` }}>
         {entries.map((e, i) => (
           <div key={e.racquet.id} className="bg-gray-800/60 rounded-xl p-4 border-l-4" style={{ borderColor: colors[i] }}>
+            {e.racquet.imageUrl && (
+              <div
+                className="w-full h-32 rounded-lg mb-3 flex items-center justify-center overflow-hidden"
+                style={{ backgroundColor: colors[i] + '12' }}
+              >
+                <img
+                  src={e.racquet.imageUrl}
+                  alt={e.racquet.name}
+                  className="h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            )}
             <p className="text-sm font-semibold text-white mb-2">{e.racquet.brand} {e.racquet.name} ({e.racquet.year})</p>
             <p className="text-xs text-gray-400 leading-relaxed">{e.racquet.description}</p>
           </div>

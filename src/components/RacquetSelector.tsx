@@ -172,7 +172,7 @@ export default function RacquetSelector({ selected, onAdd, onRemove, onClose }: 
                       if (sel) onRemove(r.id)
                       else if (canAdd) onAdd(r)
                     }}
-                    className={`w-full text-left px-4 py-3 flex items-start gap-3 transition-colors border-b border-gray-800/50 ${
+                    className={`w-full text-left px-4 py-2.5 flex items-center gap-3 transition-colors border-b border-gray-800/50 ${
                       sel
                         ? 'bg-gray-800'
                         : canAdd
@@ -182,7 +182,7 @@ export default function RacquetSelector({ selected, onAdd, onRemove, onClose }: 
                     disabled={!sel && selectionFull}
                   >
                     {/* Colour indicator / selection index */}
-                    <div className="flex-shrink-0 mt-0.5">
+                    <div className="flex-shrink-0">
                       {sel ? (
                         <span
                           className="flex items-center justify-center w-5 h-5 rounded-full text-xs font-bold text-white"
@@ -195,6 +195,30 @@ export default function RacquetSelector({ selected, onAdd, onRemove, onClose }: 
                           className="block w-5 h-5 rounded-full border-2 border-gray-700"
                           style={{ borderColor: r.uiColor + '80' }}
                         />
+                      )}
+                    </div>
+
+                    {/* Racquet thumbnail */}
+                    <div
+                      className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden"
+                      style={{ backgroundColor: r.uiColor + '18' }}
+                    >
+                      {r.imageUrl ? (
+                        <img
+                          src={r.imageUrl}
+                          alt={r.name}
+                          className="w-full h-full object-contain p-0.5"
+                          loading="lazy"
+                          onError={(e) => {
+                            const target = e.currentTarget as HTMLImageElement
+                            target.style.display = 'none'
+                          }}
+                        />
+                      ) : (
+                        <svg viewBox="0 0 24 24" className="w-6 h-6 opacity-40" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <ellipse cx="8" cy="12" rx="6" ry="8" transform="rotate(-35 8 12)" style={{ stroke: r.uiColor }} />
+                          <line x1="12" y1="8" x2="20" y2="22" style={{ stroke: r.uiColor }} strokeWidth="2.5" strokeLinecap="round" />
+                        </svg>
                       )}
                     </div>
 

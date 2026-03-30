@@ -26,6 +26,8 @@ export interface Racquet {
   /** hex colour for UI identification */
   uiColor: string
   description: string
+  /** product photo URL (from tennisonly.com.au for stocked models) */
+  imageUrl?: string
 }
 
 // ─── 1,367 racquets sourced from Tennis Warehouse University database ───────
