@@ -194,6 +194,48 @@ export default function SpecsComparison({ entries }: Props) {
 
   return (
     <div className="w-full space-y-8">
+
+      {/* ── Hero racquet images ─────────────────────────────────────────── */}
+      {entries.some(e => e.racquet.imageUrl) && (
+        <div className={`grid gap-4`} style={{ gridTemplateColumns: `repeat(${entries.length}, 1fr)` }}>
+          {entries.map((e, i) => (
+            <div
+              key={e.racquet.id}
+              className="relative rounded-2xl overflow-hidden flex flex-col items-center justify-end"
+              style={{
+                background: `linear-gradient(160deg, ${colors[i]}22 0%, ${colors[i]}08 100%)`,
+                border: `1px solid ${colors[i]}40`,
+                minHeight: '220px',
+              }}
+            >
+              {e.racquet.imageUrl ? (
+                <img
+                  src={e.racquet.imageUrl}
+                  alt={e.racquet.name}
+                  className="w-full object-contain"
+                  style={{ maxHeight: '180px', padding: '16px 16px 8px' }}
+                  loading="lazy"
+                />
+              ) : (
+                <div className="flex-1 flex items-center justify-center w-full" style={{ minHeight: '160px' }}>
+                  <svg viewBox="0 0 60 80" className="w-20 h-28 opacity-20" fill="none" stroke="currentColor" strokeWidth="2">
+                    <ellipse cx="22" cy="32" rx="18" ry="24" transform="rotate(-20 22 32)" style={{ stroke: colors[i] }} />
+                    <line x1="34" y1="48" x2="52" y2="76" style={{ stroke: colors[i] }} strokeWidth="5" strokeLinecap="round" />
+                  </svg>
+                </div>
+              )}
+              <div className="w-full px-4 pb-4 pt-2" style={{ borderTop: `1px solid ${colors[i]}30` }}>
+                <div className="flex items-center gap-2 mb-0.5">
+                  <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: colors[i] }} />
+                  <p className="text-sm font-bold text-white truncate">{e.racquet.name}</p>
+                </div>
+                <p className="text-xs text-gray-400 pl-4">{e.racquet.brand} · {e.racquet.year}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
       {/* Radar chart + legend */}
       <div className="flex flex-col lg:flex-row gap-6 items-start">
         <div className="flex-1 bg-gray-800/60 rounded-xl p-4">
