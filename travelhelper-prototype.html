@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>TravelHelper — Prototype</title>
+<style>
+  :root{
+    --bg:#F5F2EC; --card:#FFFFFF; --ink:#1E2B2D; --ink-soft:#5C6B6D; --ink-faint:#93A0A1;
+    --primary:#0E6E6B; --primary-soft:#E0EFEE; --accent:#E86F52; --accent-soft:#FBE7E0;
+    --gold:#D9A441; --line:#E8E3D9; --ok:#2E8B57; --shadow:0 2px 10px rgba(30,43,45,.07);
+    --r:16px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{
+    background:#E9E4DA; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); display:flex; justify-content:center; align-items:flex-start;
+  }
+  /* ---------- phone frame ---------- */
+  #phone{
+    width:100%; max-width:430px; min-height:100dvh; background:var(--bg);
+    position:relative; overflow:hidden; display:flex; flex-direction:column;
+    box-shadow:0 0 40px rgba(0,0,0,.15);
+  }
+  @media(min-width:500px){
+    body{padding:24px 0}
+    #phone{min-height:0; height:calc(100vh - 48px); max-height:900px; border-radius:38px; border:8px solid #1E2B2D}
+  }
+  /* ---------- header ---------- */
+  header{
+    padding:18px 20px 12px; display:flex; align-items:center; justify-content:space-between; gap:12px;
+    position:sticky; top:0; background:linear-gradient(var(--bg) 75%,rgba(245,242,236,0)); z-index:20;
+  }
+  .trip-label{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); font-weight:600}
+  .trip-name{font-size:19px; font-weight:800; letter-spacing:-.02em}
+  .avatars{display:flex}
+  .avatars .av{margin-left:-8px; border:2px solid var(--bg)}
+  .av{
+    width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:700;color:#fff;flex-shrink:0;
+  }
+  .av.sm{width:22px;height:22px;font-size:9px}
+  /* ---------- screens ---------- */
+  main{flex:1; overflow-y:auto; padding:0 16px 110px; scrollbar-width:none}
+  main::-webkit-scrollbar{display:none}
+  .screen{display:none; animation:fade .25s ease}
+  .screen.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); font-weight:700; margin:22px 4px 10px}
+  /* ---------- cards ---------- */
+  .card{background:var(--card); border-radius:var(--r); box-shadow:var(--shadow); padding:16px; margin-bottom:12px}
+  /* hero */
+  .hero{
+    border-radius:20px; padding:22px 20px; color:#fff; margin-top:4px;
+    background:linear-gradient(135deg,#0E6E6B 0%,#0A4D52 60%,#093A44 100%); position:relative; overflow:hidden;
+  }
+  .hero::after{content:"🗾"; position:absolute; right:-10px; bottom:-18px; font-size:110px; opacity:.14; transform:rotate(-8deg)}
+  .hero .dates{font-size:13px; opacity:.85; font-weight:600}
+  .hero .count{font-size:34px; font-weight:800; letter-spacing:-.03em; margin:6px 0 2px}
+  .hero .sub{font-size:13px; opacity:.85}
+  .statrow{display:flex; gap:10px; margin-top:16px}
+  .stat{flex:1; background:rgba(255,255,255,.14); border-radius:12px; padding:10px 8px; text-align:center}
+  .stat b{display:block; font-size:17px}
+  .stat span{font-size:10.5px; opacity:.85}
+  /* next up */
+  .nextup{display:flex; gap:14px; align-items:center}
+  .icn{
+    width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+    font-size:22px;flex-shrink:0;
+  }
+  .i-flight{background:#E3EEF9}.i-hotel{background:#F3EBFB}.i-train{background:#E7F3E9}
+  .i-activity{background:#FBE7E0}.i-food{background:#FFF3D6}.i-daytrip{background:#E0EFEE}
+  .nextup .t{font-weight:700; font-size:15px}
+  .nextup .s{font-size:12.5px; color:var(--ink-soft); margin-top:2px}
+  .pill{
+    display:inline-block; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:99px;
+    background:var(--primary-soft); color:var(--primary);
+  }
+  .pill.warn{background:#FDF1DC; color:#A9761B}
+  .pill.coral{background:var(--accent-soft); color:var(--accent)}
+  /* alerts */
+  .alert{display:flex; gap:10px; align-items:flex-start; padding:12px 14px; border-radius:14px; background:#FDF6E7; border:1px solid #F1E2BC; margin-bottom:10px; font-size:13px}
+  .alert b{font-weight:700}
+  .alert .em{font-size:16px; line-height:1.2}
+  /* traveller chips */
+  .trav-row{display:flex; gap:10px; overflow-x:auto; padding:2px; scrollbar-width:none}
+  .trav-row::-webkit-scrollbar{display:none}
+  .trav{background:var(--card); border-radius:14px; box-shadow:var(--shadow); padding:12px; min-width:104px; text-align:center; flex-shrink:0}
+  .trav .av{margin:0 auto 8px}
+  .trav .n{font-weight:700; font-size:13px}
+  .trav .r{font-size:11px; color:var(--ink-faint)}
+  /* ---------- itinerary ---------- */
+  .daychips{display:flex; gap:8px; overflow-x:auto; padding:4px 2px 10px; position:sticky; top:0; scrollbar-width:none}
+  .daychips::-webkit-scrollbar{display:none}
+  .dchip{
+    flex-shrink:0; border:none; background:var(--card); box-shadow:var(--shadow); border-radius:14px;
+    padding:8px 13px; text-align:center; cursor:pointer; font-family:inherit; color:var(--ink);
+  }
+  .dchip .dow{display:block; font-size:10px; color:var(--ink-faint); font-weight:700; text-transform:uppercase}
+  .dchip .dnum{font-size:15px; font-weight:800}
+  .dchip.on{background:var(--primary); color:#fff}
+  .dchip.on .dow{color:rgba(255,255,255,.75)}
+  .day-loc{font-size:13.5px; font-weight:700; color:var(--ink-soft); margin:8px 4px 12px; display:flex; align-items:center; gap:6px}
+  .tl{position:relative; padding-left:18px}
+  .tl::before{content:""; position:absolute; left:5px; top:8px; bottom:8px; width:2px; background:var(--line); border-radius:2px}
+  .tl-item{position:relative; margin-bottom:12px}
+  .tl-item::before{
+    content:""; position:absolute; left:-17px; top:20px; width:8px; height:8px; border-radius:50%;
+    background:var(--primary); border:2px solid var(--bg);
+  }
+  .ti{display:flex; gap:12px; align-items:flex-start; cursor:pointer}
+  .ti .time{font-size:11.5px; font-weight:700; color:var(--ink-faint); min-width:44px; padding-top:3px}
+  .ti .t{font-weight:700; font-size:14.5px}
+  .ti .s{font-size:12.5px; color:var(--ink-soft); margin-top:3px; line-height:1.45}
+  .ti .icn{width:38px;height:38px;font-size:18px;border-radius:11px}
+  .who{display:flex; margin-top:7px; align-items:center; gap:6px}
+  .who .av{margin-right:-6px; border:1.5px solid #fff}
+  .who span{font-size:11px; color:var(--ink-faint); margin-left:10px; font-weight:600}
+  .free-slot{
+    border:1.5px dashed #CDC6B8; border-radius:14px; padding:12px 14px; font-size:12.5px; color:var(--ink-faint);
+    display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; background:rgba(255,255,255,.5);
+  }
+  .free-slot button{border:none; background:var(--primary-soft); color:var(--primary); font-weight:700; font-size:12px; padding:6px 12px; border-radius:99px; cursor:pointer; font-family:inherit}
+  /* ---------- bookings ---------- */
+  .filters{display:flex; gap:8px; overflow-x:auto; padding:4px 2px 12px; scrollbar-width:none}
+  .filters::-webkit-scrollbar{display:none}
+  .fchip{
+    flex-shrink:0; border:1.5px solid var(--line); background:var(--card); border-radius:99px;
+    padding:7px 14px; font-size:12.5px; font-weight:700; color:var(--ink-soft); cursor:pointer; font-family:inherit;
+  }
+  .fchip.on{background:var(--ink); border-color:var(--ink); color:#fff}
+  .bk{cursor:pointer}
+  .bk-head{display:flex; gap:13px; align-items:center}
+  .bk-head .t{font-weight:700; font-size:14.5px}
+  .bk-head .s{font-size:12px; color:var(--ink-soft); margin-top:2px}
+  .bk-head .amt{margin-left:auto; text-align:right; flex-shrink:0}
+  .bk-head .amt b{font-size:14px}
+  .bk-head .amt em{display:block; font-style:normal; font-size:10.5px; color:var(--ink-faint); margin-top:2px}
+  .bk-detail{display:none; margin-top:14px; padding-top:14px; border-top:1px dashed var(--line)}
+  .bk.open .bk-detail{display:block}
+  .kv{display:flex; justify-content:space-between; font-size:12.5px; padding:5px 0}
+  .kv .k{color:var(--ink-faint); font-weight:600}
+  .kv .v{font-weight:700; text-align:right}
+  .conf{
+    display:flex; justify-content:space-between; align-items:center; background:var(--bg);
+    border-radius:10px; padding:9px 12px; margin-top:8px; font-size:13px;
+  }
+  .conf code{font-weight:800; letter-spacing:.08em; font-family:ui-monospace,Menlo,monospace}
+  .conf button{border:none; background:var(--primary); color:#fff; border-radius:8px; padding:5px 11px; font-size:11px; font-weight:700; cursor:pointer; font-family:inherit}
+  .bk-actions{display:flex; gap:8px; margin-top:12px}
+  .bk-actions button{
+    flex:1; border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:8px; font-size:12px;
+    font-weight:700; color:var(--ink-soft); cursor:pointer; font-family:inherit;
+  }
+  /* ---------- explore ---------- */
+  .sug .img{
+    height:110px; border-radius:12px; margin-bottom:12px; display:flex; align-items:flex-end; padding:10px;
+    font-size:44px; position:relative; overflow:hidden;
+  }
+  .sug .img .tagline{position:absolute; top:10px; left:10px; display:flex; gap:6px}
+  .sug-head{display:flex; align-items:flex-start; gap:10px}
+  .sug .t{font-weight:800; font-size:15px}
+  .sug .s{font-size:12.5px; color:var(--ink-soft); margin-top:4px; line-height:1.5}
+  .sug .meta{display:flex; gap:12px; margin-top:10px; font-size:11.5px; color:var(--ink-faint); font-weight:600}
+  .addbtn{
+    margin-left:auto; flex-shrink:0; border:none; background:var(--accent); color:#fff; font-weight:700;
+    border-radius:99px; padding:8px 15px; font-size:12.5px; cursor:pointer; font-family:inherit;
+  }
+  .addbtn.done{background:var(--primary-soft); color:var(--primary)}
+  .whybox{margin-top:10px; background:var(--primary-soft); border-radius:10px; padding:9px 12px; font-size:12px; color:var(--primary); font-weight:600}
+  /* ---------- budget ---------- */
+  .bud-hero{background:var(--ink); color:#fff; border-radius:20px; padding:20px; margin-top:4px}
+  .bud-hero .lbl{font-size:11px; letter-spacing:.1em; text-transform:uppercase; opacity:.65; font-weight:700}
+  .bud-hero .big{font-size:32px; font-weight:800; letter-spacing:-.02em; margin:4px 0 2px}
+  .bud-hero .sub{font-size:12.5px; opacity:.75}
+  .bud-bar{height:10px; background:rgba(255,255,255,.18); border-radius:99px; margin-top:14px; overflow:hidden; display:flex}
+  .bud-bar .paid{background:var(--gold); height:100%}
+  .bud-bar .plan{background:rgba(217,164,65,.45); height:100%}
+  .legend{display:flex; gap:16px; margin-top:10px; font-size:11px; opacity:.85}
+  .legend i{display:inline-block; width:9px; height:9px; border-radius:3px; margin-right:5px}
+  .cat{margin-bottom:14px}
+  .cat .row{display:flex; justify-content:space-between; align-items:center; font-size:13px; margin-bottom:6px}
+  .cat .row .n{font-weight:700; display:flex; align-items:center; gap:8px}
+  .cat .row .a{font-weight:700; color:var(--ink-soft); font-size:12.5px}
+  .cat .bar{height:7px; background:var(--bg); border-radius:99px; overflow:hidden}
+  .cat .bar i{display:block; height:100%; border-radius:99px}
+  .seg{display:flex; background:var(--card); border-radius:12px; padding:4px; box-shadow:var(--shadow); margin-bottom:14px}
+  .seg button{flex:1; border:none; background:none; padding:8px; border-radius:9px; font-weight:700; font-size:12.5px; color:var(--ink-faint); cursor:pointer; font-family:inherit}
+  .seg button.on{background:var(--ink); color:#fff}
+  .pp{display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid var(--line)}
+  .pp:last-child{border-bottom:none}
+  .pp .n{font-weight:700; font-size:14px}
+  .pp .d{font-size:11.5px; color:var(--ink-faint); margin-top:1px}
+  .pp .amt{margin-left:auto; font-weight:800; font-size:14px}
+  /* ---------- bottom nav ---------- */
+  nav{
+    position:absolute; bottom:0; left:0; right:0; background:rgba(255,255,255,.92); backdrop-filter:blur(12px);
+    border-top:1px solid var(--line); display:flex; padding:8px 6px calc(14px + env(safe-area-inset-bottom)); z-index:30;
+  }
+  nav button{
+    flex:1; border:none; background:none; font-family:inherit; cursor:pointer; color:var(--ink-faint);
+    display:flex; flex-direction:column; align-items:center; gap:3px; font-size:10px; font-weight:700; padding:4px 0;
+  }
+  nav button .ni{font-size:20px; line-height:1; filter:grayscale(1); opacity:.55}
+  nav button.on{color:var(--primary)}
+  nav button.on .ni{filter:none; opacity:1}
+  /* FAB */
+  #fab{
+    position:absolute; right:18px; bottom:92px; width:56px; height:56px; border-radius:50%; border:none;
+    background:var(--accent); color:#fff; font-size:26px; cursor:pointer; z-index:31;
+    box-shadow:0 6px 18px rgba(232,111,82,.45); display:flex; align-items:center; justify-content:center;
+  }
+  /* ---------- sheet / modal ---------- */
+  #scrim{position:absolute; inset:0; background:rgba(20,30,32,.45); z-index:40; opacity:0; pointer-events:none; transition:opacity .2s}
+  #scrim.show{opacity:1; pointer-events:auto}
+  #sheet{
+    position:absolute; left:0; right:0; bottom:0; background:var(--card); border-radius:24px 24px 0 0;
+    padding:12px 20px calc(24px + env(safe-area-inset-bottom)); z-index:41; transform:translateY(105%); transition:transform .28s cubic-bezier(.3,1,.4,1);
+    max-height:82%; overflow-y:auto;
+  }
+  #sheet.show{transform:none}
+  .grab{width:40px; height:4px; background:var(--line); border-radius:99px; margin:0 auto 16px}
+  #sheet h3{font-size:17px; font-weight:800; margin-bottom:14px}
+  .typegrid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px}
+  .typegrid button{
+    border:1.5px solid var(--line); background:#fff; border-radius:14px; padding:14px 6px; cursor:pointer;
+    font-family:inherit; display:flex; flex-direction:column; align-items:center; gap:6px; font-size:11.5px; font-weight:700; color:var(--ink);
+  }
+  .typegrid button span{font-size:24px}
+  .typegrid button.on{border-color:var(--primary); background:var(--primary-soft)}
+  .fld{margin-top:14px}
+  .fld label{display:block; font-size:11.5px; font-weight:700; color:var(--ink-faint); margin-bottom:6px; text-transform:uppercase; letter-spacing:.06em}
+  .fld input,.fld select{
+    width:100%; border:1.5px solid var(--line); border-radius:12px; padding:11px 13px; font-size:14px;
+    font-family:inherit; background:#fff; color:var(--ink);
+  }
+  .fld input:focus,.fld select:focus{outline:none; border-color:var(--primary)}
+  .whochips{display:flex; gap:8px; flex-wrap:wrap}
+  .whochips button{
+    border:1.5px solid var(--line); background:#fff; border-radius:99px; padding:7px 13px; font-size:12.5px;
+    font-weight:700; cursor:pointer; font-family:inherit; color:var(--ink-soft);
+  }
+  .whochips button.on{background:var(--primary); border-color:var(--primary); color:#fff}
+  /* ---------- document upload ---------- */
+  .modeseg{display:flex; background:var(--bg); border-radius:12px; padding:4px; margin-bottom:16px}
+  .modeseg button{flex:1; border:none; background:none; padding:9px; border-radius:9px; font-weight:700; font-size:12.5px; color:var(--ink-faint); cursor:pointer; font-family:inherit}
+  .modeseg button.on{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(30,43,45,.12)}
+  .upzone{border:2px dashed #CDC6B8; border-radius:16px; padding:26px 16px; text-align:center; cursor:pointer; background:var(--bg)}
+  .upzone .big{font-size:34px}
+  .upzone .t{font-weight:800; font-size:14.5px; margin-top:8px}
+  .upzone .s{font-size:12px; color:var(--ink-faint); margin-top:4px; line-height:1.5}
+  .try-sample{display:block; text-align:center; margin-top:12px; font-size:12.5px; font-weight:700; color:var(--primary); background:none; border:none; cursor:pointer; font-family:inherit; width:100%}
+  .scanbox{border-radius:16px; padding:26px 16px; text-align:center; background:var(--primary-soft)}
+  .scanbox .t{font-weight:800; font-size:14px; color:var(--primary); margin-top:12px}
+  .scanbox .s{font-size:12px; color:var(--primary); opacity:.8; margin-top:4px}
+  .spinner{width:26px;height:26px;border:3px solid rgba(14,110,107,.25);border-top-color:var(--primary);border-radius:50%;margin:0 auto;animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .extract-note{display:flex;gap:8px;align-items:flex-start;background:#EAF6EC;border:1px solid #CBE8D2;border-radius:12px;padding:10px 12px;font-size:12px;color:#256A43;font-weight:600;line-height:1.5;margin-bottom:4px}
+  .attach-chip{display:inline-flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:6px 12px;font-size:11.5px;font-weight:700;color:var(--ink-soft);margin:8px 6px 0 0;cursor:pointer;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .primary-btn{
+    width:100%; border:none; background:var(--primary); color:#fff; border-radius:14px; padding:15px;
+    font-size:15px; font-weight:800; cursor:pointer; font-family:inherit; margin-top:20px;
+  }
+  /* toast */
+  #toast{
+    position:absolute; left:50%; bottom:110px; transform:translate(-50%,20px); background:var(--ink); color:#fff;
+    padding:11px 18px; border-radius:99px; font-size:13px; font-weight:600; z-index:50; opacity:0; transition:all .25s; pointer-events:none;
+    white-space:nowrap; max-width:90%;
+  }
+  #toast.show{opacity:1; transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<div id="phone">
+  <header>
+    <div>
+      <div class="trip-label">Current trip · 5 travellers</div>
+      <div class="trip-name">Japan Family Adventure</div>
+    </div>
+    <div class="avatars" id="hdrAvatars"></div>
+  </header>
+
+  <main id="main">
+    <section class="screen active" id="scr-overview"></section>
+    <section class="screen" id="scr-itinerary"></section>
+    <section class="screen" id="scr-bookings"></section>
+    <section class="screen" id="scr-explore"></section>
+    <section class="screen" id="scr-budget"></section>
+  </main>
+
+  <button id="fab" onclick="openSheet()">+</button>
+
+  <nav id="nav">
+    <button data-t="overview" class="on"><span class="ni">🏠</span>Overview</button>
+    <button data-t="itinerary"><span class="ni">🗓️</span>Itinerary</button>
+    <button data-t="bookings"><span class="ni">🎫</span>Bookings</button>
+    <button data-t="explore"><span class="ni">✨</span>Explore</button>
+    <button data-t="budget"><span class="ni">💰</span>Budget</button>
+  </nav>
+
+  <div id="scrim" onclick="closeSheet()"></div>
+  <div id="sheet"></div>
+  <div id="toast"></div>
+</div>
+
+<script>
+/* =====================  SAMPLE DATA  ===================== */
+const AUD = n => "$" + n.toLocaleString("en-AU");
+const travellers = [
+  {id:"adrian", name:"Adrian", role:"Trip organiser", color:"#0E6E6B", init:"Ad"},
+  {id:"alison", name:"Alison", role:"Adult",          color:"#E86F52", init:"Al"},
+  {id:"oliver", name:"Oliver", role:"Kid · 11",       color:"#4A90D9", init:"O"},
+  {id:"lucas",  name:"Lucas",  role:"Kid · 7",        color:"#7A6FB8", init:"L"},
+  {id:"alana",  name:"Alana",  role:"Kid · 5",        color:"#D9A441", init:"An"},
+];
+const ALL = travellers.map(t=>t.id);
+
+const trip = {
+  name:"Japan Family Adventure",
+  start:"2027-04-05", end:"2027-04-17",
+  budget:20000,
+};
+
+const typeMeta = {
+  flight:  {emoji:"✈️", cls:"i-flight",  label:"Flight",   cat:"Flights"},
+  hotel:   {emoji:"🏨", cls:"i-hotel",   label:"Stay",     cat:"Stays"},
+  train:   {emoji:"🚄", cls:"i-train",   label:"Transport",cat:"Transport"},
+  activity:{emoji:"🎟️", cls:"i-activity",label:"Activity", cat:"Activities"},
+  daytrip: {emoji:"🚌", cls:"i-daytrip", label:"Day trip", cat:"Activities"},
+  food:    {emoji:"🍜", cls:"i-food",    label:"Food",     cat:"Food"},
+};
+const catColor = {Flights:"#4A90D9", Stays:"#9B6FC3", Transport:"#2E8B57", Activities:"#E86F52", Food:"#D9A441"};
+
+/* Every item lives in one list; itinerary + bookings + budget are views over it. */
+let items = [
+  {id:1, type:"flight", day:"2027-04-05", time:"09:50", title:"QF25 · Sydney → Tokyo Haneda",
+   sub:"Qantas · 9h 45m direct · Seats 34A–34E", who:ALL, cost:6480, paid:true, conf:"6HKPTR",
+   files:["QF25-e-tickets.pdf"],
+   details:{Departs:"SYD T1 · 09:50", Arrives:"HND · 18:35 (local)", Bags:"5 × 23kg checked", Note:"Check-in opens 24h before"}},
+  {id:2, type:"hotel", day:"2027-04-05", time:"20:30", title:"Check in · Shinjuku Granbell Hotel",
+   sub:"Tokyo · Family room for 5 · 5 nights · 5–10 Apr", who:ALL, cost:2450, paid:true, conf:"BK-88213944",
+   files:["Granbell-confirmation.pdf"],
+   details:{Address:"2-14-5 Kabukicho, Shinjuku", "Check-in":"From 15:00", "Check-out":"10 Apr · 11:00", Includes:"Breakfast for 5"}},
+  {id:3, type:"activity", day:"2027-04-06", time:"10:00", title:"teamLab Planets",
+   sub:"Toyosu · timed entry 10:00 · barefoot art museum", who:ALL, cost:210, paid:true, conf:"TLP-99031",
+   details:{Entry:"10:00 slot · arrive 15 min early", Tip:"Wear shorts — knee-deep water rooms!"}},
+  {id:4, type:"food", day:"2027-04-06", time:"18:30", title:"Dinner · Uobei conveyor sushi",
+   sub:"Shibuya · no booking needed, expect a short queue", who:ALL, cost:110, paid:false, conf:null,
+   details:{Why:"Bullet-train sushi delivery — the kids will love it"}},
+  {id:5, type:"activity", day:"2027-04-07", time:"08:30", title:"Tokyo Disneyland",
+   sub:"Full day · 1-day passports × 5 · park opens 09:00", who:ALL, cost:760, paid:true, conf:"TDL-4471820",
+   files:["disneyland-passports.pdf"],
+   details:{Tickets:"e-tickets in app", Tip:"Book Priority Pass for Big Thunder at 09:00 sharp"}},
+  {id:6, type:"daytrip", day:"2027-04-08", time:"08:00", title:"Hakone day trip",
+   sub:"Romancecar from Shinjuku · pirate ship · ropeway · Mt Fuji views", who:ALL, cost:380, paid:true, conf:"HKN-2231",
+   details:{Pass:"Hakone Free Pass × 5", Route:"Train → cable car → ropeway → lake cruise", Backup:"Open-Air Museum if cloudy"}},
+  {id:7, type:"activity", day:"2027-04-09", time:"10:30", title:"Ueno Zoo + Ameyoko market",
+   sub:"Pandas in the morning, street snacks after", who:["alison","oliver","lucas","alana"], cost:60, paid:false, conf:null,
+   details:{Note:"Adrian catching up with Kenji for lunch — rejoin 14:00"}},
+  {id:8, type:"train", day:"2027-04-10", time:"11:13", title:"Shinkansen · Tokyo → Kyoto",
+   sub:"Nozomi 231 · Car 7, seats 11A–12C · 2h 12m", who:ALL, cost:1290, paid:true, conf:"JR-55019",
+   files:["JR-tickets-outbound.pdf"],
+   details:{Departs:"Tokyo Stn 11:13", Arrives:"Kyoto 13:25", Tip:"Buy ekiben lunch boxes on the platform", Seats:"Right side for Mt Fuji"}},
+  {id:9, type:"hotel", day:"2027-04-10", time:"15:00", title:"Check in · Machiya townhouse",
+   sub:"Kyoto Gion · whole traditional house · 5 nights · 10–15 Apr", who:ALL, cost:1890, paid:true, conf:"VRB-70A2K1",
+   files:["machiya-booking.pdf","machiya-checkin-guide.pdf"],
+   details:{Address:"Higashiyama, Kyoto", "Check-in":"Self check-in from 15:00 · code 4471", Note:"Futon room for the kids"}},
+  {id:10, type:"activity", day:"2027-04-11", time:"08:00", title:"Fushimi Inari early walk",
+   sub:"Beat the crowds — 10,000 torii gates · free", who:ALL, cost:0, paid:false, conf:null,
+   details:{Tip:"Go before 09:00, turn back at Yotsutsuji viewpoint with kids"}},
+  {id:11, type:"daytrip", day:"2027-04-12", time:"09:00", title:"Arashiyama & monkey park",
+   sub:"Bamboo grove · Iwatayama monkeys · river boats", who:ALL, cost:60, paid:false, conf:null,
+   details:{Note:"20-min uphill walk to monkeys — good shoes"}},
+  {id:12, type:"train", day:"2027-04-15", time:"14:06", title:"Shinkansen · Kyoto → Tokyo",
+   sub:"Hikari 512 · then airport hotel", who:ALL, cost:1290, paid:true, conf:"JR-55020",
+   details:{Arrives:"Tokyo 16:36"}},
+  {id:13, type:"hotel", day:"2027-04-15", time:"18:00", title:"Haneda Excel Hotel Tokyu",
+   sub:"Airport hotel · 1 night · walk to Terminal 3", who:ALL, cost:380, paid:false, conf:"BK-90112765",
+   details:{"Check-out":"16 Apr · 10:00", Why:"Morning flight — no stress"}},
+  {id:14, type:"flight", day:"2027-04-16", time:"10:35", title:"QF26 · Tokyo Haneda → Sydney",
+   sub:"Qantas · overnight arrival 17 Apr 06:20", who:ALL, cost:0, paid:true, conf:"6HKPTR",
+   details:{Departs:"HND T3 · 10:35", Arrives:"SYD 17 Apr · 06:20", Note:"Return leg — fare included in outbound booking"}},
+];
+
+const cityByDate = d => d < "2027-04-10" ? "Tokyo 🗼" : d < "2027-04-16" ? "Kyoto ⛩️" : "Flying home 🛫";
+
+const suggestions = [
+  {id:"s1", type:"activity", emoji:"🌆", bg:"linear-gradient(135deg,#2C3E6B,#5B4A8A)", title:"Shibuya Sky at sunset",
+   sub:"Open-air deck 229m up — watch the scramble crossing light up below.", tags:["Kid-friendly","Iconic"],
+   dur:"1.5 h", cost:150, day:"2027-04-06", time:"17:00",
+   why:"You're free after teamLab on Mon 6 Apr — sunset is 18:04, book the 17:00 slot."},
+  {id:"s2", type:"activity", emoji:"🐱", bg:"linear-gradient(135deg,#D97B4A,#C25450)", title:"Ghibli Museum, Mitaka",
+   sub:"Totoro's home. Tickets released 10th of each month — sell out fast.", tags:["Kid-friendly","Book ahead"],
+   dur:"3 h", cost:90, day:"2027-04-09", time:"10:00",
+   why:"Perfect ages — Oliver, Lucas & Alana will all love it. Fits your open Fri 9 Apr morning."},
+  {id:"s3", type:"food", emoji:"🍡", bg:"linear-gradient(135deg,#7A9E5F,#4E7A46)", title:"Nishiki Market food walk",
+   sub:"Kyoto's kitchen — tamagoyaki, mochi, and 400 years of snacks.", tags:["Food","Rainy-day"],
+   dur:"2 h", cost:100, day:"2027-04-13", time:"11:00",
+   why:"Tue 13 Apr in Kyoto is wide open, and it's under cover if it rains."},
+  {id:"s4", type:"daytrip", emoji:"🦌", bg:"linear-gradient(135deg,#B08A3E,#8A6A2F)", title:"Nara deer day trip",
+   sub:"Bowing deer, giant Buddha — 45 min from Kyoto by express train.", tags:["Kid-friendly","Day trip"],
+   dur:"6 h", cost:170, day:"2027-04-14", time:"09:00",
+   why:"Your last full Kyoto day (Wed 14) has nothing booked — classic family day out."},
+  {id:"s5", type:"activity", emoji:"🎏", bg:"linear-gradient(135deg,#4A7FB5,#3A5F92)", title:"Sumida River cruise",
+   sub:"Boat from Asakusa under 12 bridges — sit back and float.", tags:["Rainy-day","Relaxed"],
+   dur:"1 h", cost:75, day:"2027-04-09", time:"14:00",
+   why:"Low-energy option for the afternoon the family regroups on Fri 9 Apr."},
+  {id:"s6", type:"food", emoji:"🍵", bg:"linear-gradient(135deg,#5F8A6E,#3E6B52)", title:"Kids' tea ceremony, Gion",
+   sub:"45-min family-friendly session, 5 min walk from your machiya.", tags:["Kid-friendly","Cultural"],
+   dur:"1 h", cost:130, day:"2027-04-13", time:"15:00",
+   why:"Right near your Kyoto stay — pairs with Nishiki Market that morning."},
+];
+
+/* =====================  STATE  ===================== */
+let curTab="overview", curDay="2027-04-05", bkFilter="all", budView="cat";
+let added={}, sheetType="activity", sheetWho=[...ALL], nextId=100;
+
+/* =====================  HELPERS  ===================== */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const trav=id=>travellers.find(t=>t.id===id);
+const av=(t,sm)=>`<div class="av${sm?" sm":""}" style="background:${t.color}" title="${t.name}">${t.init}</div>`;
+const fmtDay=d=>{const dt=new Date(d+"T00:00:00");return dt.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"});};
+const dates=(()=>{const a=[];let d=new Date(trip.start+"T00:00:00");const e=new Date(trip.end+"T00:00:00");
+  while(d<=e){a.push(d.toISOString().slice(0,10));d=new Date(d.getTime()+864e5);}return a;})();
+function whoRow(who){
+  if(who.length===travellers.length) return `<div class="who">${travellers.map(t=>av(t,1)).join("")}<span>Everyone</span></div>`;
+  return `<div class="who">${who.map(id=>av(trav(id),1)).join("")}<span>${who.map(id=>trav(id).name).join(" + ")}</span></div>`;
+}
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._x);t._x=setTimeout(()=>t.classList.remove("show"),2200);}
+
+/* =====================  OVERVIEW  ===================== */
+function renderOverview(){
+  const today=new Date();today.setHours(0,0,0,0);
+  const start=new Date(trip.start+"T00:00:00");
+  const days=Math.max(0,Math.round((start-today)/864e5));
+  const spent=items.reduce((s,i)=>s+(i.paid?i.cost:0),0);
+  const booked=items.filter(i=>i.conf).length;
+  const next=[...items].sort((a,b)=>(a.day+a.time).localeCompare(b.day+b.time))[0];
+  const nm=typeMeta[next.type];
+  $("#scr-overview").innerHTML=`
+    <div class="hero">
+      <div class="dates">5 – 17 April 2027 · Tokyo & Kyoto</div>
+      <div class="count">${days} days to go</div>
+      <div class="sub">Packing list unlocks at 14 days ✨</div>
+      <div class="statrow">
+        <div class="stat"><b>12</b><span>nights</span></div>
+        <div class="stat"><b>${booked}</b><span>bookings</span></div>
+        <div class="stat"><b>${AUD(spent)}</b><span>paid so far</span></div>
+      </div>
+    </div>
+    <h2 class="sec">Needs attention</h2>
+    <div class="alert"><div class="em">⚠️</div><div><b>Haneda airport hotel</b> is reserved but not paid — free cancellation ends 1 Mar.</div></div>
+    <div class="alert"><div class="em">🎟️</div><div><b>Ghibli Museum</b> tickets for April go on sale 10 Mar, 10:00 JST. They sell out in minutes — set an alarm!</div></div>
+    <h2 class="sec">First up</h2>
+    <div class="card nextup" onclick="go('itinerary')">
+      <div class="icn ${nm.cls}">${nm.emoji}</div>
+      <div>
+        <div class="t">${esc(next.title)}</div>
+        <div class="s">${fmtDay(next.day)} · ${next.time} · ${esc(next.sub)}</div>
+        <div style="margin-top:7px"><span class="pill">Conf ${next.conf}</span></div>
+      </div>
+    </div>
+    <h2 class="sec">Travellers</h2>
+    <div class="trav-row">${travellers.map(t=>`
+      <div class="trav">${av(t)}<div class="n">${t.name}</div><div class="r">${t.role}</div></div>`).join("")}
+      <div class="trav" style="opacity:.6;cursor:pointer" onclick="toast('Invite link copied — share with the group 📋')">
+        <div class="av" style="background:#CDC6B8">+</div><div class="n">Invite</div><div class="r">Share trip</div>
+      </div>
+    </div>
+    <h2 class="sec">While you're away</h2>
+    <div class="card" style="display:flex;gap:13px;align-items:center" onclick="go('explore')">
+      <div class="icn i-activity">✨</div>
+      <div>
+        <div style="font-weight:700;font-size:14.5px">3 days still look empty</div>
+        <div style="font-size:12.5px;color:var(--ink-soft);margin-top:2px">Fri 9, Tue 13 & Wed 14 Apr have room — see suggestions</div>
+      </div>
+      <div style="margin-left:auto;color:var(--ink-faint)">›</div>
+    </div>`;
+}
+
+/* =====================  ITINERARY  ===================== */
+function renderItinerary(){
+  const chips=dates.map(d=>{
+    const dt=new Date(d+"T00:00:00");
+    return `<button class="dchip ${d===curDay?"on":""}" onclick="setDay('${d}')">
+      <span class="dow">${dt.toLocaleDateString("en-AU",{weekday:"short"})}</span>
+      <span class="dnum">${dt.getDate()}</span></button>`;
+  }).join("");
+  const dayItems=items.filter(i=>i.day===curDay).sort((a,b)=>a.time.localeCompare(b.time));
+  let body;
+  if(dayItems.length){
+    body=`<div class="tl">${dayItems.map(i=>{
+      const m=typeMeta[i.type];
+      return `<div class="tl-item"><div class="card ti" onclick="go('bookings',${i.id})">
+        <div class="time">${i.time}</div>
+        <div class="icn ${m.cls}">${m.emoji}</div>
+        <div style="flex:1">
+          <div class="t">${esc(i.title)}</div>
+          <div class="s">${esc(i.sub)}</div>
+          ${whoRow(i.who)}
+        </div>
+      </div></div>`;}).join("")}</div>`;
+    if(dayItems.length<3) body+=`<div class="free-slot"><span>Free time this day</span><button onclick="go('explore')">Get ideas ✨</button></div>`;
+  } else {
+    body=`<div class="free-slot" style="padding:22px 16px"><span>Nothing planned yet — a rest day, or room for an adventure?</span><button onclick="go('explore')">Get ideas ✨</button></div>`;
+  }
+  $("#scr-itinerary").innerHTML=`
+    <div class="daychips">${chips}</div>
+    <div class="day-loc">${fmtDay(curDay)} · ${cityByDate(curDay)}</div>${body}`;
+}
+function setDay(d){curDay=d;renderItinerary();}
+
+/* =====================  BOOKINGS  ===================== */
+function renderBookings(openId){
+  const cats=[["all","All"],["flight","✈️ Flights"],["hotel","🏨 Stays"],["train","🚄 Transport"],["activity","🎟️ Activities"],["daytrip","🚌 Day trips"],["food","🍜 Food"]];
+  const list=items.filter(i=>bkFilter==="all"||i.type===bkFilter).sort((a,b)=>(a.day+a.time).localeCompare(b.day+b.time));
+  $("#scr-bookings").innerHTML=`
+    <div class="filters">${cats.map(([k,l])=>`<button class="fchip ${bkFilter===k?"on":""}" onclick="setBk('${k}')">${l}</button>`).join("")}</div>
+    ${list.map(i=>{
+      const m=typeMeta[i.type];
+      const kv=Object.entries(i.details||{}).map(([k,v])=>`<div class="kv"><span class="k">${esc(k)}</span><span class="v">${esc(v)}</span></div>`).join("");
+      return `<div class="card bk ${i.id===openId?"open":""}" id="bk${i.id}" onclick="this.classList.toggle('open')">
+        <div class="bk-head">
+          <div class="icn ${m.cls}">${m.emoji}</div>
+          <div>
+            <div class="t">${esc(i.title)}</div>
+            <div class="s">${fmtDay(i.day)} · ${i.time}</div>
+          </div>
+          <div class="amt"><b>${i.cost?AUD(i.cost):"Free"}</b><em>${i.paid?"✅ paid":i.cost?"◔ to pay":""}</em></div>
+        </div>
+        <div class="bk-detail">
+          ${kv}
+          ${i.conf?`<div class="conf"><span>Confirmation <code>${i.conf}</code></span><button onclick="event.stopPropagation();toast('Copied ${i.conf} 📋')">Copy</button></div>`:""}
+          ${i.files&&i.files.length?`<div>${i.files.map(f=>`<span class="attach-chip" onclick="event.stopPropagation();toast('Opening ${esc(f)} 📄')">📎 ${esc(f)}</span>`).join("")}</div>`:""}
+          <div class="bk-actions">
+            <button onclick="event.stopPropagation();${i.files&&i.files.length?`toast('Opening ${esc(i.files[0])} 📄')`:`toast('No documents yet — attach one via the + button')`}">📎 Docs${i.files&&i.files.length?` (${i.files.length})`:""}</button>
+            <button onclick="event.stopPropagation();toast('Opening in Maps 🗺️')">📍 Map</button>
+            <button onclick="event.stopPropagation();toast('Shared to family group 💬')">↗ Share</button>
+          </div>
+        </div>
+      </div>`;}).join("")}`;
+  if(openId){const el=$("#bk"+openId);if(el)setTimeout(()=>el.scrollIntoView({behavior:"smooth",block:"center"}),80);}
+}
+function setBk(k){bkFilter=k;renderBookings();}
+
+/* =====================  EXPLORE  ===================== */
+function renderExplore(){
+  $("#scr-explore").innerHTML=`
+    <div class="card" style="background:var(--primary-soft);box-shadow:none;display:flex;gap:12px;align-items:center">
+      <div style="font-size:26px">🤖</div>
+      <div style="font-size:12.5px;color:var(--primary);font-weight:600;line-height:1.5">
+        Ideas picked for <b>2 adults + kids aged 11, 7 & 5</b>, matched to the free gaps in your itinerary.
+      </div>
+    </div>
+    ${suggestions.map(s=>{
+      const done=added[s.id];
+      return `<div class="card sug">
+        <div class="img" style="background:${s.bg}">
+          <div class="tagline">${s.tags.map(t=>`<span class="pill" style="background:rgba(255,255,255,.9)">${t}</span>`).join("")}</div>
+          ${s.emoji}
+        </div>
+        <div class="sug-head">
+          <div style="flex:1">
+            <div class="t">${esc(s.title)}</div>
+            <div class="s">${esc(s.sub)}</div>
+          </div>
+          <button class="addbtn ${done?"done":""}" onclick="addSug('${s.id}',this)">${done?"✓ Added":"+ Add"}</button>
+        </div>
+        <div class="meta"><span>⏱ ${s.dur}</span><span>💵 ~${AUD(s.cost)} family</span><span>📅 fits ${fmtDay(s.day)}</span></div>
+        <div class="whybox">💡 ${esc(s.why)}</div>
+      </div>`;}).join("")}`;
+}
+function addSug(id,btn){
+  if(added[id])return;
+  const s=suggestions.find(x=>x.id===id);
+  added[id]=true;
+  items.push({id:nextId++,type:s.type,day:s.day,time:s.time,title:s.title,sub:s.sub,who:[...ALL],cost:s.cost,paid:false,conf:null,
+    details:{Added:"From suggestions — not booked yet",Estimate:AUD(s.cost)+" for the family"}});
+  btn.classList.add("done");btn.textContent="✓ Added";
+  toast(`Added to ${fmtDay(s.day)} 🎉`);
+}
+
+/* =====================  BUDGET  ===================== */
+function renderBudget(){
+  const paid=items.reduce((s,i)=>s+(i.paid?i.cost:0),0);
+  const plan=items.reduce((s,i)=>s+(!i.paid?i.cost:0),0);
+  const left=trip.budget-paid-plan;
+  const byCat={};
+  items.forEach(i=>{const c=typeMeta[i.type].cat;byCat[c]=(byCat[c]||0)+i.cost;});
+  const maxCat=Math.max(...Object.values(byCat));
+  const perPerson=travellers.map(t=>{
+    const amt=items.reduce((s,i)=>s+(i.who.includes(t.id)?i.cost/i.who.length:0),0);
+    return {t,amt};
+  });
+  $("#scr-budget").innerHTML=`
+    <div class="bud-hero">
+      <div class="lbl">Trip budget</div>
+      <div class="big">${AUD(left)} <span style="font-size:14px;font-weight:600;opacity:.7">left of ${AUD(trip.budget)}</span></div>
+      <div class="sub">${AUD(paid)} paid · ${AUD(plan)} committed but unpaid</div>
+      <div class="bud-bar">
+        <div class="paid" style="width:${paid/trip.budget*100}%"></div>
+        <div class="plan" style="width:${plan/trip.budget*100}%"></div>
+      </div>
+      <div class="legend">
+        <span><i style="background:var(--gold)"></i>Paid</span>
+        <span><i style="background:rgba(217,164,65,.45)"></i>Committed</span>
+        <span><i style="background:rgba(255,255,255,.18)"></i>Remaining</span>
+      </div>
+    </div>
+    <div style="height:14px"></div>
+    <div class="seg">
+      <button class="${budView==="cat"?"on":""}" onclick="setBud('cat')">By category</button>
+      <button class="${budView==="pp"?"on":""}" onclick="setBud('pp')">Per person</button>
+    </div>
+    ${budView==="cat"?`<div class="card">${Object.entries(byCat).sort((a,b)=>b[1]-a[1]).map(([c,v])=>`
+      <div class="cat">
+        <div class="row"><span class="n"><i style="width:10px;height:10px;border-radius:3px;background:${catColor[c]};display:inline-block"></i>${c}</span><span class="a">${AUD(v)}</span></div>
+        <div class="bar"><i style="width:${v/maxCat*100}%;background:${catColor[c]}"></i></div>
+      </div>`).join("")}</div>`
+    :`<div class="card">${perPerson.map(({t,amt})=>`
+      <div class="pp">${av(t)}
+        <div><div class="n">${t.name}</div><div class="d">${t.role}</div></div>
+        <div class="amt">${AUD(Math.round(amt))}</div>
+      </div>`).join("")}
+      <div style="font-size:11.5px;color:var(--ink-faint);margin-top:10px;line-height:1.5">Costs split evenly between the travellers on each booking. Kids' shares roll up to the family total.</div>
+    </div>`}
+    <div class="card" style="display:flex;gap:12px;align-items:center">
+      <div class="icn i-food">💡</div>
+      <div style="font-size:12.5px;color:var(--ink-soft);line-height:1.5">Unbudgeted so far: food on the ground & shopping. A family of five typically spends <b>~$200/day</b> in Japan — that's ~$2,400 for your dates, so keep a buffer.</div>
+    </div>`;
+}
+function setBud(v){budView=v;renderBudget();}
+
+/* =====================  ADD SHEET  ===================== */
+let sheetMode="doc", sheetStage="choose", sheetFile=null, sheetPrefill=null;
+
+function openSheet(){
+  sheetType="activity";sheetWho=[...ALL];sheetMode="doc";sheetStage="choose";sheetFile=null;sheetPrefill=null;
+  renderSheet();
+  $("#scrim").classList.add("show");$("#sheet").classList.add("show");
+}
+function closeSheet(){$("#scrim").classList.remove("show");$("#sheet").classList.remove("show");}
+
+function renderSheet(){
+  let body="";
+  if(sheetMode==="doc" && sheetStage==="choose"){
+    body=`
+      <input type="file" id="f-file" accept=".pdf,.png,.jpg,.jpeg,.eml,.html" style="display:none" onchange="onDoc(this)">
+      <div class="upzone" onclick="document.getElementById('f-file').click()">
+        <div class="big">📄</div>
+        <div class="t">Upload a confirmation or ticket</div>
+        <div class="s">Flight e-ticket, hotel booking, attraction tickets…<br>PDF, image or email — we'll read the details for you.</div>
+      </div>
+      <button class="try-sample" onclick="sampleDoc()">✨ No file handy? Try a sample e-ticket</button>`;
+  } else if(sheetStage==="scan"){
+    body=`
+      <div class="scanbox">
+        <div class="spinner"></div>
+        <div class="t">Reading ${esc(sheetFile.name)}…</div>
+        <div class="s">Finding dates, times, confirmation numbers &amp; travellers</div>
+      </div>`;
+  } else {
+    const p=sheetPrefill||{};
+    body=`
+      ${sheetFile?`<div class="extract-note">✅ <span>Details read from <b>${esc(sheetFile.name)}</b> — check them and tweak anything before saving.</span></div>
+      <div><span class="attach-chip">📎 ${esc(sheetFile.name)} · ${esc(sheetFile.size)}</span></div>`:""}
+      <div class="typegrid" id="tg" style="margin-top:${sheetFile?"14px":"0"}">
+        ${Object.entries(typeMeta).map(([k,m])=>`<button data-k="${k}" class="${k===sheetType?"on":""}" onclick="pickType('${k}',event)"><span>${m.emoji}</span>${m.label}</button>`).join("")}
+      </div>
+      <div class="fld"><label>What is it?</label><input id="f-title" placeholder="e.g. Robot Restaurant show" value="${esc(p.title||"")}"></div>
+      <div class="fld" style="display:flex;gap:10px">
+        <div style="flex:1.4"><label>Day</label><select id="f-day">${dates.map(d=>`<option value="${d}" ${d===(p.day||"")?"selected":""}>${fmtDay(d)}</option>`).join("")}</select></div>
+        <div style="flex:1"><label>Time</label><input id="f-time" type="time" value="${p.time||"10:00"}"></div>
+      </div>
+      <div class="fld"><label>Cost (AUD, total)</label><input id="f-cost" type="number" placeholder="0" inputmode="numeric" value="${p.cost!=null?p.cost:""}"></div>
+      <div class="fld"><label>Who's going?</label>
+        <div class="whochips" id="wc">${travellers.map(t=>`<button data-id="${t.id}" class="${sheetWho.includes(t.id)?"on":""}" onclick="pickWho('${t.id}',event)">${t.name}</button>`).join("")}</div>
+      </div>
+      <div class="fld"><label>Confirmation # <span style="text-transform:none;letter-spacing:0">(optional)</span></label><input id="f-conf" placeholder="e.g. ABC123" value="${esc(p.conf||"")}"></div>
+      <button class="primary-btn" onclick="saveItem()">Add to trip</button>
+      ${sheetFile?"":`<div style="text-align:center;font-size:11.5px;color:var(--ink-faint);margin-top:12px">📧 In the real app: forward any confirmation email and it fills this in for you.</div>`}`;
+  }
+  $("#sheet").innerHTML=`
+    <div class="grab"></div>
+    <h3>Add to trip</h3>
+    <div class="modeseg">
+      <button class="${sheetMode==="doc"?"on":""}" onclick="setMode('doc')">📄 From a document</button>
+      <button class="${sheetMode==="manual"?"on":""}" onclick="setMode('manual')">✏️ Enter manually</button>
+    </div>
+    ${body}`;
+}
+function setMode(m){
+  sheetMode=m; sheetStage=m==="doc"?"choose":"form";
+  if(m==="manual"){sheetFile=null;sheetPrefill=null;}
+  renderSheet();
+}
+function onDoc(inp){
+  const f=inp.files[0]; if(!f) return;
+  sheetFile={name:f.name, size:f.size>1048576?(f.size/1048576).toFixed(1)+" MB":Math.max(1,Math.round(f.size/1024))+" KB"};
+  startScan();
+}
+function sampleDoc(){
+  sheetFile={name:"Ghibli-Museum-tickets.pdf", size:"188 KB"};
+  startScan();
+}
+function startScan(){
+  sheetStage="scan"; renderSheet();
+  setTimeout(()=>{
+    sheetPrefill=inferExtract(sheetFile.name);
+    sheetType=sheetPrefill.type; sheetStage="form";
+    renderSheet();
+  },1400);
+}
+function inferExtract(name){
+  const n=name.toLowerCase();
+  const clean=name.replace(/\.[a-z0-9]+$/i,"").replace(/[-_]+/g," ").trim();
+  const conf="DOC-"+String(100000+((nextId*7919)%899999)).slice(0,6);
+  if(/ghibli/.test(n)) return {type:"activity", title:"Ghibli Museum, Mitaka", day:"2027-04-09", time:"10:00", cost:90, conf:"GBL-83921"};
+  if(/qf|qantas|jetstar|ana|jal|flight|boarding|airline/.test(n)) return {type:"flight", title:"Flight · "+clean, day:trip.start, time:"09:00", conf};
+  if(/hotel|granbell|marriott|hyatt|stay|airbnb|bnb|accom|booking|resort|ryokan/.test(n)) return {type:"hotel", title:"Check in · "+clean, day:trip.start, time:"15:00", conf};
+  if(/jr|rail|shinkansen|train|romancecar/.test(n)) return {type:"train", title:clean, day:trip.start, time:"10:00", conf};
+  if(/dinner|lunch|restaurant|food|sushi|omakase/.test(n)) return {type:"food", title:clean, day:trip.start, time:"18:30", conf};
+  if(/tour|daytrip|cruise|bus/.test(n)) return {type:"daytrip", title:clean, day:trip.start, time:"09:00", conf};
+  return {type:"activity", title:clean, day:trip.start, time:"10:00", conf};
+}
+function pickType(k,e){sheetType=k;document.querySelectorAll("#tg button").forEach(b=>b.classList.toggle("on",b.dataset.k===k));}
+function pickWho(id,e){
+  const i=sheetWho.indexOf(id);
+  if(i>=0){if(sheetWho.length>1)sheetWho.splice(i,1);}else sheetWho.push(id);
+  document.querySelectorAll("#wc button").forEach(b=>b.classList.toggle("on",sheetWho.includes(b.dataset.id)));
+}
+function saveItem(){
+  const title=$("#f-title").value.trim()||typeMeta[sheetType].label+" (untitled)";
+  const day=$("#f-day").value, time=$("#f-time").value||"10:00";
+  const cost=Number($("#f-cost").value)||0, conf=$("#f-conf").value.trim()||null;
+  const src=sheetFile?"Extracted from "+sheetFile.name:"Added manually";
+  items.push({id:nextId++,type:sheetType,day,time,title,sub:src,who:[...sheetWho],cost,paid:false,conf,
+    files:sheetFile?[sheetFile.name]:[],
+    details:{Source:src}});
+  closeSheet();curDay=day;go("itinerary");
+  toast(sheetFile?`📄 Booking created from ${sheetFile.name}`:`${typeMeta[sheetType].emoji} Added to ${fmtDay(day)}`);
+}
+
+/* =====================  NAV  ===================== */
+const renderers={overview:renderOverview,itinerary:renderItinerary,bookings:renderBookings,explore:renderExplore,budget:renderBudget};
+function go(tab,arg){
+  curTab=tab;
+  document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.t===tab));
+  document.querySelectorAll(".screen").forEach(s=>s.classList.toggle("active",s.id==="scr-"+tab));
+  renderers[tab](arg);
+  $("#main").scrollTop=0;
+}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>go(b.dataset.t));
+$("#hdrAvatars").innerHTML=travellers.map(t=>av(t)).join("");
+renderOverview();
+</script>
+</body>
+</html>
